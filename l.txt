@@ -1,0 +1,5 @@
+git rm --cached .idea/Pygame-Game-Engine.iml
+git rm --cached .idea/inspectionProfiles/profiles_settings.xml
+git rm --cached .idea/misc.xml
+git rm --cached .idea/modules.xml
+git rm --cached .idea/vcs.xml
