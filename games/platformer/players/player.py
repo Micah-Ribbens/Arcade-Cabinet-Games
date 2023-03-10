@@ -2,20 +2,20 @@ import random
 from math import sqrt
 
 
-from base.lines import LineSegment
-from base.events import TimedEvent
-from base.game_movement import GameMovement
+from game_qu.base.lines import LineSegment
+from game_qu.base.events import TimedEvent
+from game_qu.base.game_movement import GameMovement
 
-from base.quadratic_equations import PhysicsPath
-from base.history_keeper import HistoryKeeper
-from base.utility_functions import key_is_pressed, solve_quadratic, key_is_clicked, key_has_been_released, \
+from game_qu.base.quadratic_equations import PhysicsPath
+from game_qu.base.history_keeper import HistoryKeeper
+from game_qu.base.utility_functions import key_is_pressed, solve_quadratic, key_is_clicked, key_has_been_released, \
     is_beyond_screen_left, is_beyond_screen_right, rounded
 from games.platformer.weapons.bouncy_projectile_thrower import BouncyProjectileThrower
 from games.platformer.weapons.straight_projectile_thrower import StraightProjectileThrower
 from games.platformer.weapons.sword import Sword
 from game_dependencies.platformer.platformer_constants import *
 from games.platformer.weapons.weapon_user import WeaponUser
-from base.utility_functions import *
+from game_qu.base.utility_functions import *
 
 
 class Player(WeaponUser):

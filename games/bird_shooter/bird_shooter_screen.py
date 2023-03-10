@@ -1,11 +1,11 @@
-from base.engines import CollisionsEngine
-from base.velocity_calculator import VelocityCalculator
+from game_qu.base.engines import CollisionsEngine
+from game_qu.base.velocity_calculator import VelocityCalculator
 from games.bird_shooter.bullet import Bullet
 from games.bird_shooter.enemy import Enemy
-from gui_components.hud import HUD
-from gui_components.intermediate_screen import IntermediateScreen
-from gui_components.screen import Screen
-from base.important_variables import *
+from game_qu.gui_components.hud import HUD
+from game_qu.gui_components.intermediate_screen import IntermediateScreen
+from game_qu.gui_components.screen import Screen
+from game_qu.base.important_variables import *
 from games.bird_shooter.player import Player
 
 

@@ -1,9 +1,9 @@
 import random
 
-from base.lines import Point
-from base.important_variables import SCREEN_HEIGHT, SCREEN_LENGTH
-from base.paths import Path
-from base.velocity_calculator import VelocityCalculator
+from game_qu.base.lines import Point
+from game_qu.base.important_variables import SCREEN_HEIGHT, SCREEN_LENGTH
+from game_qu.base.paths import Path
+from game_qu.base.velocity_calculator import VelocityCalculator
 from games.platformer.inanimate_objects.platform import Platform
 from games.platformer.players.player import Player
 from game_dependencies.platformer.platformer_constants import *

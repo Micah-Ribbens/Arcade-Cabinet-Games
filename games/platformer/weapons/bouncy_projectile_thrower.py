@@ -1,7 +1,7 @@
-from base.engines import CollisionsEngine
-from base.important_variables import SCREEN_LENGTH, SCREEN_HEIGHT
-from base.quadratic_equations import PhysicsPath
-from base.velocity_calculator import VelocityCalculator
+from game_qu.base.engines import CollisionsEngine
+from game_qu.base.important_variables import SCREEN_LENGTH, SCREEN_HEIGHT
+from game_qu.base.quadratic_equations import PhysicsPath
+from game_qu.base.velocity_calculator import VelocityCalculator
 from games.platformer.weapons.straight_projectile_thrower import StraightProjectile, StraightProjectileThrower
 from game_dependencies.platformer.platformer_constants import *
 

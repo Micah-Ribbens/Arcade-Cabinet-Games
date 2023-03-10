@@ -1,10 +1,10 @@
-from base.id_creator import id_creator
-from gui_components.dimensions import Dimensions
+from game_qu.base.id_creator import id_creator
+from game_qu.gui_components.dimensions import Dimensions
 import abc
 
 
-from base.events import Event, TimedEvent
-from base.utility_functions import key_is_pressed
+from game_qu.base.events import Event, TimedEvent
+from game_qu.base.utility_functions import key_is_pressed
 from game_dependencies.platformer.platformer_constants import *
 
 

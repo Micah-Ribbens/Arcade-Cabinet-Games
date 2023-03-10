@@ -1,18 +1,18 @@
 import pygame
 
-from gui_components.dimensions import Dimensions
-from base.engines import CollisionsEngine
-from base.events import Event
-from base.history_keeper import HistoryKeeper
-from base.utility_functions import *
-from base.velocity_calculator import VelocityCalculator
+from game_qu.gui_components.dimensions import Dimensions
+from game_qu.base.engines import CollisionsEngine
+from game_qu.base.events import Event
+from game_qu.base.history_keeper import HistoryKeeper
+from game_qu.base.utility_functions import *
+from game_qu.base.velocity_calculator import VelocityCalculator
 from game_dependencies.platformer.gravity_engine import GravityEngine
 from games.platformer.players.player import Player
 from games.platformer.platformer_screen import PlatformerScreen
-from base.important_variables import *
-from gui_components.grid import Grid
-from gui_components.text_box import TextBox
-from base.colors import *
+from game_qu.base.important_variables import *
+from game_qu.gui_components.grid import Grid
+from game_qu.gui_components.text_box import TextBox
+from game_qu.base.colors import *
 
 
 class GeneratorTestScreen(PlatformerScreen):

@@ -1,11 +1,10 @@
-from gui_components.dimensions import Dimensions
-from base.events import TimedEvent
-from base.important_variables import *
-from base.utility_functions import game_button_is_pressed, game_button_is_clicked
-from base.velocity_calculator import VelocityCalculator
-from gui_components.component import Component
-from base.utility_functions import load_image
-from pygame_abstraction import variables
+from game_qu.gui_components.dimensions import Dimensions
+from game_qu.base.events import TimedEvent
+from game_qu.base.important_variables import *
+from game_qu.base.utility_functions import game_button_is_pressed, game_button_is_clicked
+from game_qu.base.velocity_calculator import VelocityCalculator
+from game_qu.gui_components.component import Component
+from game_qu.base.utility_functions import load_image
 
 
 class Player(Component):

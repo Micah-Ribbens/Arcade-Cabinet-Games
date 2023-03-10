@@ -1,9 +1,9 @@
-from base.engines import CollisionsEngine
-from base.game_movement import GameMovement
-from base.history_keeper import HistoryKeeper
-from base.important_variables import SCREEN_LENGTH, SCREEN_HEIGHT
-from base.quadratic_equations import PhysicsPath
-from base.velocity_calculator import VelocityCalculator
+from game_qu.base.engines import CollisionsEngine
+from game_qu.base.game_movement import GameMovement
+from game_qu.base.history_keeper import HistoryKeeper
+from game_qu.base.important_variables import SCREEN_LENGTH, SCREEN_HEIGHT
+from game_qu.base.quadratic_equations import PhysicsPath
+from game_qu.base.velocity_calculator import VelocityCalculator
 from games.platformer.enemies.enemy import Enemy
 from game_dependencies.platformer.platformer_constants import *
 

@@ -1,9 +1,9 @@
 import math
 
-from base.lines import Point, LineSegment
-from base.events import TimedEvent
-from base.important_variables import SCREEN_LENGTH
-from base.velocity_calculator import VelocityCalculator
+from game_qu.base.lines import Point, LineSegment
+from game_qu.base.events import TimedEvent
+from game_qu.base.important_variables import SCREEN_LENGTH
+from game_qu.base.velocity_calculator import VelocityCalculator
 from games.platformer.weapons.weapon import Weapon
 
 # TODO figure out the sword

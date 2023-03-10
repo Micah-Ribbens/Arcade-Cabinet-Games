@@ -1,12 +1,12 @@
 import os
 
-from base.important_variables import *
-from base.colors import light_gray
-from base.game_runner_function import run_game
-from gui_components.component import Component
-from gui_components.grid import Grid
-from gui_components.screen import Screen
-from gui_components.dimensions import Dimensions
+from game_qu.base.important_variables import *
+from game_qu.base.colors import light_gray
+from game_qu.base.game_runner_function import run_game
+from game_qu.gui_components.component import Component
+from game_qu.gui_components.grid import Grid
+from game_qu.gui_components.screen import Screen
+from game_qu.gui_components.dimensions import Dimensions
 from math import sqrt
 
 screen = Screen()

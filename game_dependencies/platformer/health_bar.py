@@ -1,8 +1,8 @@
-from gui_components.component import Component
-from base.important_variables import SCREEN_HEIGHT
-from base.velocity_calculator import VelocityCalculator
-from gui_components.component import Component
-from base.colors import *
+from game_qu.gui_components.component import Component
+from game_qu.base.important_variables import SCREEN_HEIGHT
+from game_qu.base.velocity_calculator import VelocityCalculator
+from game_qu.gui_components.component import Component
+from game_qu.base.colors import *
 from game_dependencies.platformer.platformer_constants import HEALTH_BAR_HEIGHT
 
 

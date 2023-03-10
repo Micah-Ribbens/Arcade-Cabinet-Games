@@ -1,8 +1,8 @@
-from base.fraction import Fraction
-from base.important_variables import *
-from base.lines import Point
-from base.paths import Path
-from base.velocity_calculator import VelocityCalculator
+from game_qu.base.fraction import Fraction
+from game_qu.base.important_variables import *
+from game_qu.base.lines import Point
+from game_qu.base.paths import Path
+from game_qu.base.velocity_calculator import VelocityCalculator
 
 ##TODO Player
 

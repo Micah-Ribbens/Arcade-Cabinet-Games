@@ -1,13 +1,13 @@
 from math import ceil, floor
 
-from base.events import TimedEvent
-from base.important_variables import *
-from base.velocity_calculator import VelocityCalculator
-from gui_components.component import Component
-from gui_components.dimensions import Dimensions
-from base.utility_functions import *
+from game_qu.base.events import TimedEvent
+from game_qu.base.important_variables import *
+from game_qu.base.velocity_calculator import VelocityCalculator
+from game_qu.gui_components.component import Component
+from game_qu.gui_components.dimensions import Dimensions
+from game_qu.base.utility_functions import *
 from games.bird_shooter.bullet import Bullet
-from base.utility_functions import load_and_transform_image
+from game_qu.base.utility_functions import load_and_transform_image
 
 
 class Player(Component):

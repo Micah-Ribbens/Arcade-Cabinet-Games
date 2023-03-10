@@ -1,11 +1,11 @@
-from base.events import TimedEvent
-from base.important_variables import SCREEN_HEIGHT, SCREEN_LENGTH
-from base.utility_functions import is_within_screen
-from base.velocity_calculator import VelocityCalculator
+from game_qu.base.events import TimedEvent
+from game_qu.base.important_variables import SCREEN_HEIGHT, SCREEN_LENGTH
+from game_qu.base.utility_functions import is_within_screen
+from game_qu.base.velocity_calculator import VelocityCalculator
 from games.platformer.weapons.weapon import Weapon
-from base.engines import CollisionsEngine
-from gui_components.component import Component
-from base.utility_functions import load_and_transform_image, get_directional_path_to_image
+from game_qu.base.engines import CollisionsEngine
+from game_qu.gui_components.component import Component
+from game_qu.base.utility_functions import load_and_transform_image, get_directional_path_to_image
 from game_dependencies.platformer.platformer_constants import *
 
 

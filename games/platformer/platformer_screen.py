@@ -1,15 +1,15 @@
 import random
 
-from base.colors import *
-from base.id_creator import id_creator
-from gui_components.dimensions import Dimensions
-from base.engines import CollisionsEngine
-from base.file_reader import FileReader
-from base.history_keeper import HistoryKeeper
-from base.lines import Point
-from base.paths import Path
-from base.utility_functions import is_within_screen
-from base.velocity_calculator import VelocityCalculator
+from game_qu.base.colors import *
+from game_qu.base.id_creator import id_creator
+from game_qu.gui_components.dimensions import Dimensions
+from game_qu.base.engines import CollisionsEngine
+from game_qu.base.file_reader import FileReader
+from game_qu.base.history_keeper import HistoryKeeper
+from game_qu.base.lines import Point
+from game_qu.base.paths import Path
+from game_qu.base.utility_functions import is_within_screen
+from game_qu.base.velocity_calculator import VelocityCalculator
 from game_dependencies.platformer.generator import Generator
 from game_dependencies.platformer.gravity_engine import GravityEngine
 from games.platformer.inanimate_objects.platform import Platform
@@ -18,22 +18,22 @@ from games.platformer.players.player import Player
 from games.platformer.enemies.charging_bull import ChargingBull
 from games.platformer.enemies.straight_enemy import StraightEnemy
 from games.platformer.enemies.bouncy_enemy import BouncyEnemy
-from gui_components.grid import Grid
+from game_qu.gui_components.grid import Grid
 from game_dependencies.platformer.health_bar import HealthBar
-from gui_components.hud import HUD
-from gui_components.intermediate_screen import IntermediateScreen
-from gui_components.screen import Screen
-from base.important_variables import *
+from game_qu.gui_components.hud import HUD
+from game_qu.gui_components.intermediate_screen import IntermediateScreen
+from game_qu.gui_components.screen import Screen
+from game_qu.base.important_variables import *
 from game_dependencies.platformer.platformer_constants import *
 from games.platformer.powerups.ammo_powerup import AmmoPowerup
 from games.platformer.powerups.heart_powerup import HeartPowerup
 from games.platformer.powerups.straight_thrower_powerup import StraightProjectilePowerup
 from games.platformer.powerups.bouncy_projectile_powerup import BouncyProjectilePowerup
 from games.platformer.powerups.powerup import Powerup
-from base.utility_functions import *
+from game_qu.base.utility_functions import *
 
 # TODO FIGURE OUT WHY SOMETIMES THERE ARE NO ENEMIES ON PLATFORM
-from gui_components.text_box import TextBox
+from game_qu.gui_components.text_box import TextBox
 
 
 class PlatformerScreen(Screen):

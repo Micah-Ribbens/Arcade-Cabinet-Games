@@ -1,4 +1,4 @@
-from base.paths import ActionPath
+from game_qu.base.paths import ActionPath
 from game_dependencies.platformer.platformer_constants import *
 from games.platformer.enemies.enemy import Enemy
 from games.platformer.weapons.straight_projectile_thrower import StraightProjectileThrower

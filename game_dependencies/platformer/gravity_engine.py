@@ -1,6 +1,6 @@
-from base.quadratic_equations import PhysicsPath
-from base.velocity_calculator import VelocityCalculator
-from base.utility_functions import rounded
+from game_qu.base.quadratic_equations import PhysicsPath
+from game_qu.base.velocity_calculator import VelocityCalculator
+from game_qu.base.utility_functions import rounded
 
 
 class GravityEngine:

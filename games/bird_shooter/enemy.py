@@ -1,9 +1,9 @@
 from math import ceil, floor
 
-from base.important_variables import SCREEN_LENGTH, SCREEN_HEIGHT
-from base.velocity_calculator import VelocityCalculator
-from gui_components.component import Component
-from base.utility_functions import load_and_transform_image
+from game_qu.base.important_variables import SCREEN_LENGTH, SCREEN_HEIGHT
+from game_qu.base.velocity_calculator import VelocityCalculator
+from game_qu.gui_components.component import Component
+from game_qu.base.utility_functions import load_and_transform_image
 
 
 class Enemy(Component):

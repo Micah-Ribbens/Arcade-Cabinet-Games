@@ -1,11 +1,11 @@
 import abc
 
 from game_dependencies.platformer.game_object import GameObject
-from gui_components.component import Component
-from base.engines import CollisionsEngine
-from base.important_variables import SCREEN_LENGTH
-from base.velocity_calculator import VelocityCalculator
-from base.utility_functions import load_and_transform_image, get_directional_path_to_image
+from game_qu.gui_components.component import Component
+from game_qu.base.engines import CollisionsEngine
+from game_qu.base.important_variables import SCREEN_LENGTH
+from game_qu.base.velocity_calculator import VelocityCalculator
+from game_qu.base.utility_functions import load_and_transform_image, get_directional_path_to_image
 
 
 class WeaponUser(Component, GameObject):

@@ -1,8 +1,8 @@
-from base.events import TimedEvent
-from base.important_variables import *
+from game_qu.base.events import TimedEvent
+from game_qu.base.important_variables import *
 from game_dependencies.platformer.game_object import GameObject
-from gui_components.component import Component
-from base.velocity_calculator import VelocityCalculator
+from game_qu.gui_components.component import Component
+from game_qu.base.velocity_calculator import VelocityCalculator
 from game_dependencies.platformer.platformer_constants import TIME_BEFORE_WALL_OF_DEATH_STARTS_MOVING, TIME_GAME_HAS_RUN_TO_WALL_OF_DEATH_VELOCITY
 
 

@@ -1,15 +1,15 @@
 import random
 
-from base.engines import CollisionsEngine
-from base.file_reader import FileReader
-from base.utility_functions import key_is_clicked, button_is_pressed, game_button_is_pressed
-from base.velocity_calculator import VelocityCalculator
-from base.important_variables import *
+from game_qu.base.engines import CollisionsEngine
+from game_qu.base.file_reader import FileReader
+from game_qu.base.utility_functions import key_is_clicked, button_is_pressed, game_button_is_pressed
+from game_qu.base.velocity_calculator import VelocityCalculator
+from game_qu.base.important_variables import *
 from games.no_internet_game.character import Player
-from gui_components.component import Component
-from gui_components.hud import HUD
-from gui_components.screen import Screen
-from base.important_variables import DPAD_RIGHT, DPAD_LEFT, BUTTON_A, BUTTON_X, BUTTON_Y, BUTTON_B
+from game_qu.gui_components.component import Component
+from game_qu.gui_components.hud import HUD
+from game_qu.gui_components.screen import Screen
+from game_qu.base.important_variables import DPAD_RIGHT, DPAD_LEFT, BUTTON_A, BUTTON_X, BUTTON_Y, BUTTON_B
 
 class NoInternetGameScreen(Screen):
     enemies = []

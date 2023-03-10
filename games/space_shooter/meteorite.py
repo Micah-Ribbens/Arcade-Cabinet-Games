@@ -1,8 +1,8 @@
-from gui_components.dimensions import Dimensions
-from base.lines import LineSegment, Point
-from base.velocity_calculator import VelocityCalculator
-from gui_components.component import Component
-from base.important_variables import *
+from game_qu.gui_components.dimensions import Dimensions
+from game_qu.base.lines import LineSegment, Point
+from game_qu.base.velocity_calculator import VelocityCalculator
+from game_qu.gui_components.component import Component
+from game_qu.base.important_variables import *
 
 
 class Meteorite(Component):

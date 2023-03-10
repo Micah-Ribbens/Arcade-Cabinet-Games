@@ -1,12 +1,12 @@
 import os
 
-from base.colors import *
-from base.file_reader import FileReader
-from gui_components.navigation_screen import NavigationScreen
+from game_qu.base.colors import *
+from game_qu.base.file_reader import FileReader
+from game_qu.gui_components.navigation_screen import NavigationScreen
 from games.space_shooter.meteorite_game_screen import MeteoriteGameScreen
-from gui_components.text_box import TextBox
-from base.important_variables import *
-from gui_components.screen import Screen
+from game_qu.gui_components.text_box import TextBox
+from game_qu.base.important_variables import *
+from game_qu.gui_components.screen import Screen
 
 
 class SpaceShooterScreen(NavigationScreen):

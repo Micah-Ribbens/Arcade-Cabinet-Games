@@ -1,21 +1,21 @@
 import random
 
-from base.colors import black, blue, red, white, pleasing_green
-from base.engines import CollisionsEngine
-from base.lines import Point, LineSegment
-from base.paths import Path
-from base.utility_functions import key_is_clicked
-from base.velocity_calculator import VelocityCalculator
-from gui_components.grid import Grid
-from gui_components.intermediate_screen import IntermediateScreen
-from gui_components.screen import Screen
-from gui_components.dimensions import Dimensions
-from base.important_variables import *
-from gui_components.text_box import TextBox
+from game_qu.base.colors import black, blue, red, white, pleasing_green
+from game_qu.base.engines import CollisionsEngine
+from game_qu.base.lines import Point, LineSegment
+from game_qu.base.paths import Path
+from game_qu.base.utility_functions import key_is_clicked
+from game_qu.base.velocity_calculator import VelocityCalculator
+from game_qu.gui_components.grid import Grid
+from game_qu.gui_components.intermediate_screen import IntermediateScreen
+from game_qu.gui_components.screen import Screen
+from game_qu.gui_components.dimensions import Dimensions
+from game_qu.base.important_variables import *
+from game_qu.gui_components.text_box import TextBox
 from games.space_shooter.meteorite import Meteorite
 from games.space_shooter.player import Player
-from gui_components.hud import HUD
-from base.important_variables import *
+from game_qu.gui_components.hud import HUD
+from game_qu.base.important_variables import *
 
 class MeteoriteGameScreen(Screen):
     players = []

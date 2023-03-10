@@ -2,18 +2,18 @@ import cProfile
 
 import pygame.display
 
-from base.engines import CollisionsEngine
-from base.lines import *
-from base.history_keeper import HistoryKeeper
-from base.important_variables import *
+from game_qu.base.engines import CollisionsEngine
+from game_qu.base.lines import *
+from game_qu.base.history_keeper import HistoryKeeper
+from game_qu.base.important_variables import *
 import time
-from base.velocity_calculator import VelocityCalculator
+from game_qu.base.velocity_calculator import VelocityCalculator
 from game_dependencies.platformer.generator import Generator
 from games.platformer.inanimate_objects.platform import Platform
 from games.platformer.platformer_screen import PlatformerScreen
 from games.platformer.tests.generator_test_screen import GeneratorTestScreen
-from gui_components.navigation_screen import NavigationScreen
-from gui_components.screen import Screen
+from game_qu.gui_components.navigation_screen import NavigationScreen
+from game_qu.gui_components.screen import Screen
 
 
 # TODO Make sure player's jump takes into account how much time has passed this cycle!!!
