@@ -2,6 +2,7 @@ from base.events import Event, TimedEvent
 from library_abstraction import keys
 from library_abstraction import utility_functions
 from library_abstraction import variables
+from base.important_constants import IS_USING_CONTROLLER
 
 
 class Keyboard:
@@ -51,6 +52,7 @@ class Keyboard:
             return_value = self.get_button_event(key)
 
         return return_value
+
     def get_button_event(self, button):
         """:returns: Event; the Event associated with that button"""
 
@@ -78,10 +80,8 @@ class Keyboard:
         
         # If no controller is hooked up, then the buttons should not be run
         # TODO make this more general purpose- have it work for multiple controllers
-        if variables.joystick is not None:
+        if variables.joystick is not None and IS_USING_CONTROLLER:
             self.run_buttons()
-
-
 
     def run_buttons(self):
         """Runs all the button events, so important information can be gotten from them"""

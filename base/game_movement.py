@@ -1,7 +1,7 @@
 import pygame.key
 
 from base.important_variables import SCREEN_HEIGHT, SCREEN_LENGTH
-from base.utility_functions import button_is_pressed
+from base.utility_functions import key_is_pressed
 from base.velocity_calculator import VelocityCalculator
 
 
@@ -38,10 +38,10 @@ class GameMovement:
     def player_horizontal_movement(player, player_velocity, left_key, right_key):
         """Runs the player's horizontal movement"""
 
-        if player.can_move_left and button_is_pressed(left_key):
+        if player.can_move_left and key_is_pressed(left_key):
             player.left_edge -= VelocityCalculator.get_distance(player_velocity)
 
-        if player.can_move_right and button_is_pressed(right_key) and not button_is_pressed(left_key):
+        if player.can_move_right and key_is_pressed(right_key) and not key_is_pressed(left_key):
             player.left_edge += VelocityCalculator.get_distance(player_velocity)
 
     @staticmethod
@@ -51,10 +51,10 @@ class GameMovement:
         can_move_up = player.can_move_up if can_move_up is None else can_move_up
         can_move_down = player.can_move_down if can_move_down is None else can_move_down
 
-        if button_is_pressed(up_key) and can_move_up:
+        if key_is_pressed(up_key) and can_move_up:
             player.top_edge -= VelocityCalculator.get_distance(player_velocity)
 
-        if button_is_pressed(down_key) and can_move_down:
+        if key_is_pressed(down_key) and can_move_down:
             player.top_edge += VelocityCalculator.get_distance(player_velocity)
 
     @staticmethod

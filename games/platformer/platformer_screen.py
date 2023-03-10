@@ -67,6 +67,7 @@ class PlatformerScreen(Screen):
     high_score = 0
     score_to_difficulty = SCORE_TO_GAME_DIFFICULTY
     is_high_score = False
+    has_respawned = False
 
     def __init__(self):
         """Initializes the object"""
@@ -82,7 +83,7 @@ class PlatformerScreen(Screen):
     def setup_players(self):
         """Creates all the player's and all the necessary stuff associated with them (GravityEngine, HealthGrid, Generator, HUD)"""
 
-        self.players = [Player(DPAD_LEFT, DPAD_RIGHT, BUTTON_A, DPAD_DOWN, BUTTON_B)]
+        self.players = [Player(KEY_A, KEY_D, KEY_W, KEY_S, KEY_F)]
         self.gravity_engine = GravityEngine(self.players, self.players[0].jumping_path.acceleration)
 
         for player in self.players:
@@ -281,6 +282,9 @@ class PlatformerScreen(Screen):
             player.top_edge = player.last_platform_was_on.top_edge - player.height
             self.remove_enemies_on_platform(player.last_platform_was_on)
 
+            if player.left_edge <= 0:
+                print("ERROR")
+
         self.wall_of_death.total_time += WALL_OF_DEATH_TIME_INCREASE_AFTER_PLAYER_DEATH
         self.powerups = []
         HistoryKeeper.last_objects = {}
@@ -288,6 +292,7 @@ class PlatformerScreen(Screen):
         self.intermediate_screen.set_texts(["Player Respawn"])
         self.intermediate_screen.set_time_ranges([Range(0, RESPAWN_MESSAGE_TIME)])
         self.intermediate_screen.display()
+        self.has_respawned = True
 
     def remove_enemies_on_platform(self, platform):
         """Removes all the enemies that are on that platform"""

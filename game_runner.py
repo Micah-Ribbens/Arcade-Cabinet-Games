@@ -1,7 +1,8 @@
 from base.library_changer import LibraryChanger
 import cProfile
 
-LibraryChanger.set_screen_dimensions(1050, 800)
+LibraryChanger.set_screen_dimensions(1900, 875)
+# LibraryChanger.set_screen_dimensions(2200, 1300)
 LibraryChanger.set_game_library("pygame")
 
 from base.game_runner_function import run_game

@@ -20,7 +20,7 @@ PLAYER_MAX_HORIZONTAL_VELOCITY = VelocityCalculator.get_velocity(SCREEN_LENGTH, 
 
 ### Other
 PLAYER_OBJECT_TYPE = "Player"
-PLAYER_TOTAL_HIT_POINTS = 60
+PLAYER_TOTAL_HIT_POINTS = 5 #TODO change this
 PLAYER_BASE_LEFT_EDGE = VelocityCalculator.get_dimension(SCREEN_LENGTH, 15)
 PLAYER_BASE_TOP_EDGE = VelocityCalculator.get_dimension(SCREEN_HEIGHT, 60)
 

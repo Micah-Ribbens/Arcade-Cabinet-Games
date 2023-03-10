@@ -1,7 +1,7 @@
 from math import sqrt
 
 from base.fraction import Fraction
-from base.important_variables import keyboard, SCREEN_LENGTH, SCREEN_HEIGHT
+from base.important_variables import keyboard, SCREEN_LENGTH, SCREEN_HEIGHT, IS_USING_CONTROLLER
 import random
 
 from library_abstraction import utility_functions
@@ -60,8 +60,8 @@ def button_is_clicked(button):
 
 def button_has_been_released(button):
     """:returns: bool; whether the button was held down last cycle and is not this cycle (released)"""
-    return keyboard.get_button_event(button).has_stopped()
 
+    return keyboard.get_button_event(button).has_stopped()
 
 def get_time_of_button_being_held_in(button):
     """:returns: float; the amount of time that the button has been held down"""

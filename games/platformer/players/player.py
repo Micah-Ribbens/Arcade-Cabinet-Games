@@ -8,7 +8,7 @@ from base.game_movement import GameMovement
 
 from base.quadratic_equations import PhysicsPath
 from base.history_keeper import HistoryKeeper
-from base.utility_functions import button_is_pressed, solve_quadratic, button_is_clicked, button_has_been_released, \
+from base.utility_functions import key_is_pressed, solve_quadratic, key_is_clicked, key_has_been_released, \
     is_beyond_screen_left, is_beyond_screen_right, rounded
 from games.platformer.weapons.bouncy_projectile_thrower import BouncyProjectileThrower
 from games.platformer.weapons.straight_projectile_thrower import StraightProjectileThrower
@@ -16,6 +16,7 @@ from games.platformer.weapons.sword import Sword
 from game_dependencies.platformer.platformer_constants import *
 from games.platformer.weapons.weapon_user import WeaponUser
 from base.important_variables import *
+from base.utility_functions import *
 
 
 class Player(WeaponUser):
@@ -74,7 +75,7 @@ class Player(WeaponUser):
     def create_weapons(self):
         """Creates all the weapons the player could use, so switching weapons is quick (don't have to create an instance of a class)"""
 
-        weapon_data = [lambda: button_is_pressed(self.attack_key), self, PLAYER_MAX_HORIZONTAL_VELOCITY]
+        weapon_data = [lambda: key_is_pressed(self.attack_key), self, PLAYER_MAX_HORIZONTAL_VELOCITY]
         self.weapon_class_to_weapon = {StraightProjectileThrower.weapon_name: StraightProjectileThrower(*weapon_data),
                                        BouncyProjectileThrower.weapon_name: BouncyProjectileThrower(*weapon_data)}
         self.weapon = self.weapon_class_to_weapon[BouncyProjectileThrower.weapon_name]
@@ -104,7 +105,7 @@ class Player(WeaponUser):
     def run_vertical_movement(self):
         """Runs all the vertical movement (mostly jumping)"""
 
-        if self.jumping_path.has_finished() and button_is_clicked(self.jump_key):
+        if self.jumping_path.has_finished() and key_is_clicked(self.jump_key):
             self.jump()
 
         if self.top_edge <= 0:
@@ -116,8 +117,8 @@ class Player(WeaponUser):
     def run_horizontal_movement(self):
         """Runs all the code for horizontal movement: acceleration, deceleration, etc."""
 
-        self.is_facing_right = True if button_is_pressed(self.right_key) else self.is_facing_right
-        self.is_facing_right = False if button_is_pressed(self.left_key) else self.is_facing_right
+        self.is_facing_right = True if key_is_pressed(self.right_key) else self.is_facing_right
+        self.is_facing_right = False if key_is_pressed(self.left_key) else self.is_facing_right
 
         self.run_deceleration()
         self.run_acceleration()
@@ -131,7 +132,7 @@ class Player(WeaponUser):
             self.continue_acceleration_after_partial_deceleration()
 
         if self.deceleration_path.has_finished():
-            GameMovement.run_acceleration(self, button_is_pressed(self.left_key) or button_is_pressed(self.right_key), self.acceleration_path, PLAYER_MAX_HORIZONTAL_VELOCITY)
+            GameMovement.run_acceleration(self, key_is_pressed(self.left_key) or key_is_pressed(self.right_key), self.acceleration_path, PLAYER_MAX_HORIZONTAL_VELOCITY)
 
         if not self.acceleration_direction_is_possible(self.acceleration_path.acceleration > 0):
             self.acceleration_path.reset()
@@ -153,12 +154,12 @@ class Player(WeaponUser):
             self.deceleration_path.reset()
 
         if self.horizontal_movement_has_stopped():
-            self.decelerate_player(button_has_been_released(self.right_key))
+            self.decelerate_player(key_has_been_released(self.right_key))
 
     def horizontal_movement_has_stopped(self):
         """returns: boolean; if horizontal movement has stopped (player has released a movement key)"""
 
-        return button_has_been_released(self.right_key) or button_has_been_released(self.left_key)
+        return key_has_been_released(self.right_key) or key_has_been_released(self.left_key)
 
     def acceleration_direction_is_possible(self, movement_is_rightwards):
         """ returns: boolean; whether the path acceleration's movement is not possible because of either the screen or a platform
@@ -236,8 +237,8 @@ class Player(WeaponUser):
         deceleration_direction_is_rightwards = self.deceleration_path.acceleration < 0
 
         # Looking at both the leftwards and rightwards movement: movement and deceleration have both to be leftwards or rightwards
-        rightwards_movement_is_same_as_deceleration = deceleration_direction_is_rightwards and button_is_pressed(self.right_key)
-        leftwards_movement_is_same_as_deceleration = not deceleration_direction_is_rightwards and button_is_pressed(self.left_key)
+        rightwards_movement_is_same_as_deceleration = deceleration_direction_is_rightwards and key_is_pressed(self.right_key)
+        leftwards_movement_is_same_as_deceleration = not deceleration_direction_is_rightwards and key_is_pressed(self.left_key)
 
         return leftwards_movement_is_same_as_deceleration or rightwards_movement_is_same_as_deceleration
 
