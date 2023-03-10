@@ -87,5 +87,3 @@ keyboard_keys_to_game_engine_keys = {
 }
 
 keys = list(keyboard_keys_to_game_engine_keys.keys())
-
-print(keys)

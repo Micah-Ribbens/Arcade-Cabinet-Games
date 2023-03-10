@@ -24,12 +24,8 @@ class GravityEngine:
             physics_path.acceleration = self.acceleration
             self.game_object_to_physics_path[game_object] = physics_path
 
-        # print("CALLED", len(self.game_object_to_physics_path.keys()))
-
     def run(self):
         """Runs all the gravity code"""
-
-        # print(len(self.game_object_to_physics_path.keys()))
 
         for game_object in self.game_object_to_physics_path.keys():
             if not game_object.is_on_platform:

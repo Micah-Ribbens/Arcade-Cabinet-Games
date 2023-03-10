@@ -86,7 +86,6 @@ class CollisionsEngine:
         prev_object2 = HistoryKeeper.get_last(object2.name)
 
         if prev_object1 is None or prev_object2 is None:
-            # print("ERROR NO PREVIOUS GAME OBJECTS FOUND")
             return False
 
         objects_are_touching = object1.top_edge == object2.bottom_edge and CollisionsEngine.is_horizontal_collision(
@@ -106,7 +105,6 @@ class CollisionsEngine:
         prev_object2 = HistoryKeeper.get_last(object2.name)
 
         if prev_object1 is None or prev_object2 is None:
-            # print("ERROR NO PREVIOUS GAME OBJECTS FOUND")
             return False
 
         # So rounding doesn't cause any issues

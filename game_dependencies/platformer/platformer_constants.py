@@ -16,7 +16,7 @@ PLAYER_TIME_TO_JUMP_VERTEX = .55
 PLAYER_RUNNING_DECELERATION_TIME = .3
 PLAYER_INVINCIBILITY_TOTAL_TIME = 1
 PLAYER_TIME_TO_GET_MAX_VELOCITY = .2
-PLAYER_MAX_HORIZONTAL_VELOCITY = VelocityCalculator.get_velocity(SCREEN_LENGTH, 600)
+PLAYER_MAX_HORIZONTAL_VELOCITY = VelocityCalculator.get_velocity(SCREEN_LENGTH, 500)
 
 ### Other
 PLAYER_OBJECT_TYPE = "Player"
@@ -32,9 +32,9 @@ SIDE_SCROLLING_START_DISTANCE = VelocityCalculator.get_dimension(SCREEN_LENGTH, 
 # The minimum amount of the next platform that has to be visible when the player gets to the end of the previous platform
 MINIMUM_PLATFORM_LENGTH_VISIBLE = VelocityCalculator.get_dimension(SCREEN_LENGTH, 20)
 MINIMUM_GENERATOR_ACCURACY_DECREASE = .05
-MARGINS_OF_ERROR = Path(Point(0, 35), [Point(20, 30), Point(40, 25), Point(60, 20), Point(70, 15),
-                                             Point(80, 10), Point(90, 6), Point(100, 0)])
-MAXIMUM_PLATFORM_VERTICAL_BUFFER = VelocityCalculator.get_dimension(SCREEN_HEIGHT, 25)
+MARGINS_OF_ERROR = Path(Point(0, 20), [Point(20, 15), Point(40, 10), Point(60, 8), Point(70, 7),
+                                             Point(80, 4), Point(90, 3), Point(100, 0)])
+MAXIMUM_PLATFORM_VERTICAL_BUFFER = VelocityCalculator.get_dimension(SCREEN_HEIGHT, 10)
 
 ### Platform Dimensions
 MINIMUM_PLATFORM_HEIGHT = int(VelocityCalculator.get_dimension(SCREEN_HEIGHT, 10))
@@ -45,7 +45,7 @@ MAXIMUM_PLATFORM_LENGTH = int(VelocityCalculator.get_dimension(SCREEN_LENGTH, 55
 ## TODO Scoring
 SCORE_FROM_PASSING_PLATFORM = 100
 SCORE_FROM_KILLING_ENEMY = 250
-SCORE_TO_GAME_DIFFICULTY = Path(Point(0, 50), [Point(1000, 70), Point(2500, 90), Point(5000, 100),
+SCORE_TO_GAME_DIFFICULTY = Path(Point(0, 50), [Point(1000, 70), Point(1650, 95), Point(5000, 100),
                                                      Point(float("inf"), 100)])
 
 ## TODO Weapons

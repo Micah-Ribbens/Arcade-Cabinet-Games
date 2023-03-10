@@ -108,21 +108,16 @@ class NoInternetGameScreen(Screen):
             self.player.game_is_paused = False
 
         elif self.game_is_paused:
-            # print("GAME PAUSED")
             return
 
         spawn_starter_location = 100
         self.high_score = max(self.player_points, self.high_score)
         self.hud.update([self.player_points], self.high_score)
 
-        # print(len(self.enemies))
-
         if len(self.enemies) > 0 and self.enemies[0].right_edge <= spawn_starter_location:
-            # print("REQUEST SPAWN")
             self.request_enemy_spawn()
 
         if len(self.enemies) == 0:
-            # print("SPAWN RANDOM ENEMY")
             self.spawn_random_enemy()
 
         alive_enemies = []

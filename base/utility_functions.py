@@ -25,8 +25,6 @@ is_mouse_collision = getattr(utility_functions, "is_mouse_collision")
 get_time_passed = getattr(utility_functions, "get_time_passed")
 load_and_transform_image = getattr(utility_functions, "load_and_transform_image")
 get_directional_path_to_image = getattr(utility_functions, "get_directional_path_to_image")
-button_is_pressed = getattr(utility_functions, "button_is_pressed")
-
 
 def key_is_pressed(key):
     """:returns: bool; whether that key is currently held down (pressed)"""

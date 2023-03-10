@@ -288,9 +288,6 @@ class PlatformerScreen(Screen):
             player.top_edge = last_platform.top_edge - player.height
             self.remove_enemies_on_platform(last_platform)
 
-            if player.left_edge <= 0:
-                print("ERROR")
-
         self.wall_of_death.total_time += WALL_OF_DEATH_TIME_INCREASE_AFTER_PLAYER_DEATH
         self.powerups = []
         HistoryKeeper.last_objects = {}

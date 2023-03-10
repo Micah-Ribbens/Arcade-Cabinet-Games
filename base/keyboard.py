@@ -3,6 +3,7 @@ from library_abstraction import keys
 from library_abstraction import utility_functions
 from library_abstraction import variables
 from base.important_constants import IS_USING_CONTROLLER
+from base.library_changer import LibraryChanger
 
 
 class Keyboard:
@@ -22,6 +23,13 @@ class Keyboard:
         for x in range(len(keys.keys)):
             self.key_events.append(Event())
             self.key_timed_events.append(TimedEvent(0))
+
+        # Currently this game engine does not support controllers for pyglet
+        if LibraryChanger.current_library_name == "pygame":
+            self.create_button_events()
+
+    def create_button_events(self):
+        """Creates all the button Events and TimedEvents"""
 
         for button in keys.buttons:
             self.button_events[button] = Event()
@@ -79,8 +87,9 @@ class Keyboard:
             self.get_key_timed_event(key).run(should_reset, key_was_pressed)
         
         # If no controller is hooked up, then the buttons should not be run
+        # Currently this game engine does not support controllers for pyglet
         # TODO make this more general purpose- have it work for multiple controllers
-        if variables.joystick is not None and IS_USING_CONTROLLER:
+        if LibraryChanger.current_library_name == "pygame" and variables.joystick is not None and IS_USING_CONTROLLER:
             self.run_buttons()
 
     def run_buttons(self):
