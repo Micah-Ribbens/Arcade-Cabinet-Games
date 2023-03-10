@@ -2,7 +2,7 @@ import random
 
 from base.engines import CollisionsEngine
 from base.file_reader import FileReader
-from base.utility_functions import key_is_clicked, button_is_pressed
+from base.utility_functions import key_is_clicked, button_is_pressed, game_button_is_pressed
 from base.velocity_calculator import VelocityCalculator
 from base.important_variables import *
 from games.no_internet_game.character import Player
@@ -30,11 +30,21 @@ class NoInternetGameScreen(Screen):
     player_points = 0
     high_score = 0
     hud = HUD(1, [], SCREEN_LENGTH, SCREEN_HEIGHT * .08, 1, None, high_score_is_needed=True)
-    player = Player([DPAD_LEFT, DPAD_RIGHT, BUTTON_A], ground_top_edge)
+    player_keys = [KEY_A, KEY_D, KEY_W]
+    player_buttons = [DPAD_LEFT, DPAD_RIGHT, BUTTON_A]
+
+    reset_game_key = KEY_S
+    reset_button = KEY_B
+    reset_game_button = BUTTON_B if IS_USING_CONTROLLER else KEY_S
+
+    player = None
     game_is_paused = False
 
     def __init__(self):
         super().__init__("games/no_internet_game/images/background.png")
+        player_game_buttons = self.player_buttons if IS_USING_CONTROLLER else self.player_keys
+        self.player = Player(player_game_buttons, self.ground_top_edge)
+
         self.spawn_random_enemy()
 
         file_reader = FileReader("games/no_internet_game/high_scores.txt")
@@ -92,7 +102,7 @@ class NoInternetGameScreen(Screen):
             self.add_enemy(tree2)
 
     def run(self):
-        if button_is_pressed(BUTTON_B) and self.game_is_paused:
+        if game_button_is_pressed(self.reset_game_button) and self.game_is_paused:
             self.reset_game()
             self.game_is_paused = False
             self.player.game_is_paused = False

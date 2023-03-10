@@ -62,6 +62,9 @@ class PlatformerScreen(Screen):
     hud = HUD(1, [ammo_field], hud_length, hud_height, 1, None, high_score_is_needed=True)
     powerups = []
 
+    player_keys = [KEY_A, KEY_D, KEY_W, KEY_S, KEY_F]
+    player_buttons = [DPAD_LEFT, DPAD_RIGHT, BUTTON_A, DPAD_DOWN, BUTTON_B]
+
     # Scoring
     player_score = 0
     high_score = 0
@@ -83,7 +86,8 @@ class PlatformerScreen(Screen):
     def setup_players(self):
         """Creates all the player's and all the necessary stuff associated with them (GravityEngine, HealthGrid, Generator, HUD)"""
 
-        self.players = [Player(KEY_A, KEY_D, KEY_W, KEY_S, KEY_F)]
+        player_game_buttons = self.player_buttons if IS_USING_CONTROLLER else self.player_keys
+        self.players = [Player(*player_game_buttons)]
         self.gravity_engine = GravityEngine(self.players, self.players[0].jumping_path.acceleration)
 
         for player in self.players:
@@ -274,13 +278,15 @@ class PlatformerScreen(Screen):
         for player in self.players:
             player.run_respawning()
 
-            if player.last_platform_was_on.horizontal_midpoint <= 0:
-                difference = abs(player.last_platform_was_on.horizontal_midpoint)
+            last_platform = self.platforms[0]
+
+            if last_platform.horizontal_midpoint <= 0:
+                difference = abs(last_platform.horizontal_midpoint)
                 self.side_scroll_all_objects(-difference)
 
-            player.left_edge = player.last_platform_was_on.horizontal_midpoint
-            player.top_edge = player.last_platform_was_on.top_edge - player.height
-            self.remove_enemies_on_platform(player.last_platform_was_on)
+            player.left_edge = last_platform.horizontal_midpoint
+            player.top_edge = last_platform.top_edge - player.height
+            self.remove_enemies_on_platform(last_platform)
 
             if player.left_edge <= 0:
                 print("ERROR")
@@ -321,7 +327,6 @@ class PlatformerScreen(Screen):
         self.gravity_engine.reset()
         HistoryKeeper.last_objects = {}
         self.frames = 0
-        self.player_score = 0
         self.number_of_platforms_generated = 0
         self.powerups = []
         self.wall_of_death.reset()
@@ -334,7 +339,7 @@ class PlatformerScreen(Screen):
         self.intermediate_screen.set_time_ranges([Range(0, DEATH_MESSAGE_TIME)])
         self.intermediate_screen.display()
 
-        # self.intermediate_screen.display(message, DEATH_MESSAGE_TIME)
+        self.player_score = 0
 
     def run_all_collisions(self):
         """Runs all the collisions between the player, projectiles, and enemies"""

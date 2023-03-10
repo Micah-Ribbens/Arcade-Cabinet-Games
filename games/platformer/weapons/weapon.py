@@ -3,7 +3,6 @@ from gui_components.dimensions import Dimensions
 import abc
 
 
-# TODO come back to figuring out what weapons should do
 from base.events import Event, TimedEvent
 from base.utility_functions import key_is_pressed
 from game_dependencies.platformer.platformer_constants import *

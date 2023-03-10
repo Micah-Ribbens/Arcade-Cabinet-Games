@@ -5,7 +5,6 @@ from base.important_constants import *
 
 if not LibraryChanger.get_library_has_been_set():
     LibraryChanger.set_game_library(DEFAULT_RENDERING_ENGINE)
-    print("SET RENDING ENGIEN")
 
 from base.keyboard import Keyboard
 from gui_components.window import Window

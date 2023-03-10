@@ -1,4 +1,8 @@
 from math import sqrt
+from base.library_changer import LibraryChanger
+
+if not LibraryChanger.get_library_has_been_set():
+    LibraryChanger.set_game_library("pygame")
 
 from base.fraction import Fraction
 from base.important_variables import keyboard, SCREEN_LENGTH, SCREEN_HEIGHT, IS_USING_CONTROLLER
@@ -67,6 +71,40 @@ def get_time_of_button_being_held_in(button):
     """:returns: float; the amount of time that the button has been held down"""
 
     return keyboard.get_button_timed_event(button).current_time
+
+def button_is_pressed(button):
+    """:returns: bool; whether that button is currently held down (pressed)"""
+
+    return keyboard.get_button_event(button).happened_this_cycle
+
+def get_game_button_timed_event(game_button):
+    """:returns: TimedEvent; the TimedEvent that is associated with the current state (using the keyboard or controller)"""
+
+    return keyboard.get_button_timed_event(game_button) if IS_USING_CONTROLLER else keyboard.get_key_timed_event(game_button)
+def get_game_button_event(game_button):
+    """:returns: Event; the Event that is associated with the current state (using the keyboard or controller)"""
+
+    return keyboard.get_button_event(game_button) if IS_USING_CONTROLLER else keyboard.get_key_event(game_button)
+
+def game_button_is_pressed(game_button):
+    """:returns: bool; whether that game_button is currently held down (pressed)"""
+
+    return get_game_button_event(game_button).happened_this_cycle
+
+def game_button_is_clicked(game_button):
+    """:returns: bool; whether the game_button was not held down last cycle and is this cycle (clicked)"""
+
+    return get_game_button_event(game_button).is_click()
+
+def game_button_has_been_released(game_button):
+    """:returns: bool; whether the game_button was held down last cycle and is not this cycle (released)"""
+
+    return get_game_button_event(game_button).has_stopped()
+
+def get_time_of_game_button_being_held_in(game_button):
+    """:returns: float; the amount of time that the game_button has been held down"""
+
+    return get_game_button_timed_event(game_button).current_time
 
 
 def mouse_is_clicked():

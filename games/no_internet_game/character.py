@@ -1,7 +1,7 @@
 from gui_components.dimensions import Dimensions
 from base.events import TimedEvent
 from base.important_variables import *
-from base.utility_functions import button_is_pressed, button_is_clicked
+from base.utility_functions import game_button_is_pressed, game_button_is_clicked
 from base.velocity_calculator import VelocityCalculator
 from gui_components.component import Component
 from base.utility_functions import load_image
@@ -13,9 +13,9 @@ class Player(Component):
     height = VelocityCalculator.get_dimension(SCREEN_HEIGHT, 25)
     time_in_air = 0
     is_in_air = False
-    jump_key = None
-    right_key = None
-    left_key = None
+    jump_game_button = None
+    right_game_button = None
+    left_game_button = None
     forwards_velocity = VelocityCalculator.get_velocity(SCREEN_LENGTH, 500)
     animation_frame = 0
     base_path = "games/no_internet_game/images/Character6.0_000"
@@ -32,7 +32,7 @@ class Player(Component):
     vertex_height = 0
 
     def __init__(self, keys, ground_top_edge):
-        self.left_key, self.right_key, self.jump_key = keys
+        self.left_game_button, self.right_game_button, self.jump_game_button = keys
 
         for x in range(self.total_frames):
             load_image(f"{self.base_path}{x}.png")
@@ -62,14 +62,14 @@ class Player(Component):
 
         distance = VelocityCalculator.get_distance(self.forwards_velocity)
 
-        self.left_edge += distance if button_is_pressed(self.right_key) else 0
-        self.left_edge -= distance * 1.5 if button_is_pressed(self.left_key) else 0
+        self.left_edge += distance if game_button_is_pressed(self.right_game_button) else 0
+        self.left_edge -= distance * 1.5 if game_button_is_pressed(self.left_game_button) else 0
 
         self.left_edge = 0 if self.left_edge < 0 else self.left_edge
         self.left_edge = self.max_right_edge - self.length if self.right_edge > self.max_right_edge else self.left_edge
 
     def run_jumping(self):
-        if button_is_clicked(self.jump_key) and not self.is_in_air:
+        if game_button_is_clicked(self.jump_game_button) and not self.is_in_air:
             self.is_in_air = True
 
         if self.is_in_air:
