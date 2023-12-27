@@ -12,15 +12,15 @@ This was the project that I worked on my senior year for school. It solely used 
 
 ## Space Shooter: a space shooter that has some similarities to Galaga
 
-![Space Shooter](documentation/Space Shooter.png)
+![Space Shooter](documentation/Space%20Shooter.png)
 
 ## No Internet Game: game that is similar to Google's No Internet Dinosaur Game. I added a twist though (horizontal movement)!
 
-![No Internet Game](documentation/No Internet Game.png)
+![No Internet Game](documentation/No%20Internet%20Game.png)
 
 ## Bird Shooter: pong-like game where you have to shoot the ball multiple times to have it change direction
 
-![Bird Shooter](documentation/Bird Shooter.png)
+![Bird Shooter](documentation/Bird%20Shooter.png)
 
 # How To Run
 This project has multiple dependencies that need to be downloaded: pygame and game-qu. So type these commands in the terminal
