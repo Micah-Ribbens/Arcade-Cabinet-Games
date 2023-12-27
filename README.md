@@ -3,8 +3,8 @@ Finished Development: 03/10/2023
 Full documentation can be found here: https://micah-ribbens.github.io/Senior-Project
 
 # Summary
-This was the project that I worked on my senior year for school. It solely used a game engine that I wrote 
-(rendering was taken care of by libraries). It has four games and they can either be played with a controller or keyboard:
+This was the project that I worked on my senior year of high school. It solely used a game engine that I wrote 
+(rendering was taken care of by libraries). It has four games and they can either be played with a controller or keyboard. I worked with somebody else to put the games in a wooden arcade cabinet that we built.
 
 ## Robowars: an endless platformer where the player is chased by a monster. There are powerups, enemies, and the player can jump in midair.
 
