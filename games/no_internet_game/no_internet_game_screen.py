@@ -11,9 +11,12 @@ from game_qu.gui_components.hud import HUD
 from game_qu.gui_components.screen import Screen
 from game_qu.base.important_variables import DPAD_RIGHT, DPAD_LEFT, BUTTON_A, BUTTON_X, BUTTON_Y, BUTTON_B
 
+
 class NoInternetGameScreen(Screen):
+    """The screen where the game is played"""
+
     enemies = []
-    spawnable_enemies = [] # Enemies that can cause spawning
+    spawnable_enemies = []  # Enemies that can cause spawning
     ground_top_edge = .9 * SCREEN_HEIGHT
 
     tree_length = VelocityCalculator.get_dimension(SCREEN_LENGTH, 8)
@@ -41,6 +44,8 @@ class NoInternetGameScreen(Screen):
     game_is_paused = False
 
     def __init__(self):
+        """Initializes all the components of the game"""
+
         super().__init__("games/no_internet_game/images/background.png")
         player_game_buttons = self.player_buttons if IS_USING_CONTROLLER else self.player_keys
         self.player = Player(player_game_buttons, self.ground_top_edge)
@@ -51,8 +56,11 @@ class NoInternetGameScreen(Screen):
         self.high_score = file_reader.get_int("high_score")
 
     def request_enemy_spawn(self):
-        is_double_tree = len(self.enemies) >= 2 and self.enemies[1].height == self.second_tree_height
+        """ Spawns an enemy if an enemy should be spawned. An enemy can be spawned if there are enemies that cause
+            spawning left and the leftmost enemy is a spawnable enemy. This is an important distinction because of double
+            trees (only the rightmost tree should cause spawning - not both)!"""
 
+        is_double_tree = len(self.enemies) >= 2 and self.enemies[1].height == self.second_tree_height
         can_spawn_enemy = len(self.spawnable_enemies) != 0 and self.spawnable_enemies.__contains__(self.enemies[0])
 
         if can_spawn_enemy:
@@ -61,6 +69,11 @@ class NoInternetGameScreen(Screen):
             self.spawn_random_enemy()
 
     def request_points(self, enemy):
+        """ Gives the player points if they should get points. The player gets points if there are enemies that cause
+            spawning left and the leftmost enemy is a spawnable enemy. This is an important distinction because of double
+            trees (only the rightmost tree should give points - not both)! Also increases the speed at which objects come
+            at the player if the player has reached a certain amount of points"""
+
         is_tree = enemy.path_to_image == "games/no_internet_game/images/tree.png"
 
         if not is_tree or enemy.height == self.tree_height:
@@ -74,14 +87,20 @@ class NoInternetGameScreen(Screen):
         self.object_velocities = min(self.object_velocities, self.max_velocity)
 
     def spawn_random_enemy(self):
+        """Spawns a random enemy"""
+
         spawn_functions = [self.spawn_fish, self.spawn_tree]
         random.choice(spawn_functions)()
 
     def add_enemy(self, enemy):
+        """Adds the enemy to the game"""
+
         self.enemies.append(enemy)
         self.spawnable_enemies.append(enemy)
 
     def spawn_fish(self):
+        """Spawns a fish into the game"""
+
         top_edge = random.choice([self.low_fish_top_edge, self.medium_fish_top_edge, self.high_fish_top_edge])
 
         fish = Component("games/no_internet_game/images/enemy.png")
@@ -89,6 +108,8 @@ class NoInternetGameScreen(Screen):
         self.add_enemy(fish)
 
     def spawn_tree(self):
+        """Spawns a random tree in the game (either a double tree or a single tree)"""
+
         number_of_trees = random.choice([1, 2])
 
         tree = Component("games/no_internet_game/images/tree.png")
@@ -102,6 +123,8 @@ class NoInternetGameScreen(Screen):
             self.add_enemy(tree2)
 
     def run(self):
+        """Runs all the collision and scoring logic"""
+
         if game_button_is_pressed(self.reset_game_button) and self.game_is_paused:
             self.reset_game()
             self.game_is_paused = False
@@ -137,9 +160,16 @@ class NoInternetGameScreen(Screen):
         self.enemies = alive_enemies
 
     def get_components(self):
+        """
+            Returns:
+                list[Component]: all the components of the game (the player, the enemies, and the hud)
+        """
+
         return [self.hud, self.player] + self.enemies
 
     def reset_game(self):
+        """Resets all the game's components to their original state"""
+
         self.player.reset()
         self.enemies, self.spawnable_enemies = [], []
         self.player_points = 0

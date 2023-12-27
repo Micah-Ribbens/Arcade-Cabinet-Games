@@ -18,7 +18,6 @@ class GravityEngine:
     def add_game_objects(self, game_objects):
         """Adds game_objects so they are affected gravity"""
 
-
         for game_object in game_objects:
             physics_path = PhysicsPath()
             physics_path.acceleration = self.acceleration

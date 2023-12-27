@@ -1,23 +1,22 @@
 import random
 
-from game_qu.base.colors import black, blue, red, white, pleasing_green
 from game_qu.base.engines import CollisionsEngine
+from game_qu.base.important_variables import *
 from game_qu.base.lines import Point, LineSegment
 from game_qu.base.paths import Path
 from game_qu.base.utility_functions import key_is_clicked
 from game_qu.base.velocity_calculator import VelocityCalculator
-from game_qu.gui_components.grid import Grid
+from game_qu.gui_components.hud import HUD
 from game_qu.gui_components.intermediate_screen import IntermediateScreen
 from game_qu.gui_components.screen import Screen
-from game_qu.gui_components.dimensions import Dimensions
-from game_qu.base.important_variables import *
-from game_qu.gui_components.text_box import TextBox
+
 from games.space_shooter.meteorite import Meteorite
 from games.space_shooter.player import Player
-from game_qu.gui_components.hud import HUD
-from game_qu.base.important_variables import *
+
 
 class MeteoriteGameScreen(Screen):
+    """A specific game mode in the entire space shooter game"""
+
     players = []
     is_versus = False
 
@@ -37,10 +36,12 @@ class MeteoriteGameScreen(Screen):
     hud = None
 
     def __init__(self, number_of_players, is_versus):
+        """Initializes the screen with the game mode being decided by the parameters"""
+
         super().__init__("games/space_shooter/images/galaxy.png")
         self.is_versus = is_versus
 
-        players_keys = [[KEY_A, KEY_D, KEY_S], [KEY_LEFT, KEY_RIGHT, KEY_UP]]
+        players_keys = [[KEY_A, KEY_D, KEY_W], [KEY_LEFT, KEY_RIGHT, KEY_UP]]
         self.players, self.meteorites, self.player_scores = [], [], []
         self.number_of_players = number_of_players
 
@@ -57,6 +58,8 @@ class MeteoriteGameScreen(Screen):
         self.intermediate_screen = IntermediateScreen(times_displayed=[1.2])
 
     def run(self):
+        """Runs all the game logic"""
+
         if self.intermediate_screen.has_finished():
             self.run_meteorite_creation()
             self.hud.update(self.player_scores, self.high_score)
@@ -67,9 +70,11 @@ class MeteoriteGameScreen(Screen):
         self.intermediate_screen.run()
 
     def run_meteorite_creation(self):
+        """Runs all the logic for figuring out if a meteorite should be created"""
+
         self.time_since_last_meteorite += VelocityCalculator.time
         time_needed = self.time_between_meteorites.get_y_coordinate(self.player_total_score)
-        player_has_created_meteorite = key_is_clicked(KEY_W) or key_is_clicked(KEY_PERIOD)
+        player_has_created_meteorite = key_is_clicked(KEY_S) or key_is_clicked(KEY_DOWN)
 
         if player_has_created_meteorite:
             self.create_meteorite()
@@ -80,10 +85,14 @@ class MeteoriteGameScreen(Screen):
             self.time_since_last_meteorite = 0
 
     def create_meteorites(self):
+        """Creates a meteorite for each player"""
+
         for x in range(self.number_of_players):
             self.create_meteorite()
 
     def create_meteorite(self):
+        """Creates a meteorite with a random path"""
+
         min_left_edge = 0
         max_left_edge = int(SCREEN_LENGTH - Meteorite.length)
 
@@ -99,6 +108,8 @@ class MeteoriteGameScreen(Screen):
         self.meteorites.append(Meteorite(meteorite_path, time_for_meteorite_to_fall))
 
     def set_players_left_edge(self):
+        """Resets the player's locations to their original location at the start of the game"""
+
         previous_player_left_edge = (SCREEN_LENGTH / 2) + Player.length * 1.5
 
         for player in self.players:
@@ -106,6 +117,8 @@ class MeteoriteGameScreen(Screen):
             previous_player_left_edge = player.left_edge
 
     def update_scores(self):
+        """Updates the scores of the players and the high score"""
+
         self.player_total_score = 0
 
         for player_score in self.player_scores:
@@ -116,6 +129,8 @@ class MeteoriteGameScreen(Screen):
                 self.is_high_score = True
 
     def run_collisions(self):
+        """Runs all the collision logic between players, lasers, and meteorites"""
+
         alive_meteorites = []
         for meteorite in self.meteorites:
             if meteorite.bottom_edge >= SCREEN_HEIGHT:
@@ -134,6 +149,8 @@ class MeteoriteGameScreen(Screen):
             self.meteorites = alive_meteorites
 
     def run_meteorite_collisions(self, meteorite):
+        """Runs all the collision logic between a meteorite and the players and their lasers"""
+
         for x in range(len(self.players)):
             player = self.players[x]
             alive_lasers = []
@@ -154,6 +171,8 @@ class MeteoriteGameScreen(Screen):
             player.lasers = alive_lasers
 
     def reset_game(self):
+        """Resets the game to its original state"""
+
         self.display_message()
         self.meteorites = []
         self.player_total_score = 0
@@ -169,12 +188,19 @@ class MeteoriteGameScreen(Screen):
         self.is_high_score = False
 
     def display_message(self):
+        """Displays a message after the game is over for a short period of time"""
+
         message = self.get_versus_message() if self.is_versus else self.get_coop_message()
 
         self.intermediate_screen.set_texts([message])
         self.intermediate_screen.display()
 
     def get_versus_message(self):
+        """
+            Returns:
+                str: The versus message that is displayed after the game is over
+        """
+
         player_number_who_won = 0
         current_best_score = -1
         is_tie = True
@@ -192,6 +218,11 @@ class MeteoriteGameScreen(Screen):
         return f"Player #{player_number_who_won} Won" if not is_tie else f"It was a tie"
 
     def get_coop_message(self):
+        """
+            Returns:
+                str: The cooperative message that is displayed after the game is over
+        """
+
         message = f"You scored: {self.player_scores[0]}"
 
         if self.is_high_score:
@@ -200,6 +231,12 @@ class MeteoriteGameScreen(Screen):
         return message
 
     def get_components(self):
+        """
+            Returns:
+                list[Component]: The components that are displayed on the screen (either the game components or the
+                intermediate screen text box)
+        """
+
         player_components = []
 
         for player in self.players:

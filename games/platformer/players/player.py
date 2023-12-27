@@ -156,14 +156,18 @@ class Player(WeaponUser):
             self.decelerate_player(game_button_has_been_released(self.right_key))
 
     def horizontal_movement_has_stopped(self):
-        """returns: boolean; if horizontal movement has stopped (player has released a movement key)"""
+        """
+            Returns:
+                boolean: if horizontal movement has stopped (player has released a movement key)"""
 
         return game_button_has_been_released(self.right_key) or game_button_has_been_released(self.left_key)
 
     def acceleration_direction_is_possible(self, movement_is_rightwards):
-        """ returns: boolean; whether the path acceleration's movement is not possible because of either the screen or a platform
-            | This is used for both the acceleration_path and deceleration_path. Figures out if the direction of acceleration
-            is possible (if it can't move right it can't accelerate right"""
+        """
+            Returns:
+                boolean: whether the path acceleration's movement is not possible because of either the screen or a platform
+                | This is used for both the acceleration_path and deceleration_path. Figures out if the direction of acceleration
+                is possible (if it can't move right it can't accelerate right"""
 
         return self.can_move_right if movement_is_rightwards else self.can_move_left
 
@@ -231,7 +235,9 @@ class Player(WeaponUser):
         self.deceleration_path.max_time = time_needed
 
     def player_movement_direction_is_same_as_deceleration(self):
-        """returns: boolean; if the direction the player is moving is equal to the deceleration"""
+        """
+            Returns:
+                boolean: if the direction the player is moving is equal to the deceleration"""
 
         deceleration_direction_is_rightwards = self.deceleration_path.acceleration < 0
 
@@ -242,7 +248,7 @@ class Player(WeaponUser):
         return leftwards_movement_is_same_as_deceleration or rightwards_movement_is_same_as_deceleration
 
     def continue_acceleration_after_partial_deceleration(self):
-        """ Updates the time of the acceleration_path, so that it will pick up at the velocity where the deceleration ended at"""
+        """Updates the time of the acceleration_path, so that it will pick up at the velocity where the deceleration ended at"""
 
         current_velocity = self.deceleration_path.get_velocity_using_time(self.deceleration_path.current_time)
         self.acceleration_path.start()
@@ -259,7 +265,9 @@ class Player(WeaponUser):
         self.top_edge = top_edge
 
     def get_velocity(self):
-        """returns: double; the current velocity of the player"""
+        """
+            Returns:
+                double: the current velocity of the player"""
 
         # The velocity of the player is two-fold: either it has its usual velocity when it is not decelerating, or it has
         # The velocity from the deceleration. The deceleration_path does not affect the current_velocity because it was
@@ -324,7 +332,9 @@ class Player(WeaponUser):
             self.set_left_edge(self.left_collision_data[1].left_edge - self.length)
 
     def get_deceleration_is_rightwards(self):
-        """returns: boolean; if the deceleration direction is rightwards"""
+        """
+            Returns:
+                boolean: if the deceleration direction is rightwards"""
 
         # The deceleration must be going left to stop the player from moving right and vice versa
         return self.deceleration_path.acceleration < 0
@@ -363,14 +373,15 @@ class Player(WeaponUser):
             self.invincibility_event.start()
 
     def get_topmost_top_edge(self, last_platform, accuracy, min_accuracy):
-        """ summary: Figures out the minimum top edge of the next platform (remember the closer to the top of the screen the lower the top edge)
+        """Figures out the minimum top edge of the next platform (remember the closer to the top of the screen the lower the top edge)
 
-            params:
-                last_platform: Platform; the platform the player would be jumping from
-                margin_of_error: double; how accurate the player has to be to clear this jump
-                min_accuracy: double; the minimum accuracy possible
+            Args:
+                last_platform (Platform): the platform the player would be jumping from
+                accuracy (double): how accurate the player has to be to clear this jump
+                min_accuracy (double): the minimum accuracy possible
 
-            returns: double; the max top edge that the next platform could be at that leaves the player 'margin_of_error'
+            Returns:
+                double: the max top edge that the next platform could be at that leaves the player 'margin_of_error'
         """
 
         topmost_top_edge = last_platform.top_edge - (PLAYER_MAX_JUMP_HEIGHT * accuracy) + self.height
@@ -385,13 +396,17 @@ class Player(WeaponUser):
         return topmost_top_edge
 
     def get_distance_to_reach_max_velocity(self):
-        """returns: double; the distance needed for the player to reach max velocity"""
+        """
+            Returns:
+                double: the distance needed for the player to reach max velocity"""
 
         time_needed = PLAYER_MAX_HORIZONTAL_VELOCITY / self.acceleration_path.acceleration
         return self.acceleration_path.get_distance(time_needed)
 
     def get_player_falling_distance(self, start_top_edge, new_top_edge, gravity):
-        """returns: double; the distance the player will fall to optimize the amount of time they spend in the air"""
+        """
+            Returns:
+                double: the distance the player will fall to optimize the amount of time they spend in the air"""
 
         vertex_top_edge = start_top_edge - PLAYER_MAX_JUMP_HEIGHT
         total_distance = PLAYER_MAX_JUMP_HEIGHT + (new_top_edge - vertex_top_edge)
@@ -414,9 +429,10 @@ class Player(WeaponUser):
         return falling_distance
 
     def get_max_time_to_top_edge(self, start_top_edge, new_top_edge):
-        """returns; double; the max amount of time for the player's bottom_edge to reach the new y coordinate"""
+        """
+            Returns:
+                 double: the max amount of time for the player's bottom_edge to reach the new y coordinate"""
 
-        # TODO change this value if gravity is not the same as the player's jumping path
         gravity = self.jumping_path.acceleration
 
         falling_distance = self.get_player_falling_distance(start_top_edge, new_top_edge, gravity)
@@ -462,6 +478,8 @@ class Player(WeaponUser):
             self.weapon.ammo_left = self.ammo_left
 
     def get_ammo_left(self):
-        """returns: int; the amount of ammo the player has left"""
+        """
+            Returns:
+                int: the amount of ammo the player has left"""
 
         return self.ammo_left

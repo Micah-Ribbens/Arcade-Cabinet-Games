@@ -61,7 +61,9 @@ class StraightEnemy(Enemy):
         return STRAIGHT_ENEMY_HORIZONTAL_VELOCITY
 
     def get_components(self):
-        """returns: Component[]; all the components of the straight enemy that should be rendered and ran"""
+        """
+            Returns:
+                Component[]; all the components of the straight enemy that should be rendered and ran"""
 
         return [self] + self.weapon.get_collidable_components() + [self.health_bar]
 

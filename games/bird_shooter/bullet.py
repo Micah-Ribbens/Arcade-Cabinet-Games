@@ -4,6 +4,8 @@ from game_qu.gui_components.component import Component
 
 
 class Bullet(Component):
+    """What the player shoots"""
+
     length = VelocityCalculator.get_dimension(SCREEN_LENGTH, 2)
     height = length
     velocity = VelocityCalculator.get_velocity(SCREEN_HEIGHT, 700)
@@ -14,6 +16,8 @@ class Bullet(Component):
     is_moving_right = True
 
     def __init__(self, path_to_image, left_edge, top_edge, is_moving_right, damage, size_multiplier):
+        """Initializes the object with the given parameters"""
+
         super().__init__(path_to_image)
         self.left_edge, self.top_edge = left_edge, top_edge
         self.is_moving_right = is_moving_right
@@ -24,5 +28,7 @@ class Bullet(Component):
         self.height *= size_multiplier
 
     def run(self):
+        """Moves the bullet across the screen"""
+
         distance = VelocityCalculator.get_distance(self.velocity)
         self.left_edge += distance if self.is_moving_right else -distance

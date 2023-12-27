@@ -10,11 +10,12 @@ from game_qu.gui_components.screen import Screen
 
 
 class SpaceShooterScreen(NavigationScreen):
+    """The main screen of the game. This screen allows the player to navigate between the various game modes"""
 
     meteorite_game_screens = [MeteoriteGameScreen(1, False), MeteoriteGameScreen(2, False), MeteoriteGameScreen(2, True)]
 
     def __init__(self):
-        """Initializes all the subscreens"""
+        """Initializes all the sub-screens"""
 
         super().__init__(["Single Player", "2 Player Co-op", "2 Player Versus"], self.meteorite_game_screens)
         self.modify_values(purple, KEY_Q)

@@ -31,13 +31,12 @@ from games.platformer.powerups.straight_thrower_powerup import StraightProjectil
 from games.platformer.powerups.bouncy_projectile_powerup import BouncyProjectilePowerup
 from games.platformer.powerups.powerup import Powerup
 from game_qu.base.utility_functions import *
-
-# TODO FIGURE OUT WHY SOMETIMES THERE ARE NO ENEMIES ON PLATFORM
 from game_qu.gui_components.text_box import TextBox
 
 
 class PlatformerScreen(Screen):
-    """A basic platformer game"""
+    """An endless platformer game"""
+
     players = []
     player_health_bars = []
     enemies = []
@@ -189,7 +188,9 @@ class PlatformerScreen(Screen):
             self.run_powerup_spawning(new_platform)
 
     def get_random_enemy(self, platform):
-        """returns: Enemy; a random enemy"""
+        """
+            Returns:
+                Enemy: a random enemy"""
 
         enemy_types = [StraightEnemy, ChargingBull, BouncyEnemy]
         enemy_type = random.choice(enemy_types)
@@ -360,8 +361,8 @@ class PlatformerScreen(Screen):
                     self.run_object_collisions(object2, object1)
 
     def run_object_collisions(self, main_object, other_object):
-        """Runs the collisions between the 'main_object' and the 'other_object;' the main_object acts upon the other_object.
-        By act upon I mean damages the other_object, moves the other_object, etc."""
+        """ Runs the collisions between the 'main_object' and the 'other_object;' the main_object acts upon the other_object.
+            By act upon I mean damages the other_object, moves the other_object, etc."""
 
         if self.is_player(main_object) or self.is_player_weapon(main_object):
             self.run_player_collisions(main_object, other_object)
@@ -431,7 +432,9 @@ class PlatformerScreen(Screen):
         file.close()
 
     def get_components(self):
-        """returns: Component[]; all the components that should be rendered"""
+        """
+            Returns:
+                list[Component]: all the components that should be rendered"""
 
         game_components = []
         for game_object in self.players + self.enemies:
@@ -442,32 +445,44 @@ class PlatformerScreen(Screen):
 
     # HELPER METHODS FOR COLLISIONS; Since they all have a unique length I can just use the lengths here
     def is_enemy(self, game_object):
-        """returns: boolean; if the game_object is just an enemy (not a weapon) --> object type would be 'Enemy'"""
+        """
+            Returns:
+                boolean: if the game_object is just an enemy (not a weapon) --> object type would be 'Enemy'"""
 
         return len(game_object.object_type) == 5
 
     def is_enemy_weapon(self, game_object):
-        """returns: boolean; if the game_object is an enemy's weapon --> object type would be 'Enemy Weapon'"""
+        """
+            Returns:
+                boolean: if the game_object is an enemy's weapon --> object type would be 'Enemy Weapon'"""
 
         return len(game_object.object_type) == 12
 
     def is_player(self, game_object):
-        """returns: boolean; if the game_object is the player --> object type would be 'Player'"""
+        """
+            Returns:
+                boolean: if the game_object is the player --> object type would be 'Player'"""
 
         return len(game_object.object_type) == 6
 
     def is_player_weapon(self, game_object):
-        """returns: boolean; if the game_object is the player's weapon --> object type would be 'Player Weapon'"""
+        """
+            Returns:
+                boolean: if the game_object is the player's weapon --> object type would be 'Player Weapon'"""
 
         return len(game_object.object_type) == 13
 
     def is_platform(self, game_object):
-        """returns: boolean; if the game_object is a platform --> object type would be 'Platform'"""
+        """
+            Returns:
+                boolean: if the game_object is a platform --> object type would be 'Platform'"""
 
         return len(game_object.object_type) == 8
 
     def is_powerup(self, game_object):
-        """returns: boolean; if the game_object is a platform --> object type would be 'Platform'"""
+        """
+            Returns:
+                boolean: if the game_object is a platform --> object type would be 'Platform'"""
 
         return len(game_object.object_type) == 9
 

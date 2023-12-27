@@ -8,10 +8,14 @@ from game_qu.base.important_variables import *
 
 
 class MainScreen(NavigationScreen):
-    screen_names = ["Bird Shooter", "No Internet Game", "Space Shooter", "Platformer"]
+    """The main screen of the application (allows the player to navigate to all the other games)"""
+
+    screen_names = ["Bird Shooter", "No Internet Game", "Space Shooter", "Robowars"]
     screens = [BirdShooterScreen(), NoInternetGameScreen(), SpaceShooterScreen(), PlatformerScreen()]
 
     def __init__(self):
+        """Initializes the game"""
+
         button_shortcuts = {
             BUTTON_SELECT: self.screens[1],
             BUTTON_START: self.screens[2]

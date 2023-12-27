@@ -20,13 +20,17 @@ class Generator:
 
     # Functions that game uses (aren't just for tests)
     def _get_accuracy(self, difficulty):
-        """returns: double; how accurate the player has to be (1 - margin_of_error)"""
+        """
+            Returns:
+                double: how accurate the player has to be (1 - margin_of_error)"""
 
         # Margins_of_error are in percentages
         return 1 - ( MARGINS_OF_ERROR.get_y_coordinate(difficulty) / 100 )
 
     def _get_bottommost_top_edge(self, last_platform, platform_height):
-        """returns: double; the generated platform's bottommost top_edge (must stay within the screen)"""
+        """
+            Returns:
+                double: the generated platform's bottommost top_edge (must stay within the screen)"""
 
         return_value = last_platform.top_edge + MAX_VERTICAL_CHANGE
 
@@ -37,8 +41,10 @@ class Generator:
         return return_value
 
     def get_platform_within_screen(self, last_platform: Platform, next_platform: Platform):
-        """ returns: Platform; the updated 'platform' that is within the screen meaning when the player gets to the edge
-            of 'last_platform' they can see a good amount of the next platform"""
+        """
+            Returns: 
+                Platform: the updated 'platform' that is within the screen meaning when the player gets to the edge
+                of 'last_platform' they can see a good amount of the next platform"""
 
         last_platform_length_left = last_platform.right_edge - SIDE_SCROLLING_START_DISTANCE
 
@@ -53,7 +59,9 @@ class Generator:
         return next_platform
 
     def generate_platform(self, last_platform, difficulty):
-        """returns: Platform; the next platform, which would be after 'last_platform;' uses the difficulty to decide how hard of a jump it should be"""
+        """
+            Returns:
+                Platform: the next platform, which would be after 'last_platform;' uses the difficulty to decide how hard of a jump it should be"""
 
         accuracy = self._get_accuracy(difficulty)
         new_platform_height = random.randint(MINIMUM_PLATFORM_HEIGHT, MAXIMUM_PLATFORM_HEIGHT)
@@ -76,7 +84,9 @@ class Generator:
         return self.get_platform_within_screen(last_platform, platform)
 
     def get_horizontal_distance(self, vertical_time, accuracy):
-        """returns: double; the horizontal distance apart the old platform and the new one should be"""
+        """
+            Returns:
+                double: the horizontal distance apart the old platform and the new one should be"""
 
         # 2 * player's length because one of them comes from the player not being affected by gravity until its
         # left_edge > the last platform's right edge and other one because they can land on the new platform when
@@ -85,7 +95,9 @@ class Generator:
 
     # Just for tests
     def get_hardest_platform(self, last_platform, difficulty):
-        """returns: Platform; the hardest platform possible at this difficulty"""
+        """
+            Returns:
+                Platform: the hardest platform possible at this difficulty"""
 
         accuracy = self._get_accuracy(difficulty)
         platform_height = random.randint(MINIMUM_PLATFORM_HEIGHT, MAXIMUM_PLATFORM_HEIGHT)
@@ -103,7 +115,9 @@ class Generator:
         return self.get_platform_within_screen(last_platform, platform)
 
     def get_easiest_platform(self, last_platform, difficulty):
-        """returns: Platform; the easiest platform possible at this difficulty"""
+        """
+            Returns:
+                Platform: the easiest platform possible at this difficulty"""
 
         accuracy = self._get_accuracy(difficulty)
         platform_height = random.randint(MINIMUM_PLATFORM_HEIGHT, MAXIMUM_PLATFORM_HEIGHT)

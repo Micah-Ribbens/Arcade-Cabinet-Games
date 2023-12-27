@@ -11,6 +11,8 @@ from game_qu.base.utility_functions import load_and_transform_image
 
 
 class Player(Component):
+    """The players (birds) of the game"""
+
     # Player Position
     min_left_edge = 0
     max_left_edge = 0
@@ -47,6 +49,8 @@ class Player(Component):
     cap_extension = ceil(21 / 86 * length)
 
     def __init__(self, player_keys, player_number, boundaries, is_facing_right):
+        """Initializes the object with the given parameters"""
+
         super().__init__(f"games/bird_shooter/images/player{player_number}_right.png")
         self.path_to_bullet_image = f"games/bird_shooter/images/player{player_number}_bullet.png"
 
@@ -78,6 +82,8 @@ class Player(Component):
             load_and_transform_image(image_path)
 
     def run(self):
+        """Runs the moving and shooting logic"""""
+
         self.new_bullets = []
         self.wait_to_shoot_event.run(self.wait_to_shoot_event.current_time >= self.wait_to_shoot_event.time_needed, False)
         self.stun_event.run(self.stun_event.current_time >= self.stun_event.time_needed, False)
@@ -87,14 +93,18 @@ class Player(Component):
 
         if self.stun_event.has_finished():
             self.movement()
-            self.shoot_bullet()
+            self.run_shooting()
 
-    def shoot_bullet(self):
+    def run_shooting(self):
+        """Shoots a bullet if the player has released the shoot key and the player can shoot"""
+
         if key_has_been_released(self.shoot_key) and self.wait_to_shoot_event.has_finished():
-            self.shoot_laser(get_time_of_key_being_held_in(self.shoot_key))
+            self.shoot_bullet(get_time_of_key_being_held_in(self.shoot_key))
             self.wait_to_shoot_event.start()
 
     def movement(self):
+        """Moves the player across the screen and also the turret if the player is moving the turret"""
+
         player_distance = VelocityCalculator.get_distance(self.player_velocity)
         turret_distance = VelocityCalculator.get_distance(self.turret_velocity)
 
@@ -109,7 +119,8 @@ class Player(Component):
 
         self.vertical_delta -= turret_distance if key_is_pressed(self.up_key) and key_is_pressed(self.move_turret_key) else 0
         self.vertical_delta += turret_distance if key_is_pressed(self.down_key) and key_is_pressed(self.move_turret_key) else 0
-        self.vertical_delta = self.get_new_coordinates(30/122 * self.height, self.height - self.turret.height, self.vertical_delta)
+        # 30/122 is gotten from looking at the pixel image of the player
+        self.vertical_delta = self.get_new_coordinates(self.bottom_of_cap, self.height - self.turret.height, self.vertical_delta)
 
         self.is_facing_right = True if key_is_pressed(self.right_key) else self.is_facing_right
         self.is_facing_right = False if key_is_pressed(self.left_key) else self.is_facing_right
@@ -117,7 +128,9 @@ class Player(Component):
         self.is_facing_up = True if key_is_pressed(self.up_key) else self.is_facing_up
         self.is_facing_up = False if key_is_pressed(self.down_key) else self.is_facing_up
 
-    def shoot_laser(self, time_held_in):
+    def shoot_bullet(self, time_held_in):
+        """Shoots a bullet and the bullets size depends on how long the shoot key was held in"""
+
         size_multipliers = [1, 1.5, 2]
         times_needed_for_size_change = [.5, 1, float("inf")]
 
@@ -132,16 +145,26 @@ class Player(Component):
         self.new_bullets.append(Bullet(self.path_to_bullet_image, turret_left_edge, self.turret.vertical_midpoint - bullet_size / 2, self.is_facing_right, damage, size_multiplier))
 
     def reset(self):
+        """Resets all the player's attributes to their original state"""
+
         self.new_bullets = []
         self.wait_to_shoot_event.reset()
 
     def get_new_coordinates(self, min_coordinate, max_coordinate, current_coordinate):
+        """
+            Returns:
+                float: the coordinate if 'current_coordinate' is within the boundaries, otherwise boundary it violated.
+                Boundaries being defined by 'min_coordinate' and 'max_coordinate.'
+        """
+
         current_coordinate = min_coordinate if current_coordinate < min_coordinate else current_coordinate
         current_coordinate = max_coordinate if current_coordinate > max_coordinate else current_coordinate
 
         return current_coordinate
 
     def render(self):
+        """Renders the player onto the screen"""
+
         original_path = f"games/bird_shooter/images/player{self.player_number}" if self.stun_event.has_finished() else f"games/bird_shooter/images/stunned"
         self.path_to_image = get_directional_path_to_image(original_path, self.is_facing_right, "")
 
@@ -149,34 +172,20 @@ class Player(Component):
         turret_type = "_stunned.png" if not self.stun_event.has_finished() else ".png"
         self.turret.path_to_image = f"{original_turret_path}{turret_type}"
 
-        # self.eye.left_edge = self.eye_right_position if self.is_facing_right else self.eye_left_position
-        # self.eye.top_edge = self.eye_top_position if self.is_facing_up else self.eye_bottom_position
-
         super().render()
         self.turret.render()
-        # self.eye.render()
 
     def stun(self, stun_time):
+        """Stuns the player"""
+
         if self.stun_event.has_finished():
             self.stun_event.start()
             self.stun_event.time_needed = stun_time
 
-    # @property
-    # def eye_left_position(self):
-    #     return floor(self.left_edge + 32/86 * self.length)
-    #
-    # @property
-    # def eye_right_position(self):
-    #     return ceil(self.left_edge + 44/86 * self.length)
-    #
-    # @property
-    # def eye_top_position(self):
-    #     return floor(self.top_edge + 41/122 * self.height)
-    #
-    # @property
-    # def eye_bottom_position(self):
-    #     return ceil(self.top_edge + 48/122 * self.height)
-    #
     @property
     def eye_size(self):
         return [ceil(10/86 * self.length), ceil(10/122 * self.height)]
+
+    @property
+    def bottom_of_cap(self):
+        return 30/122 * self.height

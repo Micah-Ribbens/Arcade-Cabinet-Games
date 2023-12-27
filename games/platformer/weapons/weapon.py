@@ -39,6 +39,8 @@ class Weapon(abc.ABC):
         self.update_weapon_values(damage, hit_points, cool_down_time)
 
     def run(self):
+        """Runs all the code for that is necessary to use a weapon"""
+
         self.use_key_event.run(self.use_action())
         self.wait_event.run(self.wait_event.current_time >= self.wait_event.time_needed, False)
 
@@ -54,12 +56,16 @@ class Weapon(abc.ABC):
         self.wait_event.time_needed = cool_down_time
 
     def get_collidable_components(self):
-        """returns: Component[]; all the sub components that must be rendered and have collisions for"""
+        """
+            Returns:
+                Component[]: all the sub components that must be rendered and have collisions for"""
 
         return self.collidable_components
 
     def get_weapon_left_edge(self, horizontal_length, is_facing_right):
-        """returns: left_edge; the recommended x coordinate that the weapon should be at (right on the user)"""
+        """
+            Returns:
+                left_edge: the recommended x coordinate that the weapon should be at (right on the user)"""
 
         return self.user.right_edge if is_facing_right else self.user.left_edge - horizontal_length
 

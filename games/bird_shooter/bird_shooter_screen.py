@@ -10,6 +10,9 @@ from games.bird_shooter.player import Player
 
 
 class BirdShooterScreen(Screen):
+    """ The main screen where the game is played. This game is like pong except the player must shoot the ball to change
+        its direction"""
+
     # Player Position and Keys
     middle_of_screen = SCREEN_LENGTH / 2
     total_buffer = (Player.turret_length - Player.cap_extension) * 2 + VelocityCalculator.get_dimension(SCREEN_LENGTH, 2)
@@ -34,10 +37,13 @@ class BirdShooterScreen(Screen):
     intermediate_screen = IntermediateScreen(times_displayed=[.75])
 
     def __init__(self):
+        """Initializes the screen"""
+
         super().__init__("games/bird_shooter/images/background.png")
         self.center_players()
 
     def run(self):
+        """Runs all the collision and game logic"""
 
         self.intermediate_screen.run()
 
@@ -49,6 +55,8 @@ class BirdShooterScreen(Screen):
             self.hud.update([self.player1_score, self.player2_score], high_score_text)
 
     def run_collisions(self):
+        """Runs all the collisions between the enemy, players, and bullets"""
+
         self.run_bullet_collisions()
         enemy_has_hit_player1 = CollisionsEngine.is_collision(self.enemy, self.player1)
         enemy_has_hit_player2 = CollisionsEngine.is_collision(self.enemy, self.player2)
@@ -60,6 +68,8 @@ class BirdShooterScreen(Screen):
             self.run_player_scoring(True)
 
     def run_bullet_collisions(self):
+        """Runs all the collisions between the players and bullets. Also runs the collisions between the enemy and bullets"""
+
         self.bullets += self.player1.new_bullets + self.player2.new_bullets
 
         for i in range(len(self.bullets)):
@@ -94,10 +104,17 @@ class BirdShooterScreen(Screen):
         self.bullets = list(filter(lambda item: item.hits_left_to_destroy > 0, self.bullets))
 
     def get_components(self):
+        """
+            Returns:
+                list[Component]: the components that should be ran and rendered
+        """
+
         game_components = [self.hud, self.enemy, self.player1, self.player2] + self.bullets
         return game_components if self.intermediate_screen.has_finished() else self.intermediate_screen.get_components()
 
     def run_player_scoring(self, player1_has_scored):
+        """Resets the game to its original state and shows a message saying who scored"""
+
         self.player1.reset()
         self.player2.reset()
         self.enemy.reset()
@@ -111,6 +128,8 @@ class BirdShooterScreen(Screen):
         self.center_players()
 
     def center_players(self):
+        """Moves the players to the center of the screen"""
+
         self.player1.left_edge = 0
         self.player2.left_edge = SCREEN_LENGTH - self.player2.length
 

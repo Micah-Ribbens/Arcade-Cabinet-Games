@@ -41,7 +41,9 @@ class Enemy(WeaponUser, abc.ABC):
             self.platform = self.top_collision_data[1]
 
     def get_components(self):
-        """returns: Component[]; all the components that should be ran and rendered"""
+        """
+            Returns:
+                Component[]; all the components that should be ran and rendered"""
 
         return self.get_collidable_components() + [self.health_bar]
 

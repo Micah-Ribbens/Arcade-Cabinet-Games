@@ -76,7 +76,9 @@ class WeaponUser(Component, GameObject):
         self.weapon.run_upon_activation()
 
     def get_collidable_components(self):
-        """returns: Component[]; all the components that should be ran and rendered"""
+        """
+            Returns:
+                Component[]; all the components that should be ran and rendered"""
 
         weapon_components = [] if self.weapon is None else self.weapon.get_collidable_components()
         return self.collidable_components + weapon_components
@@ -87,7 +89,9 @@ class WeaponUser(Component, GameObject):
         self.left_collision_data, self.right_collision_data, self.top_collision_data, self.bottom_collision_data = [False, None], [False, None], [False, None], [False, None]
 
     def get_collision_data(self, inanimate_object, is_collision):
-        """returns: Boolean[4]; [is_left_collision, is_right_collision, is_top_collision, is_bottom_collision] --> the
+        """
+            Returns:
+                Boolean[4]; [is_left_collision, is_right_collision, is_top_collision, is_bottom_collision] --> the
            collision data gotten from the inanimate_object and is by the perspective of the user (has the user collided with the inanimate_object's right_edge)"""
 
         is_same_coordinates = self.right_edge == inanimate_object.left_edge or self.left_edge == inanimate_object.right_edge
@@ -139,7 +143,9 @@ class WeaponUser(Component, GameObject):
         super().render()
 
     def get_components(self):
-        """returns: Component[]; all the components that should be rendered and ran"""
+        """
+            Returns:
+                Component[]; all the components that should be rendered and ran"""
 
         return self.get_collidable_components()
 

@@ -1,3 +1,5 @@
+"""Shows all the assets of Robowars in one screen"""
+
 import os
 
 from game_qu.base.important_variables import *
@@ -20,4 +22,6 @@ for file_name in os.listdir(file_path_start):
 
 grid = Grid(Dimensions(0, 0, SCREEN_LENGTH, SCREEN_HEIGHT), int(sqrt(len(screen.components))), None)
 grid.turn_into_grid(screen.components, None, None, False)
-run_game(screen)
+
+if __name__ == "__main__":
+    run_game(screen)

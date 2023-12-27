@@ -6,6 +6,8 @@ from game_qu.base.important_variables import *
 
 
 class Meteorite(Component):
+    """What the player shoots and is trying to avoid"""
+
     length = VelocityCalculator.get_dimension(SCREEN_LENGTH, 8)
     height = VelocityCalculator.get_dimension(SCREEN_HEIGHT, 17)
     left_edge_path = None
@@ -15,6 +17,8 @@ class Meteorite(Component):
     last_player_hit_by = 0
 
     def __init__(self, meteorite_path, time_for_completion):
+        """Initializes the meteorite with the provided attributes and path"""
+
         super().__init__("games/space_shooter/images/meteorite.png")
         Dimensions.__init__(self, 0, 0, self.length, self.height)
 
@@ -25,6 +29,8 @@ class Meteorite(Component):
                                           Point(time_for_completion, meteorite_path.end_point.y_coordinate))
 
     def run(self):
+        """Moves the meteorite along its path"""
+
         self.time_on_path += VelocityCalculator.time
 
         self.left_edge = self.left_edge_path.get_y_coordinate(self.time_on_path)

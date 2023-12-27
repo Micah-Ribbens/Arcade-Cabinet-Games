@@ -6,8 +6,6 @@ from game_qu.base.important_variables import SCREEN_LENGTH
 from game_qu.base.velocity_calculator import VelocityCalculator
 from games.platformer.weapons.weapon import Weapon
 
-# TODO figure out the sword
-# TODO do collision logic for the sword
 class Sword(Weapon):
     """Something the user can use to hit enemies with"""
 
@@ -64,18 +62,24 @@ class Sword(Weapon):
         self.is_moving_right = self.user.should_shoot_right
 
     def get_horizontal_displacement(self):
-        """returns: double; the horizontal displacement from the user (based on the user's direction)"""
+        """
+            Returns:
+                double: the horizontal displacement from the user (based on the user's direction)"""
 
         distance = math.sin(self.get_radians()) * self.length
         return distance if self.is_moving_right else -distance
 
     def get_vertical_displacement(self):
-        """returns: double; the vertical displacement from the user"""
+        """
+            Returns:
+                double: the vertical displacement from the user"""
 
         return math.cos(self.get_radians()) * self.length
 
     def get_radians(self):
-        """returns: double; the radian amount of the sword"""
+        """
+            Returns:
+                double: the radian amount of the sword"""
 
         fraction_of_full_time = self.extending_timed_event.current_time / self.full_extension_time
         return math.pi * fraction_of_full_time

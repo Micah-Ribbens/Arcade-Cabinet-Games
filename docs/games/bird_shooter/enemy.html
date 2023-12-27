@@ -1,0 +1,495 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>Senior-Project.games.bird_shooter.enemy API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>Senior-Project.games.bird_shooter.enemy</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">from math import ceil, floor
+
+from game_qu.base.important_variables import SCREEN_LENGTH, SCREEN_HEIGHT
+from game_qu.base.velocity_calculator import VelocityCalculator
+from game_qu.gui_components.component import Component
+from game_qu.base.utility_functions import load_and_transform_image
+
+
+class Enemy(Component):
+    &#34;&#34;&#34;The enemy that the player has to shoot (acts like the ball in pong)&#34;&#34;&#34;
+
+    # Movement and Direction
+    base_velocity = VelocityCalculator.get_velocity(SCREEN_LENGTH, 70)
+    velocity = base_velocity
+    velocity_increase = velocity * .2
+    total_hits_to_change_direction = 5
+    hits_left_to_change_direction = total_hits_to_change_direction
+    is_moving_right = False
+    is_moving_down = True
+    # Size and Eyes
+    length = VelocityCalculator.get_dimension(SCREEN_LENGTH, 11)
+    height = length
+    left_eye = Component(&#34;games/bird_shooter/images/enemy_eye.png&#34;)
+    right_eye = Component(&#34;games/bird_shooter/images/enemy_eye.png&#34;)
+
+    def __init__(self):
+        &#34;&#34;&#34;Initializes the enemy&#34;&#34;&#34;
+
+        super().__init__(&#34;&#34;)
+        load_and_transform_image(&#34;games/bird_shooter/images/enemy&#34;)
+        self.center()
+
+        self.left_eye.length, self.left_eye.height = self.eye_size
+        self.right_eye.length, self.right_eye.height = self.eye_size
+
+    def run(self):
+        &#34;&#34;&#34;Moves the enemy across the screen&#34;&#34;&#34;
+
+        self.path_to_image = &#34;games/bird_shooter/images/enemy_right.png&#34; if self.is_moving_right else &#34;games/bird_shooter/images/enemy_left.png&#34;
+
+        if self.hits_left_to_change_direction &lt;= 0:
+            self.hits_left_to_change_direction = self.total_hits_to_change_direction
+            self.is_moving_right = not self.is_moving_right
+            self.velocity += self.velocity_increase
+
+        distance = VelocityCalculator.get_distance(self.velocity)
+
+        self.top_edge += distance if self.is_moving_down else -distance
+        self.left_edge += distance if self.is_moving_right else -distance
+
+        if self.top_edge &lt;= 0:
+            self.top_edge = 0
+            self.is_moving_down = True
+
+        if self.bottom_edge &gt;= SCREEN_HEIGHT:
+            self.top_edge = SCREEN_HEIGHT - self.height
+            self.is_moving_down = False
+
+        self.left_eye.left_edge, self.right_eye.left_edge = self.eye_right_positions if self.is_moving_right else self.eye_left_positions
+        self.left_eye.top_edge, self.right_eye.top_edge = self.eye_bottom_edge_positions if self.is_moving_down else self.eye_top_positions
+
+    def center(self):
+        &#34;&#34;&#34;Places the enemy in the center of the screen&#34;&#34;&#34;
+
+        self.left_edge = (SCREEN_LENGTH / 2) - (self.length / 2)
+        self.top_edge = (SCREEN_HEIGHT / 2) - (self.height / 2)
+
+    def render(self):
+        &#34;&#34;&#34;Renders the enemy onto the screen&#34;&#34;&#34;
+
+        super().render()
+        self.left_eye.render()
+        self.right_eye.render()
+
+    def reset(self):
+        &#34;&#34;&#34;Resets the enemy to its original position and velocity&#34;&#34;&#34;
+
+        self.center()
+        self.velocity = self.base_velocity
+
+    @property
+    def eye_size(self):
+        return [4/47 * self.length, 4/47 * self.height]
+
+    @property
+    def eye_left_positions(self):
+        return [floor(self.left_edge + 12 / 47 * self.length) - 1, floor(self.left_edge + 30 / 47 * self.length) - 1]
+
+    @property
+    def eye_right_positions(self):
+        return [ceil(self.left_edge + 14/47 * self.length) + 1, ceil(self.left_edge + 32/47 * self.length) + 1]
+
+    @property
+    def eye_top_positions(self):
+        return [floor(self.top_edge + 18 / 47 * self.height) - 1] * 2
+
+    @property
+    def eye_bottom_edge_positions(self):
+        return [ceil(self.top_edge + 20/47 * self.height) + 1] * 2</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="Senior-Project.games.bird_shooter.enemy.Enemy"><code class="flex name class">
+<span>class <span class="ident">Enemy</span></span>
+</code></dt>
+<dd>
+<div class="desc"><p>The enemy that the player has to shoot (acts like the ball in pong)</p>
+<p>Initializes the enemy</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Enemy(Component):
+    &#34;&#34;&#34;The enemy that the player has to shoot (acts like the ball in pong)&#34;&#34;&#34;
+
+    # Movement and Direction
+    base_velocity = VelocityCalculator.get_velocity(SCREEN_LENGTH, 70)
+    velocity = base_velocity
+    velocity_increase = velocity * .2
+    total_hits_to_change_direction = 5
+    hits_left_to_change_direction = total_hits_to_change_direction
+    is_moving_right = False
+    is_moving_down = True
+    # Size and Eyes
+    length = VelocityCalculator.get_dimension(SCREEN_LENGTH, 11)
+    height = length
+    left_eye = Component(&#34;games/bird_shooter/images/enemy_eye.png&#34;)
+    right_eye = Component(&#34;games/bird_shooter/images/enemy_eye.png&#34;)
+
+    def __init__(self):
+        &#34;&#34;&#34;Initializes the enemy&#34;&#34;&#34;
+
+        super().__init__(&#34;&#34;)
+        load_and_transform_image(&#34;games/bird_shooter/images/enemy&#34;)
+        self.center()
+
+        self.left_eye.length, self.left_eye.height = self.eye_size
+        self.right_eye.length, self.right_eye.height = self.eye_size
+
+    def run(self):
+        &#34;&#34;&#34;Moves the enemy across the screen&#34;&#34;&#34;
+
+        self.path_to_image = &#34;games/bird_shooter/images/enemy_right.png&#34; if self.is_moving_right else &#34;games/bird_shooter/images/enemy_left.png&#34;
+
+        if self.hits_left_to_change_direction &lt;= 0:
+            self.hits_left_to_change_direction = self.total_hits_to_change_direction
+            self.is_moving_right = not self.is_moving_right
+            self.velocity += self.velocity_increase
+
+        distance = VelocityCalculator.get_distance(self.velocity)
+
+        self.top_edge += distance if self.is_moving_down else -distance
+        self.left_edge += distance if self.is_moving_right else -distance
+
+        if self.top_edge &lt;= 0:
+            self.top_edge = 0
+            self.is_moving_down = True
+
+        if self.bottom_edge &gt;= SCREEN_HEIGHT:
+            self.top_edge = SCREEN_HEIGHT - self.height
+            self.is_moving_down = False
+
+        self.left_eye.left_edge, self.right_eye.left_edge = self.eye_right_positions if self.is_moving_right else self.eye_left_positions
+        self.left_eye.top_edge, self.right_eye.top_edge = self.eye_bottom_edge_positions if self.is_moving_down else self.eye_top_positions
+
+    def center(self):
+        &#34;&#34;&#34;Places the enemy in the center of the screen&#34;&#34;&#34;
+
+        self.left_edge = (SCREEN_LENGTH / 2) - (self.length / 2)
+        self.top_edge = (SCREEN_HEIGHT / 2) - (self.height / 2)
+
+    def render(self):
+        &#34;&#34;&#34;Renders the enemy onto the screen&#34;&#34;&#34;
+
+        super().render()
+        self.left_eye.render()
+        self.right_eye.render()
+
+    def reset(self):
+        &#34;&#34;&#34;Resets the enemy to its original position and velocity&#34;&#34;&#34;
+
+        self.center()
+        self.velocity = self.base_velocity
+
+    @property
+    def eye_size(self):
+        return [4/47 * self.length, 4/47 * self.height]
+
+    @property
+    def eye_left_positions(self):
+        return [floor(self.left_edge + 12 / 47 * self.length) - 1, floor(self.left_edge + 30 / 47 * self.length) - 1]
+
+    @property
+    def eye_right_positions(self):
+        return [ceil(self.left_edge + 14/47 * self.length) + 1, ceil(self.left_edge + 32/47 * self.length) + 1]
+
+    @property
+    def eye_top_positions(self):
+        return [floor(self.top_edge + 18 / 47 * self.height) - 1] * 2
+
+    @property
+    def eye_bottom_edge_positions(self):
+        return [ceil(self.top_edge + 20/47 * self.height) + 1] * 2</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>game_qu.gui_components.component.Component</li>
+<li>game_qu.gui_components.dimensions.Dimensions</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="Senior-Project.games.bird_shooter.enemy.Enemy.base_velocity"><code class="name">var <span class="ident">base_velocity</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="Senior-Project.games.bird_shooter.enemy.Enemy.height"><code class="name">var <span class="ident">height</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="Senior-Project.games.bird_shooter.enemy.Enemy.hits_left_to_change_direction"><code class="name">var <span class="ident">hits_left_to_change_direction</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="Senior-Project.games.bird_shooter.enemy.Enemy.is_moving_down"><code class="name">var <span class="ident">is_moving_down</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="Senior-Project.games.bird_shooter.enemy.Enemy.is_moving_right"><code class="name">var <span class="ident">is_moving_right</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="Senior-Project.games.bird_shooter.enemy.Enemy.left_eye"><code class="name">var <span class="ident">left_eye</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="Senior-Project.games.bird_shooter.enemy.Enemy.length"><code class="name">var <span class="ident">length</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="Senior-Project.games.bird_shooter.enemy.Enemy.right_eye"><code class="name">var <span class="ident">right_eye</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="Senior-Project.games.bird_shooter.enemy.Enemy.total_hits_to_change_direction"><code class="name">var <span class="ident">total_hits_to_change_direction</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="Senior-Project.games.bird_shooter.enemy.Enemy.velocity"><code class="name">var <span class="ident">velocity</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="Senior-Project.games.bird_shooter.enemy.Enemy.velocity_increase"><code class="name">var <span class="ident">velocity_increase</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Instance variables</h3>
+<dl>
+<dt id="Senior-Project.games.bird_shooter.enemy.Enemy.eye_bottom_edge_positions"><code class="name">var <span class="ident">eye_bottom_edge_positions</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def eye_bottom_edge_positions(self):
+    return [ceil(self.top_edge + 20/47 * self.height) + 1] * 2</code></pre>
+</details>
+</dd>
+<dt id="Senior-Project.games.bird_shooter.enemy.Enemy.eye_left_positions"><code class="name">var <span class="ident">eye_left_positions</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def eye_left_positions(self):
+    return [floor(self.left_edge + 12 / 47 * self.length) - 1, floor(self.left_edge + 30 / 47 * self.length) - 1]</code></pre>
+</details>
+</dd>
+<dt id="Senior-Project.games.bird_shooter.enemy.Enemy.eye_right_positions"><code class="name">var <span class="ident">eye_right_positions</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def eye_right_positions(self):
+    return [ceil(self.left_edge + 14/47 * self.length) + 1, ceil(self.left_edge + 32/47 * self.length) + 1]</code></pre>
+</details>
+</dd>
+<dt id="Senior-Project.games.bird_shooter.enemy.Enemy.eye_size"><code class="name">var <span class="ident">eye_size</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def eye_size(self):
+    return [4/47 * self.length, 4/47 * self.height]</code></pre>
+</details>
+</dd>
+<dt id="Senior-Project.games.bird_shooter.enemy.Enemy.eye_top_positions"><code class="name">var <span class="ident">eye_top_positions</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def eye_top_positions(self):
+    return [floor(self.top_edge + 18 / 47 * self.height) - 1] * 2</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="Senior-Project.games.bird_shooter.enemy.Enemy.center"><code class="name flex">
+<span>def <span class="ident">center</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Places the enemy in the center of the screen</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def center(self):
+    &#34;&#34;&#34;Places the enemy in the center of the screen&#34;&#34;&#34;
+
+    self.left_edge = (SCREEN_LENGTH / 2) - (self.length / 2)
+    self.top_edge = (SCREEN_HEIGHT / 2) - (self.height / 2)</code></pre>
+</details>
+</dd>
+<dt id="Senior-Project.games.bird_shooter.enemy.Enemy.render"><code class="name flex">
+<span>def <span class="ident">render</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Renders the enemy onto the screen</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def render(self):
+    &#34;&#34;&#34;Renders the enemy onto the screen&#34;&#34;&#34;
+
+    super().render()
+    self.left_eye.render()
+    self.right_eye.render()</code></pre>
+</details>
+</dd>
+<dt id="Senior-Project.games.bird_shooter.enemy.Enemy.reset"><code class="name flex">
+<span>def <span class="ident">reset</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Resets the enemy to its original position and velocity</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def reset(self):
+    &#34;&#34;&#34;Resets the enemy to its original position and velocity&#34;&#34;&#34;
+
+    self.center()
+    self.velocity = self.base_velocity</code></pre>
+</details>
+</dd>
+<dt id="Senior-Project.games.bird_shooter.enemy.Enemy.run"><code class="name flex">
+<span>def <span class="ident">run</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Moves the enemy across the screen</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def run(self):
+    &#34;&#34;&#34;Moves the enemy across the screen&#34;&#34;&#34;
+
+    self.path_to_image = &#34;games/bird_shooter/images/enemy_right.png&#34; if self.is_moving_right else &#34;games/bird_shooter/images/enemy_left.png&#34;
+
+    if self.hits_left_to_change_direction &lt;= 0:
+        self.hits_left_to_change_direction = self.total_hits_to_change_direction
+        self.is_moving_right = not self.is_moving_right
+        self.velocity += self.velocity_increase
+
+    distance = VelocityCalculator.get_distance(self.velocity)
+
+    self.top_edge += distance if self.is_moving_down else -distance
+    self.left_edge += distance if self.is_moving_right else -distance
+
+    if self.top_edge &lt;= 0:
+        self.top_edge = 0
+        self.is_moving_down = True
+
+    if self.bottom_edge &gt;= SCREEN_HEIGHT:
+        self.top_edge = SCREEN_HEIGHT - self.height
+        self.is_moving_down = False
+
+    self.left_eye.left_edge, self.right_eye.left_edge = self.eye_right_positions if self.is_moving_right else self.eye_left_positions
+    self.left_eye.top_edge, self.right_eye.top_edge = self.eye_bottom_edge_positions if self.is_moving_down else self.eye_top_positions</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="Senior-Project.games.bird_shooter" href="index.html">Senior-Project.games.bird_shooter</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="Senior-Project.games.bird_shooter.enemy.Enemy" href="#Senior-Project.games.bird_shooter.enemy.Enemy">Enemy</a></code></h4>
+<ul class="">
+<li><code><a title="Senior-Project.games.bird_shooter.enemy.Enemy.base_velocity" href="#Senior-Project.games.bird_shooter.enemy.Enemy.base_velocity">base_velocity</a></code></li>
+<li><code><a title="Senior-Project.games.bird_shooter.enemy.Enemy.center" href="#Senior-Project.games.bird_shooter.enemy.Enemy.center">center</a></code></li>
+<li><code><a title="Senior-Project.games.bird_shooter.enemy.Enemy.eye_bottom_edge_positions" href="#Senior-Project.games.bird_shooter.enemy.Enemy.eye_bottom_edge_positions">eye_bottom_edge_positions</a></code></li>
+<li><code><a title="Senior-Project.games.bird_shooter.enemy.Enemy.eye_left_positions" href="#Senior-Project.games.bird_shooter.enemy.Enemy.eye_left_positions">eye_left_positions</a></code></li>
+<li><code><a title="Senior-Project.games.bird_shooter.enemy.Enemy.eye_right_positions" href="#Senior-Project.games.bird_shooter.enemy.Enemy.eye_right_positions">eye_right_positions</a></code></li>
+<li><code><a title="Senior-Project.games.bird_shooter.enemy.Enemy.eye_size" href="#Senior-Project.games.bird_shooter.enemy.Enemy.eye_size">eye_size</a></code></li>
+<li><code><a title="Senior-Project.games.bird_shooter.enemy.Enemy.eye_top_positions" href="#Senior-Project.games.bird_shooter.enemy.Enemy.eye_top_positions">eye_top_positions</a></code></li>
+<li><code><a title="Senior-Project.games.bird_shooter.enemy.Enemy.height" href="#Senior-Project.games.bird_shooter.enemy.Enemy.height">height</a></code></li>
+<li><code><a title="Senior-Project.games.bird_shooter.enemy.Enemy.hits_left_to_change_direction" href="#Senior-Project.games.bird_shooter.enemy.Enemy.hits_left_to_change_direction">hits_left_to_change_direction</a></code></li>
+<li><code><a title="Senior-Project.games.bird_shooter.enemy.Enemy.is_moving_down" href="#Senior-Project.games.bird_shooter.enemy.Enemy.is_moving_down">is_moving_down</a></code></li>
+<li><code><a title="Senior-Project.games.bird_shooter.enemy.Enemy.is_moving_right" href="#Senior-Project.games.bird_shooter.enemy.Enemy.is_moving_right">is_moving_right</a></code></li>
+<li><code><a title="Senior-Project.games.bird_shooter.enemy.Enemy.left_eye" href="#Senior-Project.games.bird_shooter.enemy.Enemy.left_eye">left_eye</a></code></li>
+<li><code><a title="Senior-Project.games.bird_shooter.enemy.Enemy.length" href="#Senior-Project.games.bird_shooter.enemy.Enemy.length">length</a></code></li>
+<li><code><a title="Senior-Project.games.bird_shooter.enemy.Enemy.render" href="#Senior-Project.games.bird_shooter.enemy.Enemy.render">render</a></code></li>
+<li><code><a title="Senior-Project.games.bird_shooter.enemy.Enemy.reset" href="#Senior-Project.games.bird_shooter.enemy.Enemy.reset">reset</a></code></li>
+<li><code><a title="Senior-Project.games.bird_shooter.enemy.Enemy.right_eye" href="#Senior-Project.games.bird_shooter.enemy.Enemy.right_eye">right_eye</a></code></li>
+<li><code><a title="Senior-Project.games.bird_shooter.enemy.Enemy.run" href="#Senior-Project.games.bird_shooter.enemy.Enemy.run">run</a></code></li>
+<li><code><a title="Senior-Project.games.bird_shooter.enemy.Enemy.total_hits_to_change_direction" href="#Senior-Project.games.bird_shooter.enemy.Enemy.total_hits_to_change_direction">total_hits_to_change_direction</a></code></li>
+<li><code><a title="Senior-Project.games.bird_shooter.enemy.Enemy.velocity" href="#Senior-Project.games.bird_shooter.enemy.Enemy.velocity">velocity</a></code></li>
+<li><code><a title="Senior-Project.games.bird_shooter.enemy.Enemy.velocity_increase" href="#Senior-Project.games.bird_shooter.enemy.Enemy.velocity_increase">velocity_increase</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>

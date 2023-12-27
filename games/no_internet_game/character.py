@@ -8,6 +8,8 @@ from game_qu.base.utility_functions import load_image
 
 
 class Player(Component):
+    """What the player controls (in this case a robot)"""
+
     length = VelocityCalculator.get_dimension(SCREEN_LENGTH, 13)
     height = VelocityCalculator.get_dimension(SCREEN_HEIGHT, 25)
     time_in_air = 0
@@ -31,6 +33,8 @@ class Player(Component):
     vertex_height = 0
 
     def __init__(self, keys, ground_top_edge):
+        """Initializes the player with the given parameters"""
+
         self.left_game_button, self.right_game_button, self.jump_game_button = keys
 
         for x in range(self.total_frames):
@@ -52,11 +56,15 @@ class Player(Component):
         self.number_set_dimensions(0, self.initial_distance, self.length, self.height)
 
     def run(self):
+        """Runs the movement and the animation of the player if the game is not paused"""
+
         if not self.game_is_paused:
             self.run_movement()
             self.run_animation()
 
     def run_movement(self):
+        """Runs all the movement of the player"""
+
         self.run_jumping()
 
         distance = VelocityCalculator.get_distance(self.forwards_velocity)
@@ -68,6 +76,8 @@ class Player(Component):
         self.left_edge = self.max_right_edge - self.length if self.right_edge > self.max_right_edge else self.left_edge
 
     def run_jumping(self):
+        """Runs all the logic for the player jumping (including animating it)"""
+
         if game_button_is_clicked(self.jump_game_button) and not self.is_in_air:
             self.is_in_air = True
 
@@ -85,6 +95,8 @@ class Player(Component):
             self.animation_frame = 1
 
     def run_animation(self):
+        """Runs all the animation of the player"""
+
         self.next_frame_event.run(False, not self.is_in_air)
 
         if self.next_frame_event.is_done():
@@ -96,6 +108,8 @@ class Player(Component):
         self.path_to_image = f"{self.base_path}{self.animation_frame}.png"
 
     def reset(self):
+        """Resets all the player's attributes to their original state"""
+
         self.time_in_air, self.animation_frame = 0, 0
         self.next_frame_event.reset()
         self.left_edge = 0

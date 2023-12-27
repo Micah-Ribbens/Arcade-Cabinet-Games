@@ -1,0 +1,1955 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>Senior-Project.games.platformer.platformer_screen API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>Senior-Project.games.platformer.platformer_screen</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">import random
+
+from game_qu.base.colors import *
+from game_qu.base.id_creator import id_creator
+from game_qu.gui_components.dimensions import Dimensions
+from game_qu.base.engines import CollisionsEngine
+from game_qu.base.file_reader import FileReader
+from game_qu.base.history_keeper import HistoryKeeper
+from game_qu.base.lines import Point
+from game_qu.base.paths import Path
+from game_qu.base.utility_functions import is_within_screen
+from game_qu.base.velocity_calculator import VelocityCalculator
+from game_dependencies.platformer.generator import Generator
+from game_dependencies.platformer.gravity_engine import GravityEngine
+from games.platformer.inanimate_objects.platform import Platform
+from games.platformer.inanimate_objects.wall_of_death import WallOfDeath
+from games.platformer.players.player import Player
+from games.platformer.enemies.charging_bull import ChargingBull
+from games.platformer.enemies.straight_enemy import StraightEnemy
+from games.platformer.enemies.bouncy_enemy import BouncyEnemy
+from game_qu.gui_components.grid import Grid
+from game_dependencies.platformer.health_bar import HealthBar
+from game_qu.gui_components.hud import HUD
+from game_qu.gui_components.intermediate_screen import IntermediateScreen
+from game_qu.gui_components.screen import Screen
+from game_qu.base.important_variables import *
+from game_dependencies.platformer.platformer_constants import *
+from games.platformer.powerups.ammo_powerup import AmmoPowerup
+from games.platformer.powerups.heart_powerup import HeartPowerup
+from games.platformer.powerups.straight_thrower_powerup import StraightProjectilePowerup
+from games.platformer.powerups.bouncy_projectile_powerup import BouncyProjectilePowerup
+from games.platformer.powerups.powerup import Powerup
+from game_qu.base.utility_functions import *
+from game_qu.gui_components.text_box import TextBox
+
+
+class PlatformerScreen(Screen):
+    &#34;&#34;&#34;An endless platformer game&#34;&#34;&#34;
+
+    players = []
+    player_health_bars = []
+    enemies = []
+    platforms = []
+    game_objects = []
+    gravity_engine = None
+    frames = 0
+    last_time = 0  # The last that objects were added to the History Keeper
+    rightmost_platform = None
+    generator = None
+    number_of_platforms_generated = 0
+    wall_of_death = WallOfDeath()
+    intermediate_screen = IntermediateScreen()
+
+    # Modifiable Numbers
+    health_grid_length = VelocityCalculator.get_dimension(SCREEN_LENGTH, 25)
+    health_grid_height = VelocityCalculator.get_dimension(SCREEN_HEIGHT, 10)
+
+    hud_length = SCREEN_LENGTH - health_grid_length
+    hud_height = VelocityCalculator.get_dimension(SCREEN_HEIGHT, 6)
+    ammo_field = TextBox(&#34;Ammo Left:&#34;, 20, white, brown, True)
+    hud = HUD(1, [ammo_field], hud_length, hud_height, 1, None, high_score_is_needed=True)
+    powerups = []
+
+    player_keys = [KEY_A, KEY_D, KEY_W, KEY_S, KEY_F]
+    player_buttons = [DPAD_LEFT, DPAD_RIGHT, BUTTON_A, DPAD_DOWN, BUTTON_B]
+
+    # Scoring
+    player_score = 0
+    high_score = 0
+    score_to_difficulty = SCORE_TO_GAME_DIFFICULTY
+    is_high_score = False
+    has_respawned = False
+
+    def __init__(self):
+        &#34;&#34;&#34;Initializes the object&#34;&#34;&#34;
+
+        super().__init__(&#34;games/platformer/images/background_faded.png&#34;)
+
+        file_reader = FileReader(&#34;games/platformer/high_scores.txt&#34;)
+        self.high_score = int(file_reader.get_float_list(&#34;high_scores&#34;)[0])
+
+        self.setup_enemies_and_platforms()
+        self.setup_players()
+
+    def setup_players(self):
+        &#34;&#34;&#34;Creates all the player&#39;s and all the necessary stuff associated with them (GravityEngine, HealthGrid, Generator, HUD)&#34;&#34;&#34;
+
+        player_game_buttons = self.player_buttons if IS_USING_CONTROLLER else self.player_keys
+        self.players = [Player(*player_game_buttons)]
+        self.gravity_engine = GravityEngine(self.players, self.players[0].jumping_path.acceleration)
+
+        for player in self.players:
+            player.gravity_engine = self.gravity_engine
+            player.left_edge = self.platforms[0].left_edge + 10
+            player.base_top_edge = self.platforms[0].top_edge - player.height
+            player.set_top_edge(player.base_top_edge)
+
+            self.player_health_bars.append(HealthBar(player, lambda: False))
+
+        health_grid = Grid(Dimensions(0, 0, self.health_grid_length, self.health_grid_height), 2, 2)
+        health_grid.turn_into_grid(self.player_health_bars, None, None)
+
+        self.generator = Generator(self.players[0])
+        self.hud.set_dimensions(health_grid.dimensions.right_edge, 0, self.hud_length, self.hud_height)
+
+    def setup_enemies_and_platforms(self):
+        &#34;&#34;&#34;Creates the enemies and platforms of the game for starting out&#34;&#34;&#34;
+
+        # One Long Platform
+        self.platforms = [Platform(START_PLATFORM_LEFT_EDGE, START_PLATFORM_TOP_EDGE, START_PLATFORM_LENGTH, START_PLATFORM_HEIGHT)]
+        self.enemies = []
+        self.update_rightmost_platform()
+
+    def run(self):
+        &#34;&#34;&#34;Runs all the code necessary in order for the platformer to work&#34;&#34;&#34;
+
+        if self.intermediate_screen.has_finished():
+            self.run_game_code()
+
+        else:
+            self.intermediate_screen.run()
+
+    def run_game_code(self):
+        &#34;&#34;&#34;Runs all the code for running the game that runs when the intermediate screen is not being displayed&#34;&#34;&#34;
+
+        self.run_player_and_enemies()
+        self.run_all_collisions()
+
+        # All the enemies and players should do something based on the updated collision they got from &#39;self.run_all_collisions()&#39;
+        for game_object in self.enemies + self.players:
+            game_object.run_collisions()
+
+        self.add_game_objects_to_history_keeper()
+        self.run_side_scrolling()
+        self.run_platform_generation()
+
+    def run_player_and_enemies(self):
+        &#34;&#34;&#34;Runs all the code associated with the player&#39;s and enemies that is not collisions&#34;&#34;&#34;
+
+        self.update_score()
+        self.gravity_engine.run()
+        self.powerups = list(filter(lambda item: item.right_edge &gt;= 0, self.powerups))
+
+        self.ammo_field.text = f&#34;Ammo Left: {self.players[0].ammo_left}&#34;
+
+        for player in self.players:
+            if player.platform_is_on is not None and not CollisionsEngine.is_collision(player, player.platform_is_on):
+                player.set_is_on_platform(False, None)
+
+            if player.hit_points_left &lt;= 0 or not is_within_screen(player):
+                self.run_player_respawn()
+
+            if CollisionsEngine.is_collision(player, self.wall_of_death):
+                self.reset_game()
+
+            # So the player is moves before side scrolling happens
+            player.run()
+
+        for enemy in self.enemies:
+            enemy.run_player_interactions(self.players)
+
+            if enemy.hit_points_left &lt;= 0:
+                self.player_score += SCORE_FROM_KILLING_ENEMY
+
+    def update_score(self):
+        &#34;&#34;&#34;Updates the HUD and the high score of the player&#34;&#34;&#34;
+
+        if self.player_score &gt; self.high_score:
+            self.is_high_score = True
+            self.high_score = self.player_score
+
+        self.hud.update([self.player_score], self.high_score)
+
+    def run_platform_generation(self):
+        &#34;&#34;&#34;Runs all the code for generating platforms&#34;&#34;&#34;
+
+        if self.rightmost_platform.right_edge &lt;= SCREEN_LENGTH:
+            difficulty = self.score_to_difficulty.get_y_coordinate(self.player_score)
+            new_platform = self.generator.generate_platform(self.rightmost_platform, difficulty)
+            self.platforms.append(new_platform)
+            self.update_rightmost_platform()
+
+            new_enemy = self.get_random_enemy(new_platform)
+            self.enemies.append(new_enemy)
+            # self.gravity_engine.add_game_objects([new_enemy])
+
+            self.number_of_platforms_generated += 1
+            self.run_powerup_spawning(new_platform)
+
+    def get_random_enemy(self, platform):
+        &#34;&#34;&#34;
+            Returns:
+                Enemy: a random enemy&#34;&#34;&#34;
+
+        enemy_types = [StraightEnemy, ChargingBull, BouncyEnemy]
+        enemy_type = random.choice(enemy_types)
+
+        return enemy_type(10, 20, platform)
+
+    def run_powerup_spawning(self, new_platform):
+        &#34;&#34;&#34;Runs the spawning of powerups after a platform is generated: a powerup won&#39;t spawn everytime&#34;&#34;&#34;
+
+        should_generate_powerup = is_random_chance(PROBABILITY_OF_GETTING_POWERUP_GENERATED)
+        weapon_powerups = [BouncyProjectilePowerup, StraightProjectilePowerup]
+        non_weapon_powerups = [HeartPowerup, AmmoPowerup]
+        powerup_left_edge, powerup_top_edge = new_platform.horizontal_midpoint, new_platform.top_edge - Powerup.height
+
+        if should_generate_powerup:
+            should_generate_weapon = is_random_chance(PROBABILITY_OF_POWERUP_BEING_A_WEAPON)
+            powerup_class_list = weapon_powerups if should_generate_weapon else non_weapon_powerups
+            powerup_class = random.choice(powerup_class_list)
+            self.powerups.append(powerup_class(powerup_left_edge, powerup_top_edge))
+
+    def run_side_scrolling(self):
+        &#34;&#34;&#34;Makes the screen side scroll based off the player who is the farthest behind&#34;&#34;&#34;
+
+        # First the players are sorted by the smallest left_edge and then the smallest player is taken
+        farthest_back_player = list(sorted(self.players, key=lambda player: player.right_edge))[0]
+        shortest_distance = farthest_back_player.right_edge
+
+        # If the distance of the farthest back player is greater than the distance needed for sidescrolling then
+        # All the objects in the game should be side scrolled
+        if shortest_distance &gt; SIDE_SCROLLING_START_DISTANCE:
+            side_scrolling_distance = shortest_distance - SIDE_SCROLLING_START_DISTANCE
+            self.side_scroll_all_objects(side_scrolling_distance)
+
+    def side_scroll_objects(self, distance, game_objects):
+        &#34;&#34;&#34;Moves all the objects leftwards by the distance specified (side scrolling)&#34;&#34;&#34;
+
+        for game_object in game_objects:
+            game_object.update_for_side_scrolling(distance)
+
+    def side_scroll_all_objects(self, side_scrolling_distance):
+        &#34;&#34;&#34;Side scrolls all the game objects by &#39;side_scrolling_distance&#39;&#34;&#34;&#34;
+
+        self.side_scroll_objects(side_scrolling_distance, self.players)
+        self.side_scroll_objects(side_scrolling_distance, self.enemies)
+        self.side_scroll_objects(side_scrolling_distance, self.platforms)
+        self.side_scroll_objects(side_scrolling_distance, self.powerups)
+        self.wall_of_death.update_for_side_scrolling(side_scrolling_distance)
+
+    def get_code_ready_for_collisions(self):
+        &#34;&#34;&#34;Runs the necessary code to prepare for collisions: makes &#34;&#34;&#34;
+
+        player_components = []
+        for player in self.players:
+            player_components += player.get_collidable_components()
+            player.reset_collision_data()
+
+        updated_enemies = []
+        enemy_components = []
+        for enemy in self.enemies:
+            enemy.reset_collision_data()
+
+            if enemy.hit_points_left &gt; 0 and enemy.platform.right_edge &gt;= 0:
+                updated_enemies.append(enemy)
+                enemy_components += enemy.get_collidable_components()
+
+        self.enemies = updated_enemies
+
+        self.remove_platforms_not_within_screen()
+        self.game_objects = player_components + enemy_components + self.platforms + self.powerups
+
+    def remove_platforms_not_within_screen(self):
+        &#34;&#34;&#34;Removes all the platforms that are not within the screen&#34;&#34;&#34;
+
+        updated_platforms = []
+        for platform in self.platforms:
+            if platform.right_edge &gt;= 0:
+                updated_platforms.append(platform)
+
+            else:
+                self.player_score += SCORE_FROM_PASSING_PLATFORM
+        self.platforms = updated_platforms
+
+    def run_player_respawn(self):
+        &#34;&#34;&#34;Makes the player respawn&#34;&#34;&#34;
+
+        for player in self.players:
+            player.run_respawning()
+
+            last_platform = self.platforms[0]
+
+            if last_platform.horizontal_midpoint &lt;= 0:
+                difference = abs(last_platform.horizontal_midpoint)
+                self.side_scroll_all_objects(-difference)
+
+            player.left_edge = last_platform.horizontal_midpoint
+            player.top_edge = last_platform.top_edge - player.height
+            self.remove_enemies_on_platform(last_platform)
+
+        self.wall_of_death.total_time += WALL_OF_DEATH_TIME_INCREASE_AFTER_PLAYER_DEATH
+        self.powerups = []
+        HistoryKeeper.last_objects = {}
+        self.gravity_engine.reset()
+        self.intermediate_screen.set_texts([&#34;Player Respawn&#34;])
+        self.intermediate_screen.set_time_ranges([Range(0, RESPAWN_MESSAGE_TIME)])
+        self.intermediate_screen.display()
+        self.has_respawned = True
+
+    def remove_enemies_on_platform(self, platform):
+        &#34;&#34;&#34;Removes all the enemies that are on that platform&#34;&#34;&#34;
+
+        enemies_not_on_platform = []
+
+        for enemy in self.enemies:
+            if enemy.platform != platform:
+                enemies_not_on_platform.append(enemy)
+
+        self.enemies = enemies_not_on_platform
+
+    def update_rightmost_platform(self):
+        &#34;&#34;&#34;Updates the attribute &#39;rightmost_platform&#39; so it is actually the rightmost_platform&#34;&#34;&#34;
+
+        # First the platforms are sorted with right_edge&#39;s decreasing, then the index of 0 is taken giving the rightmost platform
+        self.rightmost_platform = list(sorted(self.platforms, key=lambda platform: platform.right_edge, reverse=True))[0]
+
+    def reset_game(self):
+        &#34;&#34;&#34;Resets the game after the player&#39;s death&#34;&#34;&#34;
+
+        for player in self.players:
+            player.reset()
+
+        self.setup_enemies_and_platforms()
+        self.gravity_engine.reset()
+        HistoryKeeper.last_objects = {}
+        self.frames = 0
+        self.number_of_platforms_generated = 0
+        self.powerups = []
+        self.wall_of_death.reset()
+
+        high_score_message = f&#34;New High Score: {self.high_score}&#34;
+        non_high_score_message = f&#34;Score: {self.player_score}&#34;
+        message = high_score_message if self.is_high_score else non_high_score_message
+
+        self.intermediate_screen.set_texts([message])
+        self.intermediate_screen.set_time_ranges([Range(0, DEATH_MESSAGE_TIME)])
+        self.intermediate_screen.display()
+
+        self.player_score = 0
+
+    def run_all_collisions(self):
+        &#34;&#34;&#34;Runs all the collisions between the player, projectiles, and enemies&#34;&#34;&#34;
+
+        self.get_code_ready_for_collisions()
+
+        for i in range(len(self.game_objects)):
+            object1 = self.game_objects[i]
+
+            for j in range(i, len(self.game_objects)):
+                object2 = self.game_objects[j]
+
+                collision_is_possible = len(object1.object_type) != len(object2.object_type)
+                collision_has_happened = collision_is_possible and CollisionsEngine.is_collision(object1, object2)
+
+                # The &#39;self.run_object_collisions&#39; should only be called if the main object is not a platform
+                if collision_has_happened and not self.is_platform(object1):
+                    self.run_object_collisions(object1, object2)
+
+                if collision_has_happened and not self.is_platform(object2):
+                    self.run_object_collisions(object2, object1)
+
+    def run_object_collisions(self, main_object, other_object):
+        &#34;&#34;&#34; Runs the collisions between the &#39;main_object&#39; and the &#39;other_object;&#39; the main_object acts upon the other_object.
+            By act upon I mean damages the other_object, moves the other_object, etc.&#34;&#34;&#34;
+
+        if self.is_player(main_object) or self.is_player_weapon(main_object):
+            self.run_player_collisions(main_object, other_object)
+
+        elif self.is_enemy(main_object) or self.is_enemy_weapon(main_object):
+            self.run_enemy_collisions(main_object, other_object)
+
+        elif self.is_powerup(main_object) and self.is_player(other_object):
+            main_object.run_player_collision(other_object)
+
+            # Removes it from the screen so it is deleted: can&#39;t delete here because that would cause issues with modifying
+            # a list while it is being iterated over
+            main_object.left_edge = -1000
+
+    def run_player_collisions(self, main_object, other_object):
+        &#34;&#34;&#34;Runs the collisions for when the player is the main object&#34;&#34;&#34;
+
+        collision_function_parameters = [other_object, main_object.index]
+        has_collided_with_enemy = self.is_enemy_weapon(other_object) or self.is_enemy(other_object)
+
+        if self.is_player(main_object) and self.is_platform(other_object):
+            main_object.run_inanimate_object_collision(*collision_function_parameters)
+
+        elif self.is_player_weapon(main_object) and self.is_platform(other_object):
+            main_object.user.run_inanimate_object_collision(*collision_function_parameters)
+
+        elif self.is_player_weapon(main_object) and has_collided_with_enemy:
+            main_object.user.run_enemy_collision(*collision_function_parameters)
+
+    def run_enemy_collisions(self, main_object, other_object):
+        &#34;&#34;&#34;Runs the collisions for when the enemy is the main object&#34;&#34;&#34;
+
+        collision_function_parameters = [other_object, main_object.index]
+        if self.is_enemy(main_object) and self.is_platform(other_object):
+            main_object.run_inanimate_object_collision(*collision_function_parameters)
+
+        elif self.is_enemy_weapon(main_object) and self.is_platform(other_object):
+            main_object.user.run_inanimate_object_collision(*collision_function_parameters)
+
+        elif self.is_enemy(main_object) and self.is_player(other_object):
+            main_object.run_enemy_collision(*collision_function_parameters)
+
+        elif self.is_enemy_weapon(main_object) and self.is_player(other_object):
+            main_object.user.run_enemy_collision(*collision_function_parameters)
+
+    def add_game_objects_to_history_keeper(self):
+        &#34;&#34;&#34;Adds all the game objects to the HistoryKeeper&#34;&#34;&#34;
+
+        for game_object in self.enemies + self.players:
+            self.add_collidable_components(game_object.get_collidable_components())
+
+        self.add_collidable_components(self.platforms)
+
+    def add_collidable_components(self, component_list):
+        &#34;&#34;&#34;Adds all the components in the component_list to the History Keeper&#34;&#34;&#34;
+
+        for component in component_list:
+            if component.is_addable:
+                component.name = id_creator.get_unique_id()
+                HistoryKeeper.add(component, component.name, needs_dimensions_only=True)
+
+    def run_on_close(self):
+        &#34;&#34;&#34;Runs what should happen when the game is closed (save the high scores)&#34;&#34;&#34;
+
+        file = open(&#34;games/platformer/high_scores.txt&#34;, &#34;w+&#34;)
+        file.write(f&#34;high_scores:[{self.high_score}]&#34;)
+        file.close()
+
+    def get_components(self):
+        &#34;&#34;&#34;
+            Returns:
+                list[Component]: all the components that should be rendered&#34;&#34;&#34;
+
+        game_components = []
+        for game_object in self.players + self.enemies:
+            game_components += game_object.get_components()
+
+        game_components += self.player_health_bars + self.platforms + self.powerups + [self.hud, self.wall_of_death]
+        return game_components if self.intermediate_screen.has_finished() else self.intermediate_screen.get_components()
+
+    # HELPER METHODS FOR COLLISIONS; Since they all have a unique length I can just use the lengths here
+    def is_enemy(self, game_object):
+        &#34;&#34;&#34;
+            Returns:
+                boolean: if the game_object is just an enemy (not a weapon) --&gt; object type would be &#39;Enemy&#39;&#34;&#34;&#34;
+
+        return len(game_object.object_type) == 5
+
+    def is_enemy_weapon(self, game_object):
+        &#34;&#34;&#34;
+            Returns:
+                boolean: if the game_object is an enemy&#39;s weapon --&gt; object type would be &#39;Enemy Weapon&#39;&#34;&#34;&#34;
+
+        return len(game_object.object_type) == 12
+
+    def is_player(self, game_object):
+        &#34;&#34;&#34;
+            Returns:
+                boolean: if the game_object is the player --&gt; object type would be &#39;Player&#39;&#34;&#34;&#34;
+
+        return len(game_object.object_type) == 6
+
+    def is_player_weapon(self, game_object):
+        &#34;&#34;&#34;
+            Returns:
+                boolean: if the game_object is the player&#39;s weapon --&gt; object type would be &#39;Player Weapon&#39;&#34;&#34;&#34;
+
+        return len(game_object.object_type) == 13
+
+    def is_platform(self, game_object):
+        &#34;&#34;&#34;
+            Returns:
+                boolean: if the game_object is a platform --&gt; object type would be &#39;Platform&#39;&#34;&#34;&#34;
+
+        return len(game_object.object_type) == 8
+
+    def is_powerup(self, game_object):
+        &#34;&#34;&#34;
+            Returns:
+                boolean: if the game_object is a platform --&gt; object type would be &#39;Platform&#39;&#34;&#34;&#34;
+
+        return len(game_object.object_type) == 9</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="Senior-Project.games.platformer.platformer_screen.PlatformerScreen"><code class="flex name class">
+<span>class <span class="ident">PlatformerScreen</span></span>
+</code></dt>
+<dd>
+<div class="desc"><p>An endless platformer game</p>
+<p>Initializes the object</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class PlatformerScreen(Screen):
+    &#34;&#34;&#34;An endless platformer game&#34;&#34;&#34;
+
+    players = []
+    player_health_bars = []
+    enemies = []
+    platforms = []
+    game_objects = []
+    gravity_engine = None
+    frames = 0
+    last_time = 0  # The last that objects were added to the History Keeper
+    rightmost_platform = None
+    generator = None
+    number_of_platforms_generated = 0
+    wall_of_death = WallOfDeath()
+    intermediate_screen = IntermediateScreen()
+
+    # Modifiable Numbers
+    health_grid_length = VelocityCalculator.get_dimension(SCREEN_LENGTH, 25)
+    health_grid_height = VelocityCalculator.get_dimension(SCREEN_HEIGHT, 10)
+
+    hud_length = SCREEN_LENGTH - health_grid_length
+    hud_height = VelocityCalculator.get_dimension(SCREEN_HEIGHT, 6)
+    ammo_field = TextBox(&#34;Ammo Left:&#34;, 20, white, brown, True)
+    hud = HUD(1, [ammo_field], hud_length, hud_height, 1, None, high_score_is_needed=True)
+    powerups = []
+
+    player_keys = [KEY_A, KEY_D, KEY_W, KEY_S, KEY_F]
+    player_buttons = [DPAD_LEFT, DPAD_RIGHT, BUTTON_A, DPAD_DOWN, BUTTON_B]
+
+    # Scoring
+    player_score = 0
+    high_score = 0
+    score_to_difficulty = SCORE_TO_GAME_DIFFICULTY
+    is_high_score = False
+    has_respawned = False
+
+    def __init__(self):
+        &#34;&#34;&#34;Initializes the object&#34;&#34;&#34;
+
+        super().__init__(&#34;games/platformer/images/background_faded.png&#34;)
+
+        file_reader = FileReader(&#34;games/platformer/high_scores.txt&#34;)
+        self.high_score = int(file_reader.get_float_list(&#34;high_scores&#34;)[0])
+
+        self.setup_enemies_and_platforms()
+        self.setup_players()
+
+    def setup_players(self):
+        &#34;&#34;&#34;Creates all the player&#39;s and all the necessary stuff associated with them (GravityEngine, HealthGrid, Generator, HUD)&#34;&#34;&#34;
+
+        player_game_buttons = self.player_buttons if IS_USING_CONTROLLER else self.player_keys
+        self.players = [Player(*player_game_buttons)]
+        self.gravity_engine = GravityEngine(self.players, self.players[0].jumping_path.acceleration)
+
+        for player in self.players:
+            player.gravity_engine = self.gravity_engine
+            player.left_edge = self.platforms[0].left_edge + 10
+            player.base_top_edge = self.platforms[0].top_edge - player.height
+            player.set_top_edge(player.base_top_edge)
+
+            self.player_health_bars.append(HealthBar(player, lambda: False))
+
+        health_grid = Grid(Dimensions(0, 0, self.health_grid_length, self.health_grid_height), 2, 2)
+        health_grid.turn_into_grid(self.player_health_bars, None, None)
+
+        self.generator = Generator(self.players[0])
+        self.hud.set_dimensions(health_grid.dimensions.right_edge, 0, self.hud_length, self.hud_height)
+
+    def setup_enemies_and_platforms(self):
+        &#34;&#34;&#34;Creates the enemies and platforms of the game for starting out&#34;&#34;&#34;
+
+        # One Long Platform
+        self.platforms = [Platform(START_PLATFORM_LEFT_EDGE, START_PLATFORM_TOP_EDGE, START_PLATFORM_LENGTH, START_PLATFORM_HEIGHT)]
+        self.enemies = []
+        self.update_rightmost_platform()
+
+    def run(self):
+        &#34;&#34;&#34;Runs all the code necessary in order for the platformer to work&#34;&#34;&#34;
+
+        if self.intermediate_screen.has_finished():
+            self.run_game_code()
+
+        else:
+            self.intermediate_screen.run()
+
+    def run_game_code(self):
+        &#34;&#34;&#34;Runs all the code for running the game that runs when the intermediate screen is not being displayed&#34;&#34;&#34;
+
+        self.run_player_and_enemies()
+        self.run_all_collisions()
+
+        # All the enemies and players should do something based on the updated collision they got from &#39;self.run_all_collisions()&#39;
+        for game_object in self.enemies + self.players:
+            game_object.run_collisions()
+
+        self.add_game_objects_to_history_keeper()
+        self.run_side_scrolling()
+        self.run_platform_generation()
+
+    def run_player_and_enemies(self):
+        &#34;&#34;&#34;Runs all the code associated with the player&#39;s and enemies that is not collisions&#34;&#34;&#34;
+
+        self.update_score()
+        self.gravity_engine.run()
+        self.powerups = list(filter(lambda item: item.right_edge &gt;= 0, self.powerups))
+
+        self.ammo_field.text = f&#34;Ammo Left: {self.players[0].ammo_left}&#34;
+
+        for player in self.players:
+            if player.platform_is_on is not None and not CollisionsEngine.is_collision(player, player.platform_is_on):
+                player.set_is_on_platform(False, None)
+
+            if player.hit_points_left &lt;= 0 or not is_within_screen(player):
+                self.run_player_respawn()
+
+            if CollisionsEngine.is_collision(player, self.wall_of_death):
+                self.reset_game()
+
+            # So the player is moves before side scrolling happens
+            player.run()
+
+        for enemy in self.enemies:
+            enemy.run_player_interactions(self.players)
+
+            if enemy.hit_points_left &lt;= 0:
+                self.player_score += SCORE_FROM_KILLING_ENEMY
+
+    def update_score(self):
+        &#34;&#34;&#34;Updates the HUD and the high score of the player&#34;&#34;&#34;
+
+        if self.player_score &gt; self.high_score:
+            self.is_high_score = True
+            self.high_score = self.player_score
+
+        self.hud.update([self.player_score], self.high_score)
+
+    def run_platform_generation(self):
+        &#34;&#34;&#34;Runs all the code for generating platforms&#34;&#34;&#34;
+
+        if self.rightmost_platform.right_edge &lt;= SCREEN_LENGTH:
+            difficulty = self.score_to_difficulty.get_y_coordinate(self.player_score)
+            new_platform = self.generator.generate_platform(self.rightmost_platform, difficulty)
+            self.platforms.append(new_platform)
+            self.update_rightmost_platform()
+
+            new_enemy = self.get_random_enemy(new_platform)
+            self.enemies.append(new_enemy)
+            # self.gravity_engine.add_game_objects([new_enemy])
+
+            self.number_of_platforms_generated += 1
+            self.run_powerup_spawning(new_platform)
+
+    def get_random_enemy(self, platform):
+        &#34;&#34;&#34;
+            Returns:
+                Enemy: a random enemy&#34;&#34;&#34;
+
+        enemy_types = [StraightEnemy, ChargingBull, BouncyEnemy]
+        enemy_type = random.choice(enemy_types)
+
+        return enemy_type(10, 20, platform)
+
+    def run_powerup_spawning(self, new_platform):
+        &#34;&#34;&#34;Runs the spawning of powerups after a platform is generated: a powerup won&#39;t spawn everytime&#34;&#34;&#34;
+
+        should_generate_powerup = is_random_chance(PROBABILITY_OF_GETTING_POWERUP_GENERATED)
+        weapon_powerups = [BouncyProjectilePowerup, StraightProjectilePowerup]
+        non_weapon_powerups = [HeartPowerup, AmmoPowerup]
+        powerup_left_edge, powerup_top_edge = new_platform.horizontal_midpoint, new_platform.top_edge - Powerup.height
+
+        if should_generate_powerup:
+            should_generate_weapon = is_random_chance(PROBABILITY_OF_POWERUP_BEING_A_WEAPON)
+            powerup_class_list = weapon_powerups if should_generate_weapon else non_weapon_powerups
+            powerup_class = random.choice(powerup_class_list)
+            self.powerups.append(powerup_class(powerup_left_edge, powerup_top_edge))
+
+    def run_side_scrolling(self):
+        &#34;&#34;&#34;Makes the screen side scroll based off the player who is the farthest behind&#34;&#34;&#34;
+
+        # First the players are sorted by the smallest left_edge and then the smallest player is taken
+        farthest_back_player = list(sorted(self.players, key=lambda player: player.right_edge))[0]
+        shortest_distance = farthest_back_player.right_edge
+
+        # If the distance of the farthest back player is greater than the distance needed for sidescrolling then
+        # All the objects in the game should be side scrolled
+        if shortest_distance &gt; SIDE_SCROLLING_START_DISTANCE:
+            side_scrolling_distance = shortest_distance - SIDE_SCROLLING_START_DISTANCE
+            self.side_scroll_all_objects(side_scrolling_distance)
+
+    def side_scroll_objects(self, distance, game_objects):
+        &#34;&#34;&#34;Moves all the objects leftwards by the distance specified (side scrolling)&#34;&#34;&#34;
+
+        for game_object in game_objects:
+            game_object.update_for_side_scrolling(distance)
+
+    def side_scroll_all_objects(self, side_scrolling_distance):
+        &#34;&#34;&#34;Side scrolls all the game objects by &#39;side_scrolling_distance&#39;&#34;&#34;&#34;
+
+        self.side_scroll_objects(side_scrolling_distance, self.players)
+        self.side_scroll_objects(side_scrolling_distance, self.enemies)
+        self.side_scroll_objects(side_scrolling_distance, self.platforms)
+        self.side_scroll_objects(side_scrolling_distance, self.powerups)
+        self.wall_of_death.update_for_side_scrolling(side_scrolling_distance)
+
+    def get_code_ready_for_collisions(self):
+        &#34;&#34;&#34;Runs the necessary code to prepare for collisions: makes &#34;&#34;&#34;
+
+        player_components = []
+        for player in self.players:
+            player_components += player.get_collidable_components()
+            player.reset_collision_data()
+
+        updated_enemies = []
+        enemy_components = []
+        for enemy in self.enemies:
+            enemy.reset_collision_data()
+
+            if enemy.hit_points_left &gt; 0 and enemy.platform.right_edge &gt;= 0:
+                updated_enemies.append(enemy)
+                enemy_components += enemy.get_collidable_components()
+
+        self.enemies = updated_enemies
+
+        self.remove_platforms_not_within_screen()
+        self.game_objects = player_components + enemy_components + self.platforms + self.powerups
+
+    def remove_platforms_not_within_screen(self):
+        &#34;&#34;&#34;Removes all the platforms that are not within the screen&#34;&#34;&#34;
+
+        updated_platforms = []
+        for platform in self.platforms:
+            if platform.right_edge &gt;= 0:
+                updated_platforms.append(platform)
+
+            else:
+                self.player_score += SCORE_FROM_PASSING_PLATFORM
+        self.platforms = updated_platforms
+
+    def run_player_respawn(self):
+        &#34;&#34;&#34;Makes the player respawn&#34;&#34;&#34;
+
+        for player in self.players:
+            player.run_respawning()
+
+            last_platform = self.platforms[0]
+
+            if last_platform.horizontal_midpoint &lt;= 0:
+                difference = abs(last_platform.horizontal_midpoint)
+                self.side_scroll_all_objects(-difference)
+
+            player.left_edge = last_platform.horizontal_midpoint
+            player.top_edge = last_platform.top_edge - player.height
+            self.remove_enemies_on_platform(last_platform)
+
+        self.wall_of_death.total_time += WALL_OF_DEATH_TIME_INCREASE_AFTER_PLAYER_DEATH
+        self.powerups = []
+        HistoryKeeper.last_objects = {}
+        self.gravity_engine.reset()
+        self.intermediate_screen.set_texts([&#34;Player Respawn&#34;])
+        self.intermediate_screen.set_time_ranges([Range(0, RESPAWN_MESSAGE_TIME)])
+        self.intermediate_screen.display()
+        self.has_respawned = True
+
+    def remove_enemies_on_platform(self, platform):
+        &#34;&#34;&#34;Removes all the enemies that are on that platform&#34;&#34;&#34;
+
+        enemies_not_on_platform = []
+
+        for enemy in self.enemies:
+            if enemy.platform != platform:
+                enemies_not_on_platform.append(enemy)
+
+        self.enemies = enemies_not_on_platform
+
+    def update_rightmost_platform(self):
+        &#34;&#34;&#34;Updates the attribute &#39;rightmost_platform&#39; so it is actually the rightmost_platform&#34;&#34;&#34;
+
+        # First the platforms are sorted with right_edge&#39;s decreasing, then the index of 0 is taken giving the rightmost platform
+        self.rightmost_platform = list(sorted(self.platforms, key=lambda platform: platform.right_edge, reverse=True))[0]
+
+    def reset_game(self):
+        &#34;&#34;&#34;Resets the game after the player&#39;s death&#34;&#34;&#34;
+
+        for player in self.players:
+            player.reset()
+
+        self.setup_enemies_and_platforms()
+        self.gravity_engine.reset()
+        HistoryKeeper.last_objects = {}
+        self.frames = 0
+        self.number_of_platforms_generated = 0
+        self.powerups = []
+        self.wall_of_death.reset()
+
+        high_score_message = f&#34;New High Score: {self.high_score}&#34;
+        non_high_score_message = f&#34;Score: {self.player_score}&#34;
+        message = high_score_message if self.is_high_score else non_high_score_message
+
+        self.intermediate_screen.set_texts([message])
+        self.intermediate_screen.set_time_ranges([Range(0, DEATH_MESSAGE_TIME)])
+        self.intermediate_screen.display()
+
+        self.player_score = 0
+
+    def run_all_collisions(self):
+        &#34;&#34;&#34;Runs all the collisions between the player, projectiles, and enemies&#34;&#34;&#34;
+
+        self.get_code_ready_for_collisions()
+
+        for i in range(len(self.game_objects)):
+            object1 = self.game_objects[i]
+
+            for j in range(i, len(self.game_objects)):
+                object2 = self.game_objects[j]
+
+                collision_is_possible = len(object1.object_type) != len(object2.object_type)
+                collision_has_happened = collision_is_possible and CollisionsEngine.is_collision(object1, object2)
+
+                # The &#39;self.run_object_collisions&#39; should only be called if the main object is not a platform
+                if collision_has_happened and not self.is_platform(object1):
+                    self.run_object_collisions(object1, object2)
+
+                if collision_has_happened and not self.is_platform(object2):
+                    self.run_object_collisions(object2, object1)
+
+    def run_object_collisions(self, main_object, other_object):
+        &#34;&#34;&#34; Runs the collisions between the &#39;main_object&#39; and the &#39;other_object;&#39; the main_object acts upon the other_object.
+            By act upon I mean damages the other_object, moves the other_object, etc.&#34;&#34;&#34;
+
+        if self.is_player(main_object) or self.is_player_weapon(main_object):
+            self.run_player_collisions(main_object, other_object)
+
+        elif self.is_enemy(main_object) or self.is_enemy_weapon(main_object):
+            self.run_enemy_collisions(main_object, other_object)
+
+        elif self.is_powerup(main_object) and self.is_player(other_object):
+            main_object.run_player_collision(other_object)
+
+            # Removes it from the screen so it is deleted: can&#39;t delete here because that would cause issues with modifying
+            # a list while it is being iterated over
+            main_object.left_edge = -1000
+
+    def run_player_collisions(self, main_object, other_object):
+        &#34;&#34;&#34;Runs the collisions for when the player is the main object&#34;&#34;&#34;
+
+        collision_function_parameters = [other_object, main_object.index]
+        has_collided_with_enemy = self.is_enemy_weapon(other_object) or self.is_enemy(other_object)
+
+        if self.is_player(main_object) and self.is_platform(other_object):
+            main_object.run_inanimate_object_collision(*collision_function_parameters)
+
+        elif self.is_player_weapon(main_object) and self.is_platform(other_object):
+            main_object.user.run_inanimate_object_collision(*collision_function_parameters)
+
+        elif self.is_player_weapon(main_object) and has_collided_with_enemy:
+            main_object.user.run_enemy_collision(*collision_function_parameters)
+
+    def run_enemy_collisions(self, main_object, other_object):
+        &#34;&#34;&#34;Runs the collisions for when the enemy is the main object&#34;&#34;&#34;
+
+        collision_function_parameters = [other_object, main_object.index]
+        if self.is_enemy(main_object) and self.is_platform(other_object):
+            main_object.run_inanimate_object_collision(*collision_function_parameters)
+
+        elif self.is_enemy_weapon(main_object) and self.is_platform(other_object):
+            main_object.user.run_inanimate_object_collision(*collision_function_parameters)
+
+        elif self.is_enemy(main_object) and self.is_player(other_object):
+            main_object.run_enemy_collision(*collision_function_parameters)
+
+        elif self.is_enemy_weapon(main_object) and self.is_player(other_object):
+            main_object.user.run_enemy_collision(*collision_function_parameters)
+
+    def add_game_objects_to_history_keeper(self):
+        &#34;&#34;&#34;Adds all the game objects to the HistoryKeeper&#34;&#34;&#34;
+
+        for game_object in self.enemies + self.players:
+            self.add_collidable_components(game_object.get_collidable_components())
+
+        self.add_collidable_components(self.platforms)
+
+    def add_collidable_components(self, component_list):
+        &#34;&#34;&#34;Adds all the components in the component_list to the History Keeper&#34;&#34;&#34;
+
+        for component in component_list:
+            if component.is_addable:
+                component.name = id_creator.get_unique_id()
+                HistoryKeeper.add(component, component.name, needs_dimensions_only=True)
+
+    def run_on_close(self):
+        &#34;&#34;&#34;Runs what should happen when the game is closed (save the high scores)&#34;&#34;&#34;
+
+        file = open(&#34;games/platformer/high_scores.txt&#34;, &#34;w+&#34;)
+        file.write(f&#34;high_scores:[{self.high_score}]&#34;)
+        file.close()
+
+    def get_components(self):
+        &#34;&#34;&#34;
+            Returns:
+                list[Component]: all the components that should be rendered&#34;&#34;&#34;
+
+        game_components = []
+        for game_object in self.players + self.enemies:
+            game_components += game_object.get_components()
+
+        game_components += self.player_health_bars + self.platforms + self.powerups + [self.hud, self.wall_of_death]
+        return game_components if self.intermediate_screen.has_finished() else self.intermediate_screen.get_components()
+
+    # HELPER METHODS FOR COLLISIONS; Since they all have a unique length I can just use the lengths here
+    def is_enemy(self, game_object):
+        &#34;&#34;&#34;
+            Returns:
+                boolean: if the game_object is just an enemy (not a weapon) --&gt; object type would be &#39;Enemy&#39;&#34;&#34;&#34;
+
+        return len(game_object.object_type) == 5
+
+    def is_enemy_weapon(self, game_object):
+        &#34;&#34;&#34;
+            Returns:
+                boolean: if the game_object is an enemy&#39;s weapon --&gt; object type would be &#39;Enemy Weapon&#39;&#34;&#34;&#34;
+
+        return len(game_object.object_type) == 12
+
+    def is_player(self, game_object):
+        &#34;&#34;&#34;
+            Returns:
+                boolean: if the game_object is the player --&gt; object type would be &#39;Player&#39;&#34;&#34;&#34;
+
+        return len(game_object.object_type) == 6
+
+    def is_player_weapon(self, game_object):
+        &#34;&#34;&#34;
+            Returns:
+                boolean: if the game_object is the player&#39;s weapon --&gt; object type would be &#39;Player Weapon&#39;&#34;&#34;&#34;
+
+        return len(game_object.object_type) == 13
+
+    def is_platform(self, game_object):
+        &#34;&#34;&#34;
+            Returns:
+                boolean: if the game_object is a platform --&gt; object type would be &#39;Platform&#39;&#34;&#34;&#34;
+
+        return len(game_object.object_type) == 8
+
+    def is_powerup(self, game_object):
+        &#34;&#34;&#34;
+            Returns:
+                boolean: if the game_object is a platform --&gt; object type would be &#39;Platform&#39;&#34;&#34;&#34;
+
+        return len(game_object.object_type) == 9</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>game_qu.gui_components.screen.Screen</li>
+<li>game_qu.gui_components.component.Component</li>
+<li>game_qu.gui_components.dimensions.Dimensions</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.ammo_field"><code class="name">var <span class="ident">ammo_field</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.enemies"><code class="name">var <span class="ident">enemies</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.frames"><code class="name">var <span class="ident">frames</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.game_objects"><code class="name">var <span class="ident">game_objects</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.generator"><code class="name">var <span class="ident">generator</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.gravity_engine"><code class="name">var <span class="ident">gravity_engine</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.has_respawned"><code class="name">var <span class="ident">has_respawned</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.health_grid_height"><code class="name">var <span class="ident">health_grid_height</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.health_grid_length"><code class="name">var <span class="ident">health_grid_length</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.high_score"><code class="name">var <span class="ident">high_score</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.hud"><code class="name">var <span class="ident">hud</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.hud_height"><code class="name">var <span class="ident">hud_height</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.hud_length"><code class="name">var <span class="ident">hud_length</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.intermediate_screen"><code class="name">var <span class="ident">intermediate_screen</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.is_high_score"><code class="name">var <span class="ident">is_high_score</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.last_time"><code class="name">var <span class="ident">last_time</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.number_of_platforms_generated"><code class="name">var <span class="ident">number_of_platforms_generated</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.platforms"><code class="name">var <span class="ident">platforms</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.player_buttons"><code class="name">var <span class="ident">player_buttons</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.player_health_bars"><code class="name">var <span class="ident">player_health_bars</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.player_keys"><code class="name">var <span class="ident">player_keys</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.player_score"><code class="name">var <span class="ident">player_score</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.players"><code class="name">var <span class="ident">players</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.powerups"><code class="name">var <span class="ident">powerups</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.rightmost_platform"><code class="name">var <span class="ident">rightmost_platform</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.score_to_difficulty"><code class="name">var <span class="ident">score_to_difficulty</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.wall_of_death"><code class="name">var <span class="ident">wall_of_death</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.add_collidable_components"><code class="name flex">
+<span>def <span class="ident">add_collidable_components</span></span>(<span>self, component_list)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Adds all the components in the component_list to the History Keeper</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def add_collidable_components(self, component_list):
+    &#34;&#34;&#34;Adds all the components in the component_list to the History Keeper&#34;&#34;&#34;
+
+    for component in component_list:
+        if component.is_addable:
+            component.name = id_creator.get_unique_id()
+            HistoryKeeper.add(component, component.name, needs_dimensions_only=True)</code></pre>
+</details>
+</dd>
+<dt id="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.add_game_objects_to_history_keeper"><code class="name flex">
+<span>def <span class="ident">add_game_objects_to_history_keeper</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Adds all the game objects to the HistoryKeeper</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def add_game_objects_to_history_keeper(self):
+    &#34;&#34;&#34;Adds all the game objects to the HistoryKeeper&#34;&#34;&#34;
+
+    for game_object in self.enemies + self.players:
+        self.add_collidable_components(game_object.get_collidable_components())
+
+    self.add_collidable_components(self.platforms)</code></pre>
+</details>
+</dd>
+<dt id="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.get_code_ready_for_collisions"><code class="name flex">
+<span>def <span class="ident">get_code_ready_for_collisions</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Runs the necessary code to prepare for collisions: makes</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_code_ready_for_collisions(self):
+    &#34;&#34;&#34;Runs the necessary code to prepare for collisions: makes &#34;&#34;&#34;
+
+    player_components = []
+    for player in self.players:
+        player_components += player.get_collidable_components()
+        player.reset_collision_data()
+
+    updated_enemies = []
+    enemy_components = []
+    for enemy in self.enemies:
+        enemy.reset_collision_data()
+
+        if enemy.hit_points_left &gt; 0 and enemy.platform.right_edge &gt;= 0:
+            updated_enemies.append(enemy)
+            enemy_components += enemy.get_collidable_components()
+
+    self.enemies = updated_enemies
+
+    self.remove_platforms_not_within_screen()
+    self.game_objects = player_components + enemy_components + self.platforms + self.powerups</code></pre>
+</details>
+</dd>
+<dt id="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.get_components"><code class="name flex">
+<span>def <span class="ident">get_components</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>list[Component]</code></dt>
+<dd>all the components that should be rendered</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_components(self):
+    &#34;&#34;&#34;
+        Returns:
+            list[Component]: all the components that should be rendered&#34;&#34;&#34;
+
+    game_components = []
+    for game_object in self.players + self.enemies:
+        game_components += game_object.get_components()
+
+    game_components += self.player_health_bars + self.platforms + self.powerups + [self.hud, self.wall_of_death]
+    return game_components if self.intermediate_screen.has_finished() else self.intermediate_screen.get_components()</code></pre>
+</details>
+</dd>
+<dt id="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.get_random_enemy"><code class="name flex">
+<span>def <span class="ident">get_random_enemy</span></span>(<span>self, platform)</span>
+</code></dt>
+<dd>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>Enemy</code></dt>
+<dd>a random enemy</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_random_enemy(self, platform):
+    &#34;&#34;&#34;
+        Returns:
+            Enemy: a random enemy&#34;&#34;&#34;
+
+    enemy_types = [StraightEnemy, ChargingBull, BouncyEnemy]
+    enemy_type = random.choice(enemy_types)
+
+    return enemy_type(10, 20, platform)</code></pre>
+</details>
+</dd>
+<dt id="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.is_enemy"><code class="name flex">
+<span>def <span class="ident">is_enemy</span></span>(<span>self, game_object)</span>
+</code></dt>
+<dd>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>boolean</code></dt>
+<dd>if the game_object is just an enemy (not a weapon) &ndash;&gt; object type would be 'Enemy'</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def is_enemy(self, game_object):
+    &#34;&#34;&#34;
+        Returns:
+            boolean: if the game_object is just an enemy (not a weapon) --&gt; object type would be &#39;Enemy&#39;&#34;&#34;&#34;
+
+    return len(game_object.object_type) == 5</code></pre>
+</details>
+</dd>
+<dt id="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.is_enemy_weapon"><code class="name flex">
+<span>def <span class="ident">is_enemy_weapon</span></span>(<span>self, game_object)</span>
+</code></dt>
+<dd>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>boolean</code></dt>
+<dd>if the game_object is an enemy's weapon &ndash;&gt; object type would be 'Enemy Weapon'</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def is_enemy_weapon(self, game_object):
+    &#34;&#34;&#34;
+        Returns:
+            boolean: if the game_object is an enemy&#39;s weapon --&gt; object type would be &#39;Enemy Weapon&#39;&#34;&#34;&#34;
+
+    return len(game_object.object_type) == 12</code></pre>
+</details>
+</dd>
+<dt id="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.is_platform"><code class="name flex">
+<span>def <span class="ident">is_platform</span></span>(<span>self, game_object)</span>
+</code></dt>
+<dd>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>boolean</code></dt>
+<dd>if the game_object is a platform &ndash;&gt; object type would be 'Platform'</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def is_platform(self, game_object):
+    &#34;&#34;&#34;
+        Returns:
+            boolean: if the game_object is a platform --&gt; object type would be &#39;Platform&#39;&#34;&#34;&#34;
+
+    return len(game_object.object_type) == 8</code></pre>
+</details>
+</dd>
+<dt id="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.is_player"><code class="name flex">
+<span>def <span class="ident">is_player</span></span>(<span>self, game_object)</span>
+</code></dt>
+<dd>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>boolean</code></dt>
+<dd>if the game_object is the player &ndash;&gt; object type would be 'Player'</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def is_player(self, game_object):
+    &#34;&#34;&#34;
+        Returns:
+            boolean: if the game_object is the player --&gt; object type would be &#39;Player&#39;&#34;&#34;&#34;
+
+    return len(game_object.object_type) == 6</code></pre>
+</details>
+</dd>
+<dt id="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.is_player_weapon"><code class="name flex">
+<span>def <span class="ident">is_player_weapon</span></span>(<span>self, game_object)</span>
+</code></dt>
+<dd>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>boolean</code></dt>
+<dd>if the game_object is the player's weapon &ndash;&gt; object type would be 'Player Weapon'</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def is_player_weapon(self, game_object):
+    &#34;&#34;&#34;
+        Returns:
+            boolean: if the game_object is the player&#39;s weapon --&gt; object type would be &#39;Player Weapon&#39;&#34;&#34;&#34;
+
+    return len(game_object.object_type) == 13</code></pre>
+</details>
+</dd>
+<dt id="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.is_powerup"><code class="name flex">
+<span>def <span class="ident">is_powerup</span></span>(<span>self, game_object)</span>
+</code></dt>
+<dd>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>boolean</code></dt>
+<dd>if the game_object is a platform &ndash;&gt; object type would be 'Platform'</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def is_powerup(self, game_object):
+    &#34;&#34;&#34;
+        Returns:
+            boolean: if the game_object is a platform --&gt; object type would be &#39;Platform&#39;&#34;&#34;&#34;
+
+    return len(game_object.object_type) == 9</code></pre>
+</details>
+</dd>
+<dt id="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.remove_enemies_on_platform"><code class="name flex">
+<span>def <span class="ident">remove_enemies_on_platform</span></span>(<span>self, platform)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Removes all the enemies that are on that platform</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def remove_enemies_on_platform(self, platform):
+    &#34;&#34;&#34;Removes all the enemies that are on that platform&#34;&#34;&#34;
+
+    enemies_not_on_platform = []
+
+    for enemy in self.enemies:
+        if enemy.platform != platform:
+            enemies_not_on_platform.append(enemy)
+
+    self.enemies = enemies_not_on_platform</code></pre>
+</details>
+</dd>
+<dt id="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.remove_platforms_not_within_screen"><code class="name flex">
+<span>def <span class="ident">remove_platforms_not_within_screen</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Removes all the platforms that are not within the screen</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def remove_platforms_not_within_screen(self):
+    &#34;&#34;&#34;Removes all the platforms that are not within the screen&#34;&#34;&#34;
+
+    updated_platforms = []
+    for platform in self.platforms:
+        if platform.right_edge &gt;= 0:
+            updated_platforms.append(platform)
+
+        else:
+            self.player_score += SCORE_FROM_PASSING_PLATFORM
+    self.platforms = updated_platforms</code></pre>
+</details>
+</dd>
+<dt id="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.reset_game"><code class="name flex">
+<span>def <span class="ident">reset_game</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Resets the game after the player's death</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def reset_game(self):
+    &#34;&#34;&#34;Resets the game after the player&#39;s death&#34;&#34;&#34;
+
+    for player in self.players:
+        player.reset()
+
+    self.setup_enemies_and_platforms()
+    self.gravity_engine.reset()
+    HistoryKeeper.last_objects = {}
+    self.frames = 0
+    self.number_of_platforms_generated = 0
+    self.powerups = []
+    self.wall_of_death.reset()
+
+    high_score_message = f&#34;New High Score: {self.high_score}&#34;
+    non_high_score_message = f&#34;Score: {self.player_score}&#34;
+    message = high_score_message if self.is_high_score else non_high_score_message
+
+    self.intermediate_screen.set_texts([message])
+    self.intermediate_screen.set_time_ranges([Range(0, DEATH_MESSAGE_TIME)])
+    self.intermediate_screen.display()
+
+    self.player_score = 0</code></pre>
+</details>
+</dd>
+<dt id="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.run"><code class="name flex">
+<span>def <span class="ident">run</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Runs all the code necessary in order for the platformer to work</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def run(self):
+    &#34;&#34;&#34;Runs all the code necessary in order for the platformer to work&#34;&#34;&#34;
+
+    if self.intermediate_screen.has_finished():
+        self.run_game_code()
+
+    else:
+        self.intermediate_screen.run()</code></pre>
+</details>
+</dd>
+<dt id="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.run_all_collisions"><code class="name flex">
+<span>def <span class="ident">run_all_collisions</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Runs all the collisions between the player, projectiles, and enemies</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def run_all_collisions(self):
+    &#34;&#34;&#34;Runs all the collisions between the player, projectiles, and enemies&#34;&#34;&#34;
+
+    self.get_code_ready_for_collisions()
+
+    for i in range(len(self.game_objects)):
+        object1 = self.game_objects[i]
+
+        for j in range(i, len(self.game_objects)):
+            object2 = self.game_objects[j]
+
+            collision_is_possible = len(object1.object_type) != len(object2.object_type)
+            collision_has_happened = collision_is_possible and CollisionsEngine.is_collision(object1, object2)
+
+            # The &#39;self.run_object_collisions&#39; should only be called if the main object is not a platform
+            if collision_has_happened and not self.is_platform(object1):
+                self.run_object_collisions(object1, object2)
+
+            if collision_has_happened and not self.is_platform(object2):
+                self.run_object_collisions(object2, object1)</code></pre>
+</details>
+</dd>
+<dt id="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.run_enemy_collisions"><code class="name flex">
+<span>def <span class="ident">run_enemy_collisions</span></span>(<span>self, main_object, other_object)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Runs the collisions for when the enemy is the main object</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def run_enemy_collisions(self, main_object, other_object):
+    &#34;&#34;&#34;Runs the collisions for when the enemy is the main object&#34;&#34;&#34;
+
+    collision_function_parameters = [other_object, main_object.index]
+    if self.is_enemy(main_object) and self.is_platform(other_object):
+        main_object.run_inanimate_object_collision(*collision_function_parameters)
+
+    elif self.is_enemy_weapon(main_object) and self.is_platform(other_object):
+        main_object.user.run_inanimate_object_collision(*collision_function_parameters)
+
+    elif self.is_enemy(main_object) and self.is_player(other_object):
+        main_object.run_enemy_collision(*collision_function_parameters)
+
+    elif self.is_enemy_weapon(main_object) and self.is_player(other_object):
+        main_object.user.run_enemy_collision(*collision_function_parameters)</code></pre>
+</details>
+</dd>
+<dt id="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.run_game_code"><code class="name flex">
+<span>def <span class="ident">run_game_code</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Runs all the code for running the game that runs when the intermediate screen is not being displayed</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def run_game_code(self):
+    &#34;&#34;&#34;Runs all the code for running the game that runs when the intermediate screen is not being displayed&#34;&#34;&#34;
+
+    self.run_player_and_enemies()
+    self.run_all_collisions()
+
+    # All the enemies and players should do something based on the updated collision they got from &#39;self.run_all_collisions()&#39;
+    for game_object in self.enemies + self.players:
+        game_object.run_collisions()
+
+    self.add_game_objects_to_history_keeper()
+    self.run_side_scrolling()
+    self.run_platform_generation()</code></pre>
+</details>
+</dd>
+<dt id="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.run_object_collisions"><code class="name flex">
+<span>def <span class="ident">run_object_collisions</span></span>(<span>self, main_object, other_object)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Runs the collisions between the 'main_object' and the 'other_object;' the main_object acts upon the other_object.
+By act upon I mean damages the other_object, moves the other_object, etc.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def run_object_collisions(self, main_object, other_object):
+    &#34;&#34;&#34; Runs the collisions between the &#39;main_object&#39; and the &#39;other_object;&#39; the main_object acts upon the other_object.
+        By act upon I mean damages the other_object, moves the other_object, etc.&#34;&#34;&#34;
+
+    if self.is_player(main_object) or self.is_player_weapon(main_object):
+        self.run_player_collisions(main_object, other_object)
+
+    elif self.is_enemy(main_object) or self.is_enemy_weapon(main_object):
+        self.run_enemy_collisions(main_object, other_object)
+
+    elif self.is_powerup(main_object) and self.is_player(other_object):
+        main_object.run_player_collision(other_object)
+
+        # Removes it from the screen so it is deleted: can&#39;t delete here because that would cause issues with modifying
+        # a list while it is being iterated over
+        main_object.left_edge = -1000</code></pre>
+</details>
+</dd>
+<dt id="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.run_on_close"><code class="name flex">
+<span>def <span class="ident">run_on_close</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Runs what should happen when the game is closed (save the high scores)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def run_on_close(self):
+    &#34;&#34;&#34;Runs what should happen when the game is closed (save the high scores)&#34;&#34;&#34;
+
+    file = open(&#34;games/platformer/high_scores.txt&#34;, &#34;w+&#34;)
+    file.write(f&#34;high_scores:[{self.high_score}]&#34;)
+    file.close()</code></pre>
+</details>
+</dd>
+<dt id="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.run_platform_generation"><code class="name flex">
+<span>def <span class="ident">run_platform_generation</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Runs all the code for generating platforms</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def run_platform_generation(self):
+    &#34;&#34;&#34;Runs all the code for generating platforms&#34;&#34;&#34;
+
+    if self.rightmost_platform.right_edge &lt;= SCREEN_LENGTH:
+        difficulty = self.score_to_difficulty.get_y_coordinate(self.player_score)
+        new_platform = self.generator.generate_platform(self.rightmost_platform, difficulty)
+        self.platforms.append(new_platform)
+        self.update_rightmost_platform()
+
+        new_enemy = self.get_random_enemy(new_platform)
+        self.enemies.append(new_enemy)
+        # self.gravity_engine.add_game_objects([new_enemy])
+
+        self.number_of_platforms_generated += 1
+        self.run_powerup_spawning(new_platform)</code></pre>
+</details>
+</dd>
+<dt id="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.run_player_and_enemies"><code class="name flex">
+<span>def <span class="ident">run_player_and_enemies</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Runs all the code associated with the player's and enemies that is not collisions</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def run_player_and_enemies(self):
+    &#34;&#34;&#34;Runs all the code associated with the player&#39;s and enemies that is not collisions&#34;&#34;&#34;
+
+    self.update_score()
+    self.gravity_engine.run()
+    self.powerups = list(filter(lambda item: item.right_edge &gt;= 0, self.powerups))
+
+    self.ammo_field.text = f&#34;Ammo Left: {self.players[0].ammo_left}&#34;
+
+    for player in self.players:
+        if player.platform_is_on is not None and not CollisionsEngine.is_collision(player, player.platform_is_on):
+            player.set_is_on_platform(False, None)
+
+        if player.hit_points_left &lt;= 0 or not is_within_screen(player):
+            self.run_player_respawn()
+
+        if CollisionsEngine.is_collision(player, self.wall_of_death):
+            self.reset_game()
+
+        # So the player is moves before side scrolling happens
+        player.run()
+
+    for enemy in self.enemies:
+        enemy.run_player_interactions(self.players)
+
+        if enemy.hit_points_left &lt;= 0:
+            self.player_score += SCORE_FROM_KILLING_ENEMY</code></pre>
+</details>
+</dd>
+<dt id="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.run_player_collisions"><code class="name flex">
+<span>def <span class="ident">run_player_collisions</span></span>(<span>self, main_object, other_object)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Runs the collisions for when the player is the main object</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def run_player_collisions(self, main_object, other_object):
+    &#34;&#34;&#34;Runs the collisions for when the player is the main object&#34;&#34;&#34;
+
+    collision_function_parameters = [other_object, main_object.index]
+    has_collided_with_enemy = self.is_enemy_weapon(other_object) or self.is_enemy(other_object)
+
+    if self.is_player(main_object) and self.is_platform(other_object):
+        main_object.run_inanimate_object_collision(*collision_function_parameters)
+
+    elif self.is_player_weapon(main_object) and self.is_platform(other_object):
+        main_object.user.run_inanimate_object_collision(*collision_function_parameters)
+
+    elif self.is_player_weapon(main_object) and has_collided_with_enemy:
+        main_object.user.run_enemy_collision(*collision_function_parameters)</code></pre>
+</details>
+</dd>
+<dt id="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.run_player_respawn"><code class="name flex">
+<span>def <span class="ident">run_player_respawn</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Makes the player respawn</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def run_player_respawn(self):
+    &#34;&#34;&#34;Makes the player respawn&#34;&#34;&#34;
+
+    for player in self.players:
+        player.run_respawning()
+
+        last_platform = self.platforms[0]
+
+        if last_platform.horizontal_midpoint &lt;= 0:
+            difference = abs(last_platform.horizontal_midpoint)
+            self.side_scroll_all_objects(-difference)
+
+        player.left_edge = last_platform.horizontal_midpoint
+        player.top_edge = last_platform.top_edge - player.height
+        self.remove_enemies_on_platform(last_platform)
+
+    self.wall_of_death.total_time += WALL_OF_DEATH_TIME_INCREASE_AFTER_PLAYER_DEATH
+    self.powerups = []
+    HistoryKeeper.last_objects = {}
+    self.gravity_engine.reset()
+    self.intermediate_screen.set_texts([&#34;Player Respawn&#34;])
+    self.intermediate_screen.set_time_ranges([Range(0, RESPAWN_MESSAGE_TIME)])
+    self.intermediate_screen.display()
+    self.has_respawned = True</code></pre>
+</details>
+</dd>
+<dt id="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.run_powerup_spawning"><code class="name flex">
+<span>def <span class="ident">run_powerup_spawning</span></span>(<span>self, new_platform)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Runs the spawning of powerups after a platform is generated: a powerup won't spawn everytime</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def run_powerup_spawning(self, new_platform):
+    &#34;&#34;&#34;Runs the spawning of powerups after a platform is generated: a powerup won&#39;t spawn everytime&#34;&#34;&#34;
+
+    should_generate_powerup = is_random_chance(PROBABILITY_OF_GETTING_POWERUP_GENERATED)
+    weapon_powerups = [BouncyProjectilePowerup, StraightProjectilePowerup]
+    non_weapon_powerups = [HeartPowerup, AmmoPowerup]
+    powerup_left_edge, powerup_top_edge = new_platform.horizontal_midpoint, new_platform.top_edge - Powerup.height
+
+    if should_generate_powerup:
+        should_generate_weapon = is_random_chance(PROBABILITY_OF_POWERUP_BEING_A_WEAPON)
+        powerup_class_list = weapon_powerups if should_generate_weapon else non_weapon_powerups
+        powerup_class = random.choice(powerup_class_list)
+        self.powerups.append(powerup_class(powerup_left_edge, powerup_top_edge))</code></pre>
+</details>
+</dd>
+<dt id="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.run_side_scrolling"><code class="name flex">
+<span>def <span class="ident">run_side_scrolling</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Makes the screen side scroll based off the player who is the farthest behind</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def run_side_scrolling(self):
+    &#34;&#34;&#34;Makes the screen side scroll based off the player who is the farthest behind&#34;&#34;&#34;
+
+    # First the players are sorted by the smallest left_edge and then the smallest player is taken
+    farthest_back_player = list(sorted(self.players, key=lambda player: player.right_edge))[0]
+    shortest_distance = farthest_back_player.right_edge
+
+    # If the distance of the farthest back player is greater than the distance needed for sidescrolling then
+    # All the objects in the game should be side scrolled
+    if shortest_distance &gt; SIDE_SCROLLING_START_DISTANCE:
+        side_scrolling_distance = shortest_distance - SIDE_SCROLLING_START_DISTANCE
+        self.side_scroll_all_objects(side_scrolling_distance)</code></pre>
+</details>
+</dd>
+<dt id="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.setup_enemies_and_platforms"><code class="name flex">
+<span>def <span class="ident">setup_enemies_and_platforms</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Creates the enemies and platforms of the game for starting out</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def setup_enemies_and_platforms(self):
+    &#34;&#34;&#34;Creates the enemies and platforms of the game for starting out&#34;&#34;&#34;
+
+    # One Long Platform
+    self.platforms = [Platform(START_PLATFORM_LEFT_EDGE, START_PLATFORM_TOP_EDGE, START_PLATFORM_LENGTH, START_PLATFORM_HEIGHT)]
+    self.enemies = []
+    self.update_rightmost_platform()</code></pre>
+</details>
+</dd>
+<dt id="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.setup_players"><code class="name flex">
+<span>def <span class="ident">setup_players</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Creates all the player's and all the necessary stuff associated with them (GravityEngine, HealthGrid, Generator, HUD)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def setup_players(self):
+    &#34;&#34;&#34;Creates all the player&#39;s and all the necessary stuff associated with them (GravityEngine, HealthGrid, Generator, HUD)&#34;&#34;&#34;
+
+    player_game_buttons = self.player_buttons if IS_USING_CONTROLLER else self.player_keys
+    self.players = [Player(*player_game_buttons)]
+    self.gravity_engine = GravityEngine(self.players, self.players[0].jumping_path.acceleration)
+
+    for player in self.players:
+        player.gravity_engine = self.gravity_engine
+        player.left_edge = self.platforms[0].left_edge + 10
+        player.base_top_edge = self.platforms[0].top_edge - player.height
+        player.set_top_edge(player.base_top_edge)
+
+        self.player_health_bars.append(HealthBar(player, lambda: False))
+
+    health_grid = Grid(Dimensions(0, 0, self.health_grid_length, self.health_grid_height), 2, 2)
+    health_grid.turn_into_grid(self.player_health_bars, None, None)
+
+    self.generator = Generator(self.players[0])
+    self.hud.set_dimensions(health_grid.dimensions.right_edge, 0, self.hud_length, self.hud_height)</code></pre>
+</details>
+</dd>
+<dt id="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.side_scroll_all_objects"><code class="name flex">
+<span>def <span class="ident">side_scroll_all_objects</span></span>(<span>self, side_scrolling_distance)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Side scrolls all the game objects by 'side_scrolling_distance'</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def side_scroll_all_objects(self, side_scrolling_distance):
+    &#34;&#34;&#34;Side scrolls all the game objects by &#39;side_scrolling_distance&#39;&#34;&#34;&#34;
+
+    self.side_scroll_objects(side_scrolling_distance, self.players)
+    self.side_scroll_objects(side_scrolling_distance, self.enemies)
+    self.side_scroll_objects(side_scrolling_distance, self.platforms)
+    self.side_scroll_objects(side_scrolling_distance, self.powerups)
+    self.wall_of_death.update_for_side_scrolling(side_scrolling_distance)</code></pre>
+</details>
+</dd>
+<dt id="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.side_scroll_objects"><code class="name flex">
+<span>def <span class="ident">side_scroll_objects</span></span>(<span>self, distance, game_objects)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Moves all the objects leftwards by the distance specified (side scrolling)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def side_scroll_objects(self, distance, game_objects):
+    &#34;&#34;&#34;Moves all the objects leftwards by the distance specified (side scrolling)&#34;&#34;&#34;
+
+    for game_object in game_objects:
+        game_object.update_for_side_scrolling(distance)</code></pre>
+</details>
+</dd>
+<dt id="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.update_rightmost_platform"><code class="name flex">
+<span>def <span class="ident">update_rightmost_platform</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Updates the attribute 'rightmost_platform' so it is actually the rightmost_platform</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def update_rightmost_platform(self):
+    &#34;&#34;&#34;Updates the attribute &#39;rightmost_platform&#39; so it is actually the rightmost_platform&#34;&#34;&#34;
+
+    # First the platforms are sorted with right_edge&#39;s decreasing, then the index of 0 is taken giving the rightmost platform
+    self.rightmost_platform = list(sorted(self.platforms, key=lambda platform: platform.right_edge, reverse=True))[0]</code></pre>
+</details>
+</dd>
+<dt id="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.update_score"><code class="name flex">
+<span>def <span class="ident">update_score</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Updates the HUD and the high score of the player</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def update_score(self):
+    &#34;&#34;&#34;Updates the HUD and the high score of the player&#34;&#34;&#34;
+
+    if self.player_score &gt; self.high_score:
+        self.is_high_score = True
+        self.high_score = self.player_score
+
+    self.hud.update([self.player_score], self.high_score)</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="Senior-Project.games.platformer" href="index.html">Senior-Project.games.platformer</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="Senior-Project.games.platformer.platformer_screen.PlatformerScreen" href="#Senior-Project.games.platformer.platformer_screen.PlatformerScreen">PlatformerScreen</a></code></h4>
+<ul class="">
+<li><code><a title="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.add_collidable_components" href="#Senior-Project.games.platformer.platformer_screen.PlatformerScreen.add_collidable_components">add_collidable_components</a></code></li>
+<li><code><a title="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.add_game_objects_to_history_keeper" href="#Senior-Project.games.platformer.platformer_screen.PlatformerScreen.add_game_objects_to_history_keeper">add_game_objects_to_history_keeper</a></code></li>
+<li><code><a title="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.ammo_field" href="#Senior-Project.games.platformer.platformer_screen.PlatformerScreen.ammo_field">ammo_field</a></code></li>
+<li><code><a title="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.enemies" href="#Senior-Project.games.platformer.platformer_screen.PlatformerScreen.enemies">enemies</a></code></li>
+<li><code><a title="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.frames" href="#Senior-Project.games.platformer.platformer_screen.PlatformerScreen.frames">frames</a></code></li>
+<li><code><a title="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.game_objects" href="#Senior-Project.games.platformer.platformer_screen.PlatformerScreen.game_objects">game_objects</a></code></li>
+<li><code><a title="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.generator" href="#Senior-Project.games.platformer.platformer_screen.PlatformerScreen.generator">generator</a></code></li>
+<li><code><a title="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.get_code_ready_for_collisions" href="#Senior-Project.games.platformer.platformer_screen.PlatformerScreen.get_code_ready_for_collisions">get_code_ready_for_collisions</a></code></li>
+<li><code><a title="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.get_components" href="#Senior-Project.games.platformer.platformer_screen.PlatformerScreen.get_components">get_components</a></code></li>
+<li><code><a title="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.get_random_enemy" href="#Senior-Project.games.platformer.platformer_screen.PlatformerScreen.get_random_enemy">get_random_enemy</a></code></li>
+<li><code><a title="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.gravity_engine" href="#Senior-Project.games.platformer.platformer_screen.PlatformerScreen.gravity_engine">gravity_engine</a></code></li>
+<li><code><a title="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.has_respawned" href="#Senior-Project.games.platformer.platformer_screen.PlatformerScreen.has_respawned">has_respawned</a></code></li>
+<li><code><a title="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.health_grid_height" href="#Senior-Project.games.platformer.platformer_screen.PlatformerScreen.health_grid_height">health_grid_height</a></code></li>
+<li><code><a title="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.health_grid_length" href="#Senior-Project.games.platformer.platformer_screen.PlatformerScreen.health_grid_length">health_grid_length</a></code></li>
+<li><code><a title="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.high_score" href="#Senior-Project.games.platformer.platformer_screen.PlatformerScreen.high_score">high_score</a></code></li>
+<li><code><a title="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.hud" href="#Senior-Project.games.platformer.platformer_screen.PlatformerScreen.hud">hud</a></code></li>
+<li><code><a title="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.hud_height" href="#Senior-Project.games.platformer.platformer_screen.PlatformerScreen.hud_height">hud_height</a></code></li>
+<li><code><a title="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.hud_length" href="#Senior-Project.games.platformer.platformer_screen.PlatformerScreen.hud_length">hud_length</a></code></li>
+<li><code><a title="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.intermediate_screen" href="#Senior-Project.games.platformer.platformer_screen.PlatformerScreen.intermediate_screen">intermediate_screen</a></code></li>
+<li><code><a title="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.is_enemy" href="#Senior-Project.games.platformer.platformer_screen.PlatformerScreen.is_enemy">is_enemy</a></code></li>
+<li><code><a title="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.is_enemy_weapon" href="#Senior-Project.games.platformer.platformer_screen.PlatformerScreen.is_enemy_weapon">is_enemy_weapon</a></code></li>
+<li><code><a title="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.is_high_score" href="#Senior-Project.games.platformer.platformer_screen.PlatformerScreen.is_high_score">is_high_score</a></code></li>
+<li><code><a title="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.is_platform" href="#Senior-Project.games.platformer.platformer_screen.PlatformerScreen.is_platform">is_platform</a></code></li>
+<li><code><a title="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.is_player" href="#Senior-Project.games.platformer.platformer_screen.PlatformerScreen.is_player">is_player</a></code></li>
+<li><code><a title="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.is_player_weapon" href="#Senior-Project.games.platformer.platformer_screen.PlatformerScreen.is_player_weapon">is_player_weapon</a></code></li>
+<li><code><a title="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.is_powerup" href="#Senior-Project.games.platformer.platformer_screen.PlatformerScreen.is_powerup">is_powerup</a></code></li>
+<li><code><a title="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.last_time" href="#Senior-Project.games.platformer.platformer_screen.PlatformerScreen.last_time">last_time</a></code></li>
+<li><code><a title="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.number_of_platforms_generated" href="#Senior-Project.games.platformer.platformer_screen.PlatformerScreen.number_of_platforms_generated">number_of_platforms_generated</a></code></li>
+<li><code><a title="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.platforms" href="#Senior-Project.games.platformer.platformer_screen.PlatformerScreen.platforms">platforms</a></code></li>
+<li><code><a title="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.player_buttons" href="#Senior-Project.games.platformer.platformer_screen.PlatformerScreen.player_buttons">player_buttons</a></code></li>
+<li><code><a title="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.player_health_bars" href="#Senior-Project.games.platformer.platformer_screen.PlatformerScreen.player_health_bars">player_health_bars</a></code></li>
+<li><code><a title="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.player_keys" href="#Senior-Project.games.platformer.platformer_screen.PlatformerScreen.player_keys">player_keys</a></code></li>
+<li><code><a title="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.player_score" href="#Senior-Project.games.platformer.platformer_screen.PlatformerScreen.player_score">player_score</a></code></li>
+<li><code><a title="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.players" href="#Senior-Project.games.platformer.platformer_screen.PlatformerScreen.players">players</a></code></li>
+<li><code><a title="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.powerups" href="#Senior-Project.games.platformer.platformer_screen.PlatformerScreen.powerups">powerups</a></code></li>
+<li><code><a title="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.remove_enemies_on_platform" href="#Senior-Project.games.platformer.platformer_screen.PlatformerScreen.remove_enemies_on_platform">remove_enemies_on_platform</a></code></li>
+<li><code><a title="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.remove_platforms_not_within_screen" href="#Senior-Project.games.platformer.platformer_screen.PlatformerScreen.remove_platforms_not_within_screen">remove_platforms_not_within_screen</a></code></li>
+<li><code><a title="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.reset_game" href="#Senior-Project.games.platformer.platformer_screen.PlatformerScreen.reset_game">reset_game</a></code></li>
+<li><code><a title="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.rightmost_platform" href="#Senior-Project.games.platformer.platformer_screen.PlatformerScreen.rightmost_platform">rightmost_platform</a></code></li>
+<li><code><a title="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.run" href="#Senior-Project.games.platformer.platformer_screen.PlatformerScreen.run">run</a></code></li>
+<li><code><a title="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.run_all_collisions" href="#Senior-Project.games.platformer.platformer_screen.PlatformerScreen.run_all_collisions">run_all_collisions</a></code></li>
+<li><code><a title="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.run_enemy_collisions" href="#Senior-Project.games.platformer.platformer_screen.PlatformerScreen.run_enemy_collisions">run_enemy_collisions</a></code></li>
+<li><code><a title="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.run_game_code" href="#Senior-Project.games.platformer.platformer_screen.PlatformerScreen.run_game_code">run_game_code</a></code></li>
+<li><code><a title="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.run_object_collisions" href="#Senior-Project.games.platformer.platformer_screen.PlatformerScreen.run_object_collisions">run_object_collisions</a></code></li>
+<li><code><a title="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.run_on_close" href="#Senior-Project.games.platformer.platformer_screen.PlatformerScreen.run_on_close">run_on_close</a></code></li>
+<li><code><a title="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.run_platform_generation" href="#Senior-Project.games.platformer.platformer_screen.PlatformerScreen.run_platform_generation">run_platform_generation</a></code></li>
+<li><code><a title="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.run_player_and_enemies" href="#Senior-Project.games.platformer.platformer_screen.PlatformerScreen.run_player_and_enemies">run_player_and_enemies</a></code></li>
+<li><code><a title="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.run_player_collisions" href="#Senior-Project.games.platformer.platformer_screen.PlatformerScreen.run_player_collisions">run_player_collisions</a></code></li>
+<li><code><a title="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.run_player_respawn" href="#Senior-Project.games.platformer.platformer_screen.PlatformerScreen.run_player_respawn">run_player_respawn</a></code></li>
+<li><code><a title="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.run_powerup_spawning" href="#Senior-Project.games.platformer.platformer_screen.PlatformerScreen.run_powerup_spawning">run_powerup_spawning</a></code></li>
+<li><code><a title="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.run_side_scrolling" href="#Senior-Project.games.platformer.platformer_screen.PlatformerScreen.run_side_scrolling">run_side_scrolling</a></code></li>
+<li><code><a title="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.score_to_difficulty" href="#Senior-Project.games.platformer.platformer_screen.PlatformerScreen.score_to_difficulty">score_to_difficulty</a></code></li>
+<li><code><a title="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.setup_enemies_and_platforms" href="#Senior-Project.games.platformer.platformer_screen.PlatformerScreen.setup_enemies_and_platforms">setup_enemies_and_platforms</a></code></li>
+<li><code><a title="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.setup_players" href="#Senior-Project.games.platformer.platformer_screen.PlatformerScreen.setup_players">setup_players</a></code></li>
+<li><code><a title="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.side_scroll_all_objects" href="#Senior-Project.games.platformer.platformer_screen.PlatformerScreen.side_scroll_all_objects">side_scroll_all_objects</a></code></li>
+<li><code><a title="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.side_scroll_objects" href="#Senior-Project.games.platformer.platformer_screen.PlatformerScreen.side_scroll_objects">side_scroll_objects</a></code></li>
+<li><code><a title="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.update_rightmost_platform" href="#Senior-Project.games.platformer.platformer_screen.PlatformerScreen.update_rightmost_platform">update_rightmost_platform</a></code></li>
+<li><code><a title="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.update_score" href="#Senior-Project.games.platformer.platformer_screen.PlatformerScreen.update_score">update_score</a></code></li>
+<li><code><a title="Senior-Project.games.platformer.platformer_screen.PlatformerScreen.wall_of_death" href="#Senior-Project.games.platformer.platformer_screen.PlatformerScreen.wall_of_death">wall_of_death</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>

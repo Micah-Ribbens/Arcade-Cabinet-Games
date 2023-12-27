@@ -1,0 +1,827 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>Senior-Project.games.bird_shooter.player API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>Senior-Project.games.bird_shooter.player</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">from math import ceil, floor
+
+from game_qu.base.events import TimedEvent
+from game_qu.base.important_variables import *
+from game_qu.base.velocity_calculator import VelocityCalculator
+from game_qu.gui_components.component import Component
+from game_qu.gui_components.dimensions import Dimensions
+from game_qu.base.utility_functions import *
+from games.bird_shooter.bullet import Bullet
+from game_qu.base.utility_functions import load_and_transform_image
+
+
+class Player(Component):
+    &#34;&#34;&#34;The players (birds) of the game&#34;&#34;&#34;
+
+    # Player Position
+    min_left_edge = 0
+    max_left_edge = 0
+    min_top_edge = 0
+    max_top_edge = 0
+    is_facing_right = False
+    is_facing_up = False
+    vertical_delta = 0
+    # Player Components
+    path_to_bullet_image = &#34;&#34;
+    path_to_player_image = &#34;&#34;
+    turret = None
+    eye = None
+    wait_to_shoot_event = None
+
+    # Size and Velocity
+    length = VelocityCalculator.get_dimension(SCREEN_LENGTH, 10)
+    height = VelocityCalculator.get_dimension(SCREEN_HEIGHT, 20)
+    turret_length = VelocityCalculator.get_dimension(3, SCREEN_LENGTH)
+    turret_height = VelocityCalculator.get_dimension(3.5, SCREEN_HEIGHT)
+    player_velocity = VelocityCalculator.get_velocity(SCREEN_LENGTH, 700)
+    turret_velocity = VelocityCalculator.get_velocity(SCREEN_LENGTH, 250)
+    # Keys
+    right_key = None
+    left_key = None
+    up_key = None
+    down_key = None
+    shoot_key = None
+    move_turret_key = None
+    # Miscellaneous
+    stun_event = None
+    player_number = 1
+    new_bullets = []
+    cap_extension = ceil(21 / 86 * length)
+
+    def __init__(self, player_keys, player_number, boundaries, is_facing_right):
+        &#34;&#34;&#34;Initializes the object with the given parameters&#34;&#34;&#34;
+
+        super().__init__(f&#34;games/bird_shooter/images/player{player_number}_right.png&#34;)
+        self.path_to_bullet_image = f&#34;games/bird_shooter/images/player{player_number}_bullet.png&#34;
+
+        self.left_key, self.right_key, self.up_key, self.down_key, self.shoot_key, self.move_turret_key = player_keys
+
+        Dimensions.__init__(self, SCREEN_LENGTH / 2, SCREEN_HEIGHT - self.height, self.length, self.height)
+
+        self.new_bullets = []
+        self.wait_to_shoot_event = TimedEvent(.2)
+        self.stun_event = TimedEvent(.2)
+
+        self.min_left_edge, self.max_left_edge, self.min_top_edge, self.max_top_edge = boundaries
+
+        self.turret = Component(&#34;games/bird_shooter/images/beak.png&#34;)
+        self.eye = Component(&#34;games/bird_shooter/images/enemy_eye.png&#34;)
+
+        self.eye.length, self.eye.height = self.eye_size
+
+        self.turret.number_set_dimensions(self.right_edge, self.vertical_midpoint, self.turret_length, self.turret_height)
+        self.is_facing_right, self.player_number = is_facing_right, player_number
+
+        transformation_paths = [f&#34;games/bird_shooter/images/player{player_number}&#34;, &#34;games/bird_shooter/images/stunned&#34;]
+        other_paths = [f&#34;games/bird_shooter/images/beak.png&#34;, f&#34;games/bird_shooter/images/beak_stunned.png&#34;, f&#34;games/bird_shooter/images/enemy_eye.png&#34;]
+
+        for image_path in other_paths:
+            load_image(image_path)
+
+        for image_path in transformation_paths:
+            load_and_transform_image(image_path)
+
+    def run(self):
+        &#34;&#34;&#34;Runs the moving and shooting logic&#34;&#34;&#34;&#34;&#34;
+
+        self.new_bullets = []
+        self.wait_to_shoot_event.run(self.wait_to_shoot_event.current_time &gt;= self.wait_to_shoot_event.time_needed, False)
+        self.stun_event.run(self.stun_event.current_time &gt;= self.stun_event.time_needed, False)
+
+        self.turret.left_edge = self.right_edge - self.cap_extension if self.is_facing_right else self.left_edge - self.turret.length + self.cap_extension
+        self.turret.top_edge = self.top_edge + self.vertical_delta
+
+        if self.stun_event.has_finished():
+            self.movement()
+            self.run_shooting()
+
+    def run_shooting(self):
+        &#34;&#34;&#34;Shoots a bullet if the player has released the shoot key and the player can shoot&#34;&#34;&#34;
+
+        if key_has_been_released(self.shoot_key) and self.wait_to_shoot_event.has_finished():
+            self.shoot_bullet(get_time_of_key_being_held_in(self.shoot_key))
+            self.wait_to_shoot_event.start()
+
+    def movement(self):
+        &#34;&#34;&#34;Moves the player across the screen and also the turret if the player is moving the turret&#34;&#34;&#34;
+
+        player_distance = VelocityCalculator.get_distance(self.player_velocity)
+        turret_distance = VelocityCalculator.get_distance(self.turret_velocity)
+
+        self.left_edge += player_distance if key_is_pressed(self.right_key) else 0
+        self.left_edge -= player_distance if key_is_pressed(self.left_key) else 0
+
+        self.top_edge += player_distance if key_is_pressed(self.down_key) and not key_is_pressed(self.move_turret_key) else 0
+        self.top_edge -= player_distance if key_is_pressed(self.up_key) and not key_is_pressed(self.move_turret_key) else 0
+
+        self.left_edge = self.get_new_coordinates(self.min_left_edge, self.max_left_edge, self.left_edge)
+        self.top_edge = self.get_new_coordinates(self.min_top_edge, self.max_top_edge, self.top_edge)
+
+        self.vertical_delta -= turret_distance if key_is_pressed(self.up_key) and key_is_pressed(self.move_turret_key) else 0
+        self.vertical_delta += turret_distance if key_is_pressed(self.down_key) and key_is_pressed(self.move_turret_key) else 0
+        # 30/122 is gotten from looking at the pixel image of the player
+        self.vertical_delta = self.get_new_coordinates(self.bottom_of_cap, self.height - self.turret.height, self.vertical_delta)
+
+        self.is_facing_right = True if key_is_pressed(self.right_key) else self.is_facing_right
+        self.is_facing_right = False if key_is_pressed(self.left_key) else self.is_facing_right
+
+        self.is_facing_up = True if key_is_pressed(self.up_key) else self.is_facing_up
+        self.is_facing_up = False if key_is_pressed(self.down_key) else self.is_facing_up
+
+    def shoot_bullet(self, time_held_in):
+        &#34;&#34;&#34;Shoots a bullet and the bullets size depends on how long the shoot key was held in&#34;&#34;&#34;
+
+        size_multipliers = [1, 1.5, 2]
+        times_needed_for_size_change = [.5, 1, float(&#34;inf&#34;)]
+
+        size_multiplier_index = get_index_of_range(time_held_in, times_needed_for_size_change)
+        size_multiplier = size_multipliers[size_multiplier_index]
+
+        damage = size_multiplier_index + 1
+
+        bullet_size = size_multiplier * Bullet.length
+        turret_left_edge = self.turret.right_edge if self.is_facing_right else self.turret.left_edge - bullet_size
+
+        self.new_bullets.append(Bullet(self.path_to_bullet_image, turret_left_edge, self.turret.vertical_midpoint - bullet_size / 2, self.is_facing_right, damage, size_multiplier))
+
+    def reset(self):
+        &#34;&#34;&#34;Resets all the player&#39;s attributes to their original state&#34;&#34;&#34;
+
+        self.new_bullets = []
+        self.wait_to_shoot_event.reset()
+
+    def get_new_coordinates(self, min_coordinate, max_coordinate, current_coordinate):
+        &#34;&#34;&#34;
+            Returns:
+                float: the coordinate if &#39;current_coordinate&#39; is within the boundaries, otherwise boundary it violated.
+                Boundaries being defined by &#39;min_coordinate&#39; and &#39;max_coordinate.&#39;
+        &#34;&#34;&#34;
+
+        current_coordinate = min_coordinate if current_coordinate &lt; min_coordinate else current_coordinate
+        current_coordinate = max_coordinate if current_coordinate &gt; max_coordinate else current_coordinate
+
+        return current_coordinate
+
+    def render(self):
+        &#34;&#34;&#34;Renders the player onto the screen&#34;&#34;&#34;
+
+        original_path = f&#34;games/bird_shooter/images/player{self.player_number}&#34; if self.stun_event.has_finished() else f&#34;games/bird_shooter/images/stunned&#34;
+        self.path_to_image = get_directional_path_to_image(original_path, self.is_facing_right, &#34;&#34;)
+
+        original_turret_path = f&#34;games/bird_shooter/images/beak&#34;
+        turret_type = &#34;_stunned.png&#34; if not self.stun_event.has_finished() else &#34;.png&#34;
+        self.turret.path_to_image = f&#34;{original_turret_path}{turret_type}&#34;
+
+        super().render()
+        self.turret.render()
+
+    def stun(self, stun_time):
+        &#34;&#34;&#34;Stuns the player&#34;&#34;&#34;
+
+        if self.stun_event.has_finished():
+            self.stun_event.start()
+            self.stun_event.time_needed = stun_time
+
+    @property
+    def eye_size(self):
+        return [ceil(10/86 * self.length), ceil(10/122 * self.height)]
+
+    @property
+    def bottom_of_cap(self):
+        return 30/122 * self.height</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="Senior-Project.games.bird_shooter.player.Player"><code class="flex name class">
+<span>class <span class="ident">Player</span></span>
+<span>(</span><span>player_keys, player_number, boundaries, is_facing_right)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>The players (birds) of the game</p>
+<p>Initializes the object with the given parameters</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Player(Component):
+    &#34;&#34;&#34;The players (birds) of the game&#34;&#34;&#34;
+
+    # Player Position
+    min_left_edge = 0
+    max_left_edge = 0
+    min_top_edge = 0
+    max_top_edge = 0
+    is_facing_right = False
+    is_facing_up = False
+    vertical_delta = 0
+    # Player Components
+    path_to_bullet_image = &#34;&#34;
+    path_to_player_image = &#34;&#34;
+    turret = None
+    eye = None
+    wait_to_shoot_event = None
+
+    # Size and Velocity
+    length = VelocityCalculator.get_dimension(SCREEN_LENGTH, 10)
+    height = VelocityCalculator.get_dimension(SCREEN_HEIGHT, 20)
+    turret_length = VelocityCalculator.get_dimension(3, SCREEN_LENGTH)
+    turret_height = VelocityCalculator.get_dimension(3.5, SCREEN_HEIGHT)
+    player_velocity = VelocityCalculator.get_velocity(SCREEN_LENGTH, 700)
+    turret_velocity = VelocityCalculator.get_velocity(SCREEN_LENGTH, 250)
+    # Keys
+    right_key = None
+    left_key = None
+    up_key = None
+    down_key = None
+    shoot_key = None
+    move_turret_key = None
+    # Miscellaneous
+    stun_event = None
+    player_number = 1
+    new_bullets = []
+    cap_extension = ceil(21 / 86 * length)
+
+    def __init__(self, player_keys, player_number, boundaries, is_facing_right):
+        &#34;&#34;&#34;Initializes the object with the given parameters&#34;&#34;&#34;
+
+        super().__init__(f&#34;games/bird_shooter/images/player{player_number}_right.png&#34;)
+        self.path_to_bullet_image = f&#34;games/bird_shooter/images/player{player_number}_bullet.png&#34;
+
+        self.left_key, self.right_key, self.up_key, self.down_key, self.shoot_key, self.move_turret_key = player_keys
+
+        Dimensions.__init__(self, SCREEN_LENGTH / 2, SCREEN_HEIGHT - self.height, self.length, self.height)
+
+        self.new_bullets = []
+        self.wait_to_shoot_event = TimedEvent(.2)
+        self.stun_event = TimedEvent(.2)
+
+        self.min_left_edge, self.max_left_edge, self.min_top_edge, self.max_top_edge = boundaries
+
+        self.turret = Component(&#34;games/bird_shooter/images/beak.png&#34;)
+        self.eye = Component(&#34;games/bird_shooter/images/enemy_eye.png&#34;)
+
+        self.eye.length, self.eye.height = self.eye_size
+
+        self.turret.number_set_dimensions(self.right_edge, self.vertical_midpoint, self.turret_length, self.turret_height)
+        self.is_facing_right, self.player_number = is_facing_right, player_number
+
+        transformation_paths = [f&#34;games/bird_shooter/images/player{player_number}&#34;, &#34;games/bird_shooter/images/stunned&#34;]
+        other_paths = [f&#34;games/bird_shooter/images/beak.png&#34;, f&#34;games/bird_shooter/images/beak_stunned.png&#34;, f&#34;games/bird_shooter/images/enemy_eye.png&#34;]
+
+        for image_path in other_paths:
+            load_image(image_path)
+
+        for image_path in transformation_paths:
+            load_and_transform_image(image_path)
+
+    def run(self):
+        &#34;&#34;&#34;Runs the moving and shooting logic&#34;&#34;&#34;&#34;&#34;
+
+        self.new_bullets = []
+        self.wait_to_shoot_event.run(self.wait_to_shoot_event.current_time &gt;= self.wait_to_shoot_event.time_needed, False)
+        self.stun_event.run(self.stun_event.current_time &gt;= self.stun_event.time_needed, False)
+
+        self.turret.left_edge = self.right_edge - self.cap_extension if self.is_facing_right else self.left_edge - self.turret.length + self.cap_extension
+        self.turret.top_edge = self.top_edge + self.vertical_delta
+
+        if self.stun_event.has_finished():
+            self.movement()
+            self.run_shooting()
+
+    def run_shooting(self):
+        &#34;&#34;&#34;Shoots a bullet if the player has released the shoot key and the player can shoot&#34;&#34;&#34;
+
+        if key_has_been_released(self.shoot_key) and self.wait_to_shoot_event.has_finished():
+            self.shoot_bullet(get_time_of_key_being_held_in(self.shoot_key))
+            self.wait_to_shoot_event.start()
+
+    def movement(self):
+        &#34;&#34;&#34;Moves the player across the screen and also the turret if the player is moving the turret&#34;&#34;&#34;
+
+        player_distance = VelocityCalculator.get_distance(self.player_velocity)
+        turret_distance = VelocityCalculator.get_distance(self.turret_velocity)
+
+        self.left_edge += player_distance if key_is_pressed(self.right_key) else 0
+        self.left_edge -= player_distance if key_is_pressed(self.left_key) else 0
+
+        self.top_edge += player_distance if key_is_pressed(self.down_key) and not key_is_pressed(self.move_turret_key) else 0
+        self.top_edge -= player_distance if key_is_pressed(self.up_key) and not key_is_pressed(self.move_turret_key) else 0
+
+        self.left_edge = self.get_new_coordinates(self.min_left_edge, self.max_left_edge, self.left_edge)
+        self.top_edge = self.get_new_coordinates(self.min_top_edge, self.max_top_edge, self.top_edge)
+
+        self.vertical_delta -= turret_distance if key_is_pressed(self.up_key) and key_is_pressed(self.move_turret_key) else 0
+        self.vertical_delta += turret_distance if key_is_pressed(self.down_key) and key_is_pressed(self.move_turret_key) else 0
+        # 30/122 is gotten from looking at the pixel image of the player
+        self.vertical_delta = self.get_new_coordinates(self.bottom_of_cap, self.height - self.turret.height, self.vertical_delta)
+
+        self.is_facing_right = True if key_is_pressed(self.right_key) else self.is_facing_right
+        self.is_facing_right = False if key_is_pressed(self.left_key) else self.is_facing_right
+
+        self.is_facing_up = True if key_is_pressed(self.up_key) else self.is_facing_up
+        self.is_facing_up = False if key_is_pressed(self.down_key) else self.is_facing_up
+
+    def shoot_bullet(self, time_held_in):
+        &#34;&#34;&#34;Shoots a bullet and the bullets size depends on how long the shoot key was held in&#34;&#34;&#34;
+
+        size_multipliers = [1, 1.5, 2]
+        times_needed_for_size_change = [.5, 1, float(&#34;inf&#34;)]
+
+        size_multiplier_index = get_index_of_range(time_held_in, times_needed_for_size_change)
+        size_multiplier = size_multipliers[size_multiplier_index]
+
+        damage = size_multiplier_index + 1
+
+        bullet_size = size_multiplier * Bullet.length
+        turret_left_edge = self.turret.right_edge if self.is_facing_right else self.turret.left_edge - bullet_size
+
+        self.new_bullets.append(Bullet(self.path_to_bullet_image, turret_left_edge, self.turret.vertical_midpoint - bullet_size / 2, self.is_facing_right, damage, size_multiplier))
+
+    def reset(self):
+        &#34;&#34;&#34;Resets all the player&#39;s attributes to their original state&#34;&#34;&#34;
+
+        self.new_bullets = []
+        self.wait_to_shoot_event.reset()
+
+    def get_new_coordinates(self, min_coordinate, max_coordinate, current_coordinate):
+        &#34;&#34;&#34;
+            Returns:
+                float: the coordinate if &#39;current_coordinate&#39; is within the boundaries, otherwise boundary it violated.
+                Boundaries being defined by &#39;min_coordinate&#39; and &#39;max_coordinate.&#39;
+        &#34;&#34;&#34;
+
+        current_coordinate = min_coordinate if current_coordinate &lt; min_coordinate else current_coordinate
+        current_coordinate = max_coordinate if current_coordinate &gt; max_coordinate else current_coordinate
+
+        return current_coordinate
+
+    def render(self):
+        &#34;&#34;&#34;Renders the player onto the screen&#34;&#34;&#34;
+
+        original_path = f&#34;games/bird_shooter/images/player{self.player_number}&#34; if self.stun_event.has_finished() else f&#34;games/bird_shooter/images/stunned&#34;
+        self.path_to_image = get_directional_path_to_image(original_path, self.is_facing_right, &#34;&#34;)
+
+        original_turret_path = f&#34;games/bird_shooter/images/beak&#34;
+        turret_type = &#34;_stunned.png&#34; if not self.stun_event.has_finished() else &#34;.png&#34;
+        self.turret.path_to_image = f&#34;{original_turret_path}{turret_type}&#34;
+
+        super().render()
+        self.turret.render()
+
+    def stun(self, stun_time):
+        &#34;&#34;&#34;Stuns the player&#34;&#34;&#34;
+
+        if self.stun_event.has_finished():
+            self.stun_event.start()
+            self.stun_event.time_needed = stun_time
+
+    @property
+    def eye_size(self):
+        return [ceil(10/86 * self.length), ceil(10/122 * self.height)]
+
+    @property
+    def bottom_of_cap(self):
+        return 30/122 * self.height</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>game_qu.gui_components.component.Component</li>
+<li>game_qu.gui_components.dimensions.Dimensions</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="Senior-Project.games.bird_shooter.player.Player.cap_extension"><code class="name">var <span class="ident">cap_extension</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="Senior-Project.games.bird_shooter.player.Player.down_key"><code class="name">var <span class="ident">down_key</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="Senior-Project.games.bird_shooter.player.Player.eye"><code class="name">var <span class="ident">eye</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="Senior-Project.games.bird_shooter.player.Player.height"><code class="name">var <span class="ident">height</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="Senior-Project.games.bird_shooter.player.Player.is_facing_right"><code class="name">var <span class="ident">is_facing_right</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="Senior-Project.games.bird_shooter.player.Player.is_facing_up"><code class="name">var <span class="ident">is_facing_up</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="Senior-Project.games.bird_shooter.player.Player.left_key"><code class="name">var <span class="ident">left_key</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="Senior-Project.games.bird_shooter.player.Player.length"><code class="name">var <span class="ident">length</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="Senior-Project.games.bird_shooter.player.Player.max_left_edge"><code class="name">var <span class="ident">max_left_edge</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="Senior-Project.games.bird_shooter.player.Player.max_top_edge"><code class="name">var <span class="ident">max_top_edge</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="Senior-Project.games.bird_shooter.player.Player.min_left_edge"><code class="name">var <span class="ident">min_left_edge</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="Senior-Project.games.bird_shooter.player.Player.min_top_edge"><code class="name">var <span class="ident">min_top_edge</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="Senior-Project.games.bird_shooter.player.Player.move_turret_key"><code class="name">var <span class="ident">move_turret_key</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="Senior-Project.games.bird_shooter.player.Player.new_bullets"><code class="name">var <span class="ident">new_bullets</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="Senior-Project.games.bird_shooter.player.Player.path_to_bullet_image"><code class="name">var <span class="ident">path_to_bullet_image</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="Senior-Project.games.bird_shooter.player.Player.path_to_player_image"><code class="name">var <span class="ident">path_to_player_image</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="Senior-Project.games.bird_shooter.player.Player.player_number"><code class="name">var <span class="ident">player_number</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="Senior-Project.games.bird_shooter.player.Player.player_velocity"><code class="name">var <span class="ident">player_velocity</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="Senior-Project.games.bird_shooter.player.Player.right_key"><code class="name">var <span class="ident">right_key</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="Senior-Project.games.bird_shooter.player.Player.shoot_key"><code class="name">var <span class="ident">shoot_key</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="Senior-Project.games.bird_shooter.player.Player.stun_event"><code class="name">var <span class="ident">stun_event</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="Senior-Project.games.bird_shooter.player.Player.turret"><code class="name">var <span class="ident">turret</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="Senior-Project.games.bird_shooter.player.Player.turret_height"><code class="name">var <span class="ident">turret_height</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="Senior-Project.games.bird_shooter.player.Player.turret_length"><code class="name">var <span class="ident">turret_length</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="Senior-Project.games.bird_shooter.player.Player.turret_velocity"><code class="name">var <span class="ident">turret_velocity</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="Senior-Project.games.bird_shooter.player.Player.up_key"><code class="name">var <span class="ident">up_key</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="Senior-Project.games.bird_shooter.player.Player.vertical_delta"><code class="name">var <span class="ident">vertical_delta</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="Senior-Project.games.bird_shooter.player.Player.wait_to_shoot_event"><code class="name">var <span class="ident">wait_to_shoot_event</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Instance variables</h3>
+<dl>
+<dt id="Senior-Project.games.bird_shooter.player.Player.bottom_of_cap"><code class="name">var <span class="ident">bottom_of_cap</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def bottom_of_cap(self):
+    return 30/122 * self.height</code></pre>
+</details>
+</dd>
+<dt id="Senior-Project.games.bird_shooter.player.Player.eye_size"><code class="name">var <span class="ident">eye_size</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def eye_size(self):
+    return [ceil(10/86 * self.length), ceil(10/122 * self.height)]</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="Senior-Project.games.bird_shooter.player.Player.get_new_coordinates"><code class="name flex">
+<span>def <span class="ident">get_new_coordinates</span></span>(<span>self, min_coordinate, max_coordinate, current_coordinate)</span>
+</code></dt>
+<dd>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>float</code></dt>
+<dd>the coordinate if 'current_coordinate' is within the boundaries, otherwise boundary it violated.</dd>
+</dl>
+<p>Boundaries being defined by 'min_coordinate' and 'max_coordinate.'</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_new_coordinates(self, min_coordinate, max_coordinate, current_coordinate):
+    &#34;&#34;&#34;
+        Returns:
+            float: the coordinate if &#39;current_coordinate&#39; is within the boundaries, otherwise boundary it violated.
+            Boundaries being defined by &#39;min_coordinate&#39; and &#39;max_coordinate.&#39;
+    &#34;&#34;&#34;
+
+    current_coordinate = min_coordinate if current_coordinate &lt; min_coordinate else current_coordinate
+    current_coordinate = max_coordinate if current_coordinate &gt; max_coordinate else current_coordinate
+
+    return current_coordinate</code></pre>
+</details>
+</dd>
+<dt id="Senior-Project.games.bird_shooter.player.Player.movement"><code class="name flex">
+<span>def <span class="ident">movement</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Moves the player across the screen and also the turret if the player is moving the turret</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def movement(self):
+    &#34;&#34;&#34;Moves the player across the screen and also the turret if the player is moving the turret&#34;&#34;&#34;
+
+    player_distance = VelocityCalculator.get_distance(self.player_velocity)
+    turret_distance = VelocityCalculator.get_distance(self.turret_velocity)
+
+    self.left_edge += player_distance if key_is_pressed(self.right_key) else 0
+    self.left_edge -= player_distance if key_is_pressed(self.left_key) else 0
+
+    self.top_edge += player_distance if key_is_pressed(self.down_key) and not key_is_pressed(self.move_turret_key) else 0
+    self.top_edge -= player_distance if key_is_pressed(self.up_key) and not key_is_pressed(self.move_turret_key) else 0
+
+    self.left_edge = self.get_new_coordinates(self.min_left_edge, self.max_left_edge, self.left_edge)
+    self.top_edge = self.get_new_coordinates(self.min_top_edge, self.max_top_edge, self.top_edge)
+
+    self.vertical_delta -= turret_distance if key_is_pressed(self.up_key) and key_is_pressed(self.move_turret_key) else 0
+    self.vertical_delta += turret_distance if key_is_pressed(self.down_key) and key_is_pressed(self.move_turret_key) else 0
+    # 30/122 is gotten from looking at the pixel image of the player
+    self.vertical_delta = self.get_new_coordinates(self.bottom_of_cap, self.height - self.turret.height, self.vertical_delta)
+
+    self.is_facing_right = True if key_is_pressed(self.right_key) else self.is_facing_right
+    self.is_facing_right = False if key_is_pressed(self.left_key) else self.is_facing_right
+
+    self.is_facing_up = True if key_is_pressed(self.up_key) else self.is_facing_up
+    self.is_facing_up = False if key_is_pressed(self.down_key) else self.is_facing_up</code></pre>
+</details>
+</dd>
+<dt id="Senior-Project.games.bird_shooter.player.Player.render"><code class="name flex">
+<span>def <span class="ident">render</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Renders the player onto the screen</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def render(self):
+    &#34;&#34;&#34;Renders the player onto the screen&#34;&#34;&#34;
+
+    original_path = f&#34;games/bird_shooter/images/player{self.player_number}&#34; if self.stun_event.has_finished() else f&#34;games/bird_shooter/images/stunned&#34;
+    self.path_to_image = get_directional_path_to_image(original_path, self.is_facing_right, &#34;&#34;)
+
+    original_turret_path = f&#34;games/bird_shooter/images/beak&#34;
+    turret_type = &#34;_stunned.png&#34; if not self.stun_event.has_finished() else &#34;.png&#34;
+    self.turret.path_to_image = f&#34;{original_turret_path}{turret_type}&#34;
+
+    super().render()
+    self.turret.render()</code></pre>
+</details>
+</dd>
+<dt id="Senior-Project.games.bird_shooter.player.Player.reset"><code class="name flex">
+<span>def <span class="ident">reset</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Resets all the player's attributes to their original state</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def reset(self):
+    &#34;&#34;&#34;Resets all the player&#39;s attributes to their original state&#34;&#34;&#34;
+
+    self.new_bullets = []
+    self.wait_to_shoot_event.reset()</code></pre>
+</details>
+</dd>
+<dt id="Senior-Project.games.bird_shooter.player.Player.run"><code class="name flex">
+<span>def <span class="ident">run</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Runs the moving and shooting logic</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def run(self):
+    &#34;&#34;&#34;Runs the moving and shooting logic&#34;&#34;&#34;&#34;&#34;
+
+    self.new_bullets = []
+    self.wait_to_shoot_event.run(self.wait_to_shoot_event.current_time &gt;= self.wait_to_shoot_event.time_needed, False)
+    self.stun_event.run(self.stun_event.current_time &gt;= self.stun_event.time_needed, False)
+
+    self.turret.left_edge = self.right_edge - self.cap_extension if self.is_facing_right else self.left_edge - self.turret.length + self.cap_extension
+    self.turret.top_edge = self.top_edge + self.vertical_delta
+
+    if self.stun_event.has_finished():
+        self.movement()
+        self.run_shooting()</code></pre>
+</details>
+</dd>
+<dt id="Senior-Project.games.bird_shooter.player.Player.run_shooting"><code class="name flex">
+<span>def <span class="ident">run_shooting</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Shoots a bullet if the player has released the shoot key and the player can shoot</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def run_shooting(self):
+    &#34;&#34;&#34;Shoots a bullet if the player has released the shoot key and the player can shoot&#34;&#34;&#34;
+
+    if key_has_been_released(self.shoot_key) and self.wait_to_shoot_event.has_finished():
+        self.shoot_bullet(get_time_of_key_being_held_in(self.shoot_key))
+        self.wait_to_shoot_event.start()</code></pre>
+</details>
+</dd>
+<dt id="Senior-Project.games.bird_shooter.player.Player.shoot_bullet"><code class="name flex">
+<span>def <span class="ident">shoot_bullet</span></span>(<span>self, time_held_in)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Shoots a bullet and the bullets size depends on how long the shoot key was held in</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def shoot_bullet(self, time_held_in):
+    &#34;&#34;&#34;Shoots a bullet and the bullets size depends on how long the shoot key was held in&#34;&#34;&#34;
+
+    size_multipliers = [1, 1.5, 2]
+    times_needed_for_size_change = [.5, 1, float(&#34;inf&#34;)]
+
+    size_multiplier_index = get_index_of_range(time_held_in, times_needed_for_size_change)
+    size_multiplier = size_multipliers[size_multiplier_index]
+
+    damage = size_multiplier_index + 1
+
+    bullet_size = size_multiplier * Bullet.length
+    turret_left_edge = self.turret.right_edge if self.is_facing_right else self.turret.left_edge - bullet_size
+
+    self.new_bullets.append(Bullet(self.path_to_bullet_image, turret_left_edge, self.turret.vertical_midpoint - bullet_size / 2, self.is_facing_right, damage, size_multiplier))</code></pre>
+</details>
+</dd>
+<dt id="Senior-Project.games.bird_shooter.player.Player.stun"><code class="name flex">
+<span>def <span class="ident">stun</span></span>(<span>self, stun_time)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Stuns the player</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def stun(self, stun_time):
+    &#34;&#34;&#34;Stuns the player&#34;&#34;&#34;
+
+    if self.stun_event.has_finished():
+        self.stun_event.start()
+        self.stun_event.time_needed = stun_time</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="Senior-Project.games.bird_shooter" href="index.html">Senior-Project.games.bird_shooter</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="Senior-Project.games.bird_shooter.player.Player" href="#Senior-Project.games.bird_shooter.player.Player">Player</a></code></h4>
+<ul class="">
+<li><code><a title="Senior-Project.games.bird_shooter.player.Player.bottom_of_cap" href="#Senior-Project.games.bird_shooter.player.Player.bottom_of_cap">bottom_of_cap</a></code></li>
+<li><code><a title="Senior-Project.games.bird_shooter.player.Player.cap_extension" href="#Senior-Project.games.bird_shooter.player.Player.cap_extension">cap_extension</a></code></li>
+<li><code><a title="Senior-Project.games.bird_shooter.player.Player.down_key" href="#Senior-Project.games.bird_shooter.player.Player.down_key">down_key</a></code></li>
+<li><code><a title="Senior-Project.games.bird_shooter.player.Player.eye" href="#Senior-Project.games.bird_shooter.player.Player.eye">eye</a></code></li>
+<li><code><a title="Senior-Project.games.bird_shooter.player.Player.eye_size" href="#Senior-Project.games.bird_shooter.player.Player.eye_size">eye_size</a></code></li>
+<li><code><a title="Senior-Project.games.bird_shooter.player.Player.get_new_coordinates" href="#Senior-Project.games.bird_shooter.player.Player.get_new_coordinates">get_new_coordinates</a></code></li>
+<li><code><a title="Senior-Project.games.bird_shooter.player.Player.height" href="#Senior-Project.games.bird_shooter.player.Player.height">height</a></code></li>
+<li><code><a title="Senior-Project.games.bird_shooter.player.Player.is_facing_right" href="#Senior-Project.games.bird_shooter.player.Player.is_facing_right">is_facing_right</a></code></li>
+<li><code><a title="Senior-Project.games.bird_shooter.player.Player.is_facing_up" href="#Senior-Project.games.bird_shooter.player.Player.is_facing_up">is_facing_up</a></code></li>
+<li><code><a title="Senior-Project.games.bird_shooter.player.Player.left_key" href="#Senior-Project.games.bird_shooter.player.Player.left_key">left_key</a></code></li>
+<li><code><a title="Senior-Project.games.bird_shooter.player.Player.length" href="#Senior-Project.games.bird_shooter.player.Player.length">length</a></code></li>
+<li><code><a title="Senior-Project.games.bird_shooter.player.Player.max_left_edge" href="#Senior-Project.games.bird_shooter.player.Player.max_left_edge">max_left_edge</a></code></li>
+<li><code><a title="Senior-Project.games.bird_shooter.player.Player.max_top_edge" href="#Senior-Project.games.bird_shooter.player.Player.max_top_edge">max_top_edge</a></code></li>
+<li><code><a title="Senior-Project.games.bird_shooter.player.Player.min_left_edge" href="#Senior-Project.games.bird_shooter.player.Player.min_left_edge">min_left_edge</a></code></li>
+<li><code><a title="Senior-Project.games.bird_shooter.player.Player.min_top_edge" href="#Senior-Project.games.bird_shooter.player.Player.min_top_edge">min_top_edge</a></code></li>
+<li><code><a title="Senior-Project.games.bird_shooter.player.Player.move_turret_key" href="#Senior-Project.games.bird_shooter.player.Player.move_turret_key">move_turret_key</a></code></li>
+<li><code><a title="Senior-Project.games.bird_shooter.player.Player.movement" href="#Senior-Project.games.bird_shooter.player.Player.movement">movement</a></code></li>
+<li><code><a title="Senior-Project.games.bird_shooter.player.Player.new_bullets" href="#Senior-Project.games.bird_shooter.player.Player.new_bullets">new_bullets</a></code></li>
+<li><code><a title="Senior-Project.games.bird_shooter.player.Player.path_to_bullet_image" href="#Senior-Project.games.bird_shooter.player.Player.path_to_bullet_image">path_to_bullet_image</a></code></li>
+<li><code><a title="Senior-Project.games.bird_shooter.player.Player.path_to_player_image" href="#Senior-Project.games.bird_shooter.player.Player.path_to_player_image">path_to_player_image</a></code></li>
+<li><code><a title="Senior-Project.games.bird_shooter.player.Player.player_number" href="#Senior-Project.games.bird_shooter.player.Player.player_number">player_number</a></code></li>
+<li><code><a title="Senior-Project.games.bird_shooter.player.Player.player_velocity" href="#Senior-Project.games.bird_shooter.player.Player.player_velocity">player_velocity</a></code></li>
+<li><code><a title="Senior-Project.games.bird_shooter.player.Player.render" href="#Senior-Project.games.bird_shooter.player.Player.render">render</a></code></li>
+<li><code><a title="Senior-Project.games.bird_shooter.player.Player.reset" href="#Senior-Project.games.bird_shooter.player.Player.reset">reset</a></code></li>
+<li><code><a title="Senior-Project.games.bird_shooter.player.Player.right_key" href="#Senior-Project.games.bird_shooter.player.Player.right_key">right_key</a></code></li>
+<li><code><a title="Senior-Project.games.bird_shooter.player.Player.run" href="#Senior-Project.games.bird_shooter.player.Player.run">run</a></code></li>
+<li><code><a title="Senior-Project.games.bird_shooter.player.Player.run_shooting" href="#Senior-Project.games.bird_shooter.player.Player.run_shooting">run_shooting</a></code></li>
+<li><code><a title="Senior-Project.games.bird_shooter.player.Player.shoot_bullet" href="#Senior-Project.games.bird_shooter.player.Player.shoot_bullet">shoot_bullet</a></code></li>
+<li><code><a title="Senior-Project.games.bird_shooter.player.Player.shoot_key" href="#Senior-Project.games.bird_shooter.player.Player.shoot_key">shoot_key</a></code></li>
+<li><code><a title="Senior-Project.games.bird_shooter.player.Player.stun" href="#Senior-Project.games.bird_shooter.player.Player.stun">stun</a></code></li>
+<li><code><a title="Senior-Project.games.bird_shooter.player.Player.stun_event" href="#Senior-Project.games.bird_shooter.player.Player.stun_event">stun_event</a></code></li>
+<li><code><a title="Senior-Project.games.bird_shooter.player.Player.turret" href="#Senior-Project.games.bird_shooter.player.Player.turret">turret</a></code></li>
+<li><code><a title="Senior-Project.games.bird_shooter.player.Player.turret_height" href="#Senior-Project.games.bird_shooter.player.Player.turret_height">turret_height</a></code></li>
+<li><code><a title="Senior-Project.games.bird_shooter.player.Player.turret_length" href="#Senior-Project.games.bird_shooter.player.Player.turret_length">turret_length</a></code></li>
+<li><code><a title="Senior-Project.games.bird_shooter.player.Player.turret_velocity" href="#Senior-Project.games.bird_shooter.player.Player.turret_velocity">turret_velocity</a></code></li>
+<li><code><a title="Senior-Project.games.bird_shooter.player.Player.up_key" href="#Senior-Project.games.bird_shooter.player.Player.up_key">up_key</a></code></li>
+<li><code><a title="Senior-Project.games.bird_shooter.player.Player.vertical_delta" href="#Senior-Project.games.bird_shooter.player.Player.vertical_delta">vertical_delta</a></code></li>
+<li><code><a title="Senior-Project.games.bird_shooter.player.Player.wait_to_shoot_event" href="#Senior-Project.games.bird_shooter.player.Player.wait_to_shoot_event">wait_to_shoot_event</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>

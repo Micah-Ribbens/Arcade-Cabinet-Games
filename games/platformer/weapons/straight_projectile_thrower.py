@@ -76,7 +76,6 @@ class StraightProjectileThrower(Weapon):
         """Runs all the code necessary in order for this object to work"""
 
         super().run()
-        # TODO maybe consider updating this if the game is running slow
         updated_collidable_components = []
 
         # This for loop updates the collidable_components, so all the ones that should be deleted are because they are not

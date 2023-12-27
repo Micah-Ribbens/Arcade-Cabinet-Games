@@ -71,17 +71,13 @@ class GeneratorTestScreen(PlatformerScreen):
 
             player.run()
 
-        if self.frames % 1 == 0 and self.frames > 1:
-            self.update_game_objects()
-            self.run_all_collisions()
+        self.run_all_collisions()
 
-            # All the enemies and players should do something based on the updated collision they got from 'self.run_all_collisions()'
-            for game_object in self.enemies + self.players:
-                game_object.run_collisions(self.last_time)
+        # All the enemies and players should do something based on the updated collision they got from 'self.run_all_collisions()'
+        for game_object in self.enemies + self.players:
+            game_object.run_collisions()
 
-        if self.frames % 1 == 0:
-            self.add_game_objects()
-            self.last_time = VelocityCalculator.time
+        self.last_time = VelocityCalculator.time
 
         for enemy in self.enemies:
             enemy.run_player_interactions(self.players)
@@ -116,7 +112,9 @@ class GeneratorTestScreen(PlatformerScreen):
             self.can_change_index = False
 
     def get_components(self):
-        """returns: Component[]; all the components that should be ran and rendered"""
+        """
+            Returns:
+                Component[]; all the components that should be ran and rendered"""
 
         return self.hud + self.platforms + self.players
 
