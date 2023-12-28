@@ -1,6 +1,6 @@
 Finished Development: 03/10/2023
 
-Full documentation can be found here: https://micah-ribbens.github.io/Senior-Project
+Full documentation can be found here: https://micah-ribbens.github.io/Arcade-Cabinet-Games
 
 # Summary
 This was the project that I worked on my senior year of high school. It solely used a game engine that I wrote 
